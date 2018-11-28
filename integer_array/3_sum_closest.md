@@ -2,16 +2,17 @@
 
 ## Question
 
-- leetcode: [3Sum Closest | LeetCode OJ](https://leetcode.com/problems/3sum-closest/)
-- lintcode: [(59) 3 Sum Closest](http://www.lintcode.com/en/problem/3-sum-closest/)
+* leetcode: [3Sum Closest \| LeetCode OJ](https://leetcode.com/problems/3sum-closest/)
+* lintcode: [\(59\) 3 Sum Closest](http://www.lintcode.com/en/problem/3-sum-closest/)
 
-```
+```text
 Given an array S of n integers, find three integers in S such that the sum is closest to a given number, target. 
 Return the sum of the three integers. You may assume that each input would have exactly one solution.
 
 For example, given array S = {-1 2 1 -4}, and target = 1.
 The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
 ```
+
 ## 题解1 - 排序 + 2 Sum + 两根指针 + 优化过滤
 
 和 3 Sum 的思路接近，首先对原数组排序，随后将3 Sum 的题拆解为『1 Sum + 2 Sum』的题，对于 Closest 的题使用两根指针而不是哈希表的方法较为方便。对于有序数组来说，在查找 Cloest 的值时其实是有较大的优化空间的。
@@ -82,7 +83,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     int threeSumClosest(vector<int> &num, int target) 
@@ -98,7 +99,7 @@ public:
             while (j < k)
             {
                 temp = num[i] + num[j] + num[k];
-                
+
                 if (abs(target - result) > abs(target - temp))
                     result = temp;
                 if (result == target)
@@ -110,16 +111,17 @@ public:
     }
 };
 ```
+
 ### 源码分析
 
-和前面3Sum解法相似，同理使用i,j,k三个指针进行循环。<br>
-区别在于3sum中的target为0，这里新增一个变量用于比较哪组数据与target更为相近
+和前面3Sum解法相似，同理使用i,j,k三个指针进行循环。  
+ 区别在于3sum中的target为0，这里新增一个变量用于比较哪组数据与target更为相近
 
 ### 复杂度分析
 
-时间复杂度同理为$$O(n^2)$$
-运行时间 16ms
+时间复杂度同理为$$O(n^2)$$ 运行时间 16ms
 
 ## Reference
 
-- [3Sum Closest | 九章算法](http://www.jiuzhang.com/solutions/3sum-closest/)
+* [3Sum Closest \| 九章算法](http://www.jiuzhang.com/solutions/3sum-closest/)
+

@@ -1,4 +1,4 @@
-# Selection Sort - 选择排序
+# Selection Sort
 
 核心：不断地选择剩余元素中的最小者。
 
@@ -7,14 +7,14 @@
 
 性质：
 
-- 比较次数=(N-1)+(N-2)+(N-3)+...+2+1~N^2/2
-- 交换次数=N
-- 运行时间与输入无关
-- 数据移动最少
+* 比较次数=\(N-1\)+\(N-2\)+\(N-3\)+...+2+1~N^2/2
+* 交换次数=N
+* 运行时间与输入无关
+* 数据移动最少
 
 下图来源为 [File:Selection-Sort-Animation.gif - IB Computer Science](http://wiki.ibcsstudent.org/index.php?title=File:Selection-Sort-Animation.gif)
 
-![Selection Sort](../../shared-files/images/selection_sort.gif)
+![Selection Sort](https://github.com/xuanus/coding/tree/f09f25ddc0c56beb8d4ed92fcfb3e81a80f8ab75/shared-files/images/selection_sort.gif)
 
 ## Implementation
 
@@ -42,37 +42,38 @@ print(selectionSort(unsorted_list))
 
 ```java
 public class Sort {
-	public static void main(String[] args) {
-		int unsortedArray[] = new int[]{8, 5, 2, 6, 9, 3, 1, 4, 0, 7};
-		selectionSort(unsortedArray);
-		System.out.println("After sort: ");
-		for (int item : unsortedArray) {
-			System.out.print(item + " ");
-		}
-	}
+    public static void main(String[] args) {
+        int unsortedArray[] = new int[]{8, 5, 2, 6, 9, 3, 1, 4, 0, 7};
+        selectionSort(unsortedArray);
+        System.out.println("After sort: ");
+        for (int item : unsortedArray) {
+            System.out.print(item + " ");
+        }
+    }
 
-	public static void selectionSort(int[] array) {
-		int len = array.length;
-		for (int i = 0; i < len; i++) {
-			for (int item : array) {
-				System.out.print(item + " ");
-			}
-			System.out.println();
-			int min_index = i;
-			for (int j = i + 1; j < len; j++) {
-				if (array[j] < array[min_index]) {
-					min_index = j;
-				}
-			}
-			int temp = array[min_index];
-			array[min_index] = array[i];
-			array[i] = temp;
-		}
-	}
+    public static void selectionSort(int[] array) {
+        int len = array.length;
+        for (int i = 0; i < len; i++) {
+            for (int item : array) {
+                System.out.print(item + " ");
+            }
+            System.out.println();
+            int min_index = i;
+            for (int j = i + 1; j < len; j++) {
+                if (array[j] < array[min_index]) {
+                    min_index = j;
+                }
+            }
+            int temp = array[min_index];
+            array[min_index] = array[i];
+            array[i] = temp;
+        }
+    }
 }
 ```
 
 ## Reference
 
-- [选择排序 - 维基百科，自由的百科全书](http://zh.wikipedia.org/wiki/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F)
-- [The Selection Sort — Problem Solving with Algorithms and Data Structures](http://interactivepython.org/runestone/static/pythonds/SortSearch/TheSelectionSort.html)
+* [选择排序 - 维基百科，自由的百科全书](http://zh.wikipedia.org/wiki/选择排序)
+* [The Selection Sort — Problem Solving with Algorithms and Data Structures](http://interactivepython.org/runestone/static/pythonds/SortSearch/TheSelectionSort.html)
+

@@ -1,9 +1,9 @@
 ---
 difficulty: Hard
 tags:
-- Heap
-- Data Structure Design
-- Hash Table
+  - Heap
+  - Data Structure Design
+  - Hash Table
 title: Top K Frequent Words II
 ---
 
@@ -13,19 +13,19 @@ title: Top K Frequent Words II
 
 ### Metadata
 
-- tags: Heap, Data Structure Design, Hash Table
-- difficulty: Hard
-- source(lintcode): <https://www.lintcode.com/problem/top-k-frequent-words-ii/>
+* tags: Heap, Data Structure Design, Hash Table
+* difficulty: Hard
+* source\(lintcode\): [https://www.lintcode.com/problem/top-k-frequent-words-ii/](https://www.lintcode.com/problem/top-k-frequent-words-ii/)
 
 ### Description
 
-Find top *k* frequent words in realtime data stream.
+Find top _k_ frequent words in realtime data stream.
 
-Implement three methods for *Topk* Class:
+Implement three methods for _Topk_ Class:
 
 1. `TopK(k)`. The constructor.
 2. `add(word)`. Add a new word.
-3. `topk()`. Get the current top *k* frequent words.
+3. `topk()`. Get the current top _k_ frequent words.
 
 #### Notice
 
@@ -33,7 +33,7 @@ If two words have the same frequency, rank them by alphabet.
 
 #### Example
 
-```
+```text
 TopK(2)
 add("lint")
 add("code")
@@ -118,3 +118,4 @@ public class TopK {
 ### 复杂度分析
 
 待续
+

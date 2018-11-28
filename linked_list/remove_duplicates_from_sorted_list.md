@@ -4,13 +4,12 @@ Tags: Linked List, Easy
 
 ## Question
 
-- leetcode: [Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)
-- lintcode: [Remove Duplicates from Sorted List](http://www.lintcode.com/en/problem/remove-duplicates-from-sorted-list/)
+* leetcode: [Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)
+* lintcode: [Remove Duplicates from Sorted List](http://www.lintcode.com/en/problem/remove-duplicates-from-sorted-list/)
 
 ### Problem Statement
 
-Given a sorted linked list, delete all duplicates such that each element
-appear only _once_.
+Given a sorted linked list, delete all duplicates such that each element appear only _once_.
 
 For example,  
 Given `1->1->2`, return `1->2`.  
@@ -46,7 +45,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition of ListNode
  * class ListNode {
@@ -118,10 +117,10 @@ public class Solution {
 ### 源码分析
 
 1. 首先进行异常处理，判断head是否为NULL
-2. 遍历链表，`curr->val == curr->next->val`时，保存`curr->next`，便于后面释放内存(非C/C++无需手动管理内存)
+2. 遍历链表，`curr->val == curr->next->val`时，保存`curr->next`，便于后面释放内存\(非C/C++无需手动管理内存\)
 3. 不相等时移动当前节点至下一节点，注意这个步骤必须包含在`else`中，否则逻辑较为复杂
 
-~~`while` 循环处也可使用`curr != null && curr.next != null`, 这样就不用单独判断`head` 是否为空了，但是这样会降低遍历的效率，因为需要判断两处。~~使用双重`while`循环可只在内循环处判断，避免了冗余的判断，谢谢 @xuewei4d 提供的思路。
+`while` ~~循环处也可使用~~`curr != null && curr.next != null`~~, 这样就不用单独判断~~`head` ~~是否为空了，但是这样会降低遍历的效率，因为需要判断两处。~~使用双重`while`循环可只在内循环处判断，避免了冗余的判断，谢谢 @xuewei4d 提供的思路。
 
 ### 复杂度分析
 
@@ -129,4 +128,5 @@ public class Solution {
 
 ## Reference
 
-- [Remove Duplicates from Sorted List 参考程序 | 九章](http://www.jiuzhang.com/solutions/remove-duplicates-from-sorted-list/)
+* [Remove Duplicates from Sorted List 参考程序 \| 九章](http://www.jiuzhang.com/solutions/remove-duplicates-from-sorted-list/)
+

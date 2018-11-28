@@ -2,10 +2,10 @@
 
 ## Question
 
-- leetcode: [Merge Sorted Array | LeetCode OJ](https://leetcode.com/problems/merge-sorted-array/)
-- lintcode: [(6) Merge Sorted Array](http://www.lintcode.com/en/problem/merge-sorted-array/)
+* leetcode: [Merge Sorted Array \| LeetCode OJ](https://leetcode.com/problems/merge-sorted-array/)
+* lintcode: [\(6\) Merge Sorted Array](http://www.lintcode.com/en/problem/merge-sorted-array/)
 
-```
+```text
 Given two sorted integer arrays A and B, merge B into A as one sorted array.
 
 Example
@@ -21,8 +21,7 @@ The number of elements initialized in A and B are m and n respectively.
 
 ## 题解
 
-因为本题有 in-place 的限制，故必须从数组末尾的两个元素开始比较；否则就会产生挪动，一旦挪动就会是 $$O(n^2)$$ 的。
-自尾部向首部逐个比较两个数组内的元素，取较大的置于数组 A 中。由于 A 的容量较 B 大，故最后 `m == 0` 或者 `n == 0` 时仅需处理 B 中的元素，因为 A 中的元素已经在 A 中，无需处理。
+因为本题有 in-place 的限制，故必须从数组末尾的两个元素开始比较；否则就会产生挪动，一旦挪动就会是 $$O(n^2)$$ 的。 自尾部向首部逐个比较两个数组内的元素，取较大的置于数组 A 中。由于 A 的容量较 B 大，故最后 `m == 0` 或者 `n == 0` 时仅需处理 B 中的元素，因为 A 中的元素已经在 A 中，无需处理。
 
 ### Python
 
@@ -57,7 +56,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**

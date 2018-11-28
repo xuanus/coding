@@ -2,10 +2,10 @@
 
 ## Question
 
-- leetcode: [Linked List Cycle | LeetCode OJ](https://leetcode.com/problems/linked-list-cycle/)
-- lintcode: [(102) Linked List Cycle](http://www.lintcode.com/en/problem/linked-list-cycle/)
+* leetcode: [Linked List Cycle \| LeetCode OJ](https://leetcode.com/problems/linked-list-cycle/)
+* lintcode: [\(102\) Linked List Cycle](http://www.lintcode.com/en/problem/linked-list-cycle/)
 
-```
+```text
 Given a linked list, determine if it has a cycle in it.
 
 Example
@@ -18,17 +18,17 @@ Can you solve it without using extra space?
 
 ## 题解 - 快慢指针
 
-对于带环链表的检测，效率较高且易于实现的一种方式为使用快慢指针。快指针每次走两步，慢指针每次走一步，如果快慢指针相遇(快慢指针所指内存为同一区域)则有环，否则快指针会一直走到`NULL`为止退出循环，返回`false`.
+对于带环链表的检测，效率较高且易于实现的一种方式为使用快慢指针。快指针每次走两步，慢指针每次走一步，如果快慢指针相遇\(快慢指针所指内存为同一区域\)则有环，否则快指针会一直走到`NULL`为止退出循环，返回`false`.
 
 快指针走到`NULL`退出循环即可确定此链表一定无环这个很好理解。那么带环的链表快慢指针一定会相遇吗？先来看看下图。
 
-![Linked List Cycle](../../shared-files/images/linked_list_cycle.png)
+![Linked List Cycle](https://github.com/xuanus/coding/tree/f09f25ddc0c56beb8d4ed92fcfb3e81a80f8ab75/shared-files/images/linked_list_cycle.png)
 
 在有环的情况下，最终快慢指针一定都走在环内，加入第`i`次遍历时快指针还需要`k`步才能追上慢指针，由于快指针比慢指针每次多走一步。那么每遍历一次快慢指针间的间距都会减少1，直至最终相遇。故快慢指针相遇一定能确定该链表有环。
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition of ListNode
  * class ListNode {
@@ -65,6 +65,7 @@ public:
 ```
 
 ### Java
+
 ```java
 /**
  * Definition for singly-linked list.
@@ -82,7 +83,7 @@ public class Solution {
         if (head == null || head.next == null) {
             return false;
         }
-        
+
         ListNode slow = head;
         ListNode fast = head;
         while (fast.next != null && fast.next.next != null) {
@@ -111,4 +112,5 @@ public class Solution {
 
 ## Reference
 
-- [Linked List Cycle | 九章算法](http://www.jiuzhang.com/solutions/linked-list-cycle/)
+* [Linked List Cycle \| 九章算法](http://www.jiuzhang.com/solutions/linked-list-cycle/)
+

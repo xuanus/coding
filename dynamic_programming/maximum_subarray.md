@@ -2,10 +2,10 @@
 
 ## Question
 
-- leetcode: [Maximum Subarray | LeetCode OJ](https://leetcode.com/problems/maximum-subarray/)
-- lintcode: [(41) Maximum Subarray](http://www.lintcode.com/en/problem/maximum-subarray/)
+* leetcode: [Maximum Subarray \| LeetCode OJ](https://leetcode.com/problems/maximum-subarray/)
+* lintcode: [\(41\) Maximum Subarray](http://www.lintcode.com/en/problem/maximum-subarray/)
 
-```
+```text
 Given an array of integers,
 find a contiguous subarray which has the largest sum.
 
@@ -60,7 +60,7 @@ public class Solution {
 
 遍历一次数组，时间复杂度 $$O(n)$$, 使用了几个额外变量，空间复杂度 $$O(1)$$.
 
-## 题解2 - 动态规划1(区间和)
+## 题解2 - 动态规划1\(区间和\)
 
 求最大/最小这种字眼往往都可以使用动态规划求解，此题为单序列动态规划。我们可以先求出到索引 i 的子数组和，然后用子数组和的最大值减去最小值，最后返回最大值即可。用这种动态规划需要注意初始化条件和求和顺序。
 
@@ -96,7 +96,7 @@ public class Solution {
 
 时间复杂度 $$O(n)$$, 使用了类似滚动数组的处理方式，空间复杂度 $$O(1)$$.
 
-## 题解3 - 动态规划2(局部与全局)
+## 题解3 - 动态规划2\(局部与全局\)
 
 这种动规的实现和题解1 的思想几乎一模一样，只不过这里用局部最大值和全局最大值两个数组来表示。
 
@@ -139,5 +139,6 @@ public class Solution {
 
 ## Reference
 
-- 《剑指 Offer》第五章
-- [Maximum Subarray 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/maximum-subarray/)
+* 《剑指 Offer》第五章
+* [Maximum Subarray 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/maximum-subarray/)
+

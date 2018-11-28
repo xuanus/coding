@@ -2,13 +2,12 @@
 
 ## Question
 
-- leetcode: [Search for a Range | LeetCode OJ](https://leetcode.com/problems/search-for-a-range/)
-- lintcode: [(61) Search for a Range](http://www.lintcode.com/en/problem/search-for-a-range/)
+* leetcode: [Search for a Range \| LeetCode OJ](https://leetcode.com/problems/search-for-a-range/)
+* lintcode: [\(61\) Search for a Range](http://www.lintcode.com/en/problem/search-for-a-range/)
 
 ### Problem Statement
 
-Given a sorted array of _n_ integers, find the starting and ending position of
-a given target value.
+Given a sorted array of _n_ integers, find the starting and ending position of a given target value.
 
 If the target is not found in the array, return `[-1, -1]`.
 
@@ -18,12 +17,14 @@ Given `[5, 7, 7, 8, 8, 10]` and target value `8`, return `[3, 4]`.
 
 #### Challenge
 
-O(log _n_) time.
+O\(log _n_\) time.
 
 ## 题解
 
 ### Python
+
 first/last position 结合。
+
 ```python
 class Solution:
     """
@@ -69,7 +70,8 @@ class Solution:
 ```
 
 ### C++
-```c++
+
+```cpp
 class Solution {
 public:
     vector<int> searchRange(vector<int>& nums, int target) {
@@ -99,7 +101,9 @@ public:
 ```
 
 ### Java
+
 lower/upper bound 的结合，做两次搜索即可。
+
 ```java
 public class Solution {
     /**
@@ -161,4 +165,5 @@ public class Solution {
 
 ## Reference
 
-- [Binary Search – topcoder](https://www.topcoder.com/community/data-science/data-science-tutorials/binary-search/) - 思路更清晰的 find first 模板，find last k 可转化为 find first `k + 1` 谢谢 @mckelvin 同学推荐
+* [Binary Search – topcoder](https://www.topcoder.com/community/data-science/data-science-tutorials/binary-search/) - 思路更清晰的 find first 模板，find last k 可转化为 find first `k + 1` 谢谢 @mckelvin 同学推荐
+

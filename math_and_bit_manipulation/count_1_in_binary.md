@@ -2,9 +2,9 @@
 
 ## Question
 
-- lintcode: [(365) Count 1 in Binary](http://www.lintcode.com/en/problem/count-1-in-binary/)
+* lintcode: [\(365\) Count 1 in Binary](http://www.lintcode.com/en/problem/count-1-in-binary/)
 
-```
+```text
 Count how many 1 in binary representation of a 32-bit integer.
 
 Example
@@ -23,7 +23,8 @@ If the integer is n bits with m 1 bits. Can you do it in O(m) time?
 题 [O1 Check Power of 2](http://algorithm.yuanbin.me/zh-hans/math_and_bit_manipulation/o1_check_power_of_2.html) 的进阶版，`x & (x - 1)` 的含义为去掉二进制数中1的最后一位，无论 x 是正数还是负数都成立。
 
 ### C++
-``` c++
+
+```cpp
 class Solution {
 public:
     /**
@@ -71,4 +72,5 @@ public class Solution {
 
 ## Reference
 
-- [Number of 1 bits | LeetCode](http://articles.leetcode.com/2010/09/number-of-1-bits.html) - 评论中有关于不同算法性能的讨论
+* [Number of 1 bits \| LeetCode](http://articles.leetcode.com/2010/09/number-of-1-bits.html) - 评论中有关于不同算法性能的讨论
+

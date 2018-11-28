@@ -2,7 +2,7 @@
 
 ## Question
 
-- lintcode: [(51) Previous Permuation](http://www.lintcode.com/en/problem/previous-permutation/)
+* lintcode: [\(51\) Previous Permuation](http://www.lintcode.com/en/problem/previous-permutation/)
 
 ### Problem Statement
 
@@ -64,7 +64,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -168,3 +168,4 @@ public class Solution {
 ### 复杂度分析
 
 最坏情况下，遍历两次原数组，反转一次数组，时间复杂度为 $$O(n)$$, 使用了 temp 临时变量，空间复杂度可认为是 $$O(1)$$.
+

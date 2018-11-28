@@ -2,32 +2,27 @@
 
 ## Question
 
-- leetcode: [Word Ladder | LeetCode OJ](https://leetcode.com/problems/word-ladder/)
-- lintcode: [(120) Word Ladder](http://www.lintcode.com/en/problem/word-ladder/)
+* leetcode: [Word Ladder \| LeetCode OJ](https://leetcode.com/problems/word-ladder/)
+* lintcode: [\(120\) Word Ladder](http://www.lintcode.com/en/problem/word-ladder/)
 
 ### Problem Statement
 
-Given two words (_start_ and _end_), and a dictionary, find the length of
-shortest transformation sequence from _start_ to _end_, such that:
+Given two words \(_start_ and _end_\), and a dictionary, find the length of shortest transformation sequence from _start_ to _end_, such that:
 
-  1. Only one letter can be changed at a time
-  2. Each intermediate word must exist in the dictionary
+1. Only one letter can be changed at a time
+2. Each intermediate word must exist in the dictionary
 
 #### Example
 
-Given:
-_start_ = `"hit"`
-_end_ = `"cog"`
-_dict_ = `["hot","dot","dog","lot","log"]`
+Given: _start_ = `"hit"` _end_ = `"cog"` _dict_ = `["hot","dot","dog","lot","log"]`
 
-As one shortest transformation is `"hit" -> "hot" -> "dot" -> "dog" -> "cog"`,
-return its length `5`.
+As one shortest transformation is `"hit" -> "hot" -> "dot" -> "dog" -> "cog"`, return its length `5`.
 
 #### Note
 
-  * Return 0 if there is no such transformation sequence.
-  * All words have the same length.
-  * All words contain only lowercase alphabetic characters.
+* Return 0 if there is no such transformation sequence.
+* All words have the same length.
+* All words contain only lowercase alphabetic characters.
 
 ## 题解
 
@@ -121,5 +116,6 @@ BFS 用作搜索，哈希表用于记录已经访问节点。在可以改变输�
 
 ## Reference
 
-- [Word Ladder 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/word-ladder/)
-- [Java Solution using Dijkstra's algorithm, with explanation - Leetcode Discuss](https://leetcode.com/discuss/50930/java-solution-using-dijkstras-algorithm-with-explanation)
+* [Word Ladder 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/word-ladder/)
+* [Java Solution using Dijkstra's algorithm, with explanation - Leetcode Discuss](https://leetcode.com/discuss/50930/java-solution-using-dijkstras-algorithm-with-explanation)
+

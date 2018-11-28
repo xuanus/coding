@@ -2,21 +2,19 @@
 
 ## Question
 
-- lintcode: [(197) Permutation Index](http://www.lintcode.com/en/problem/permutation-index/)
+* lintcode: [\(197\) Permutation Index](http://www.lintcode.com/en/problem/permutation-index/)
 
 ### Problem Statement
 
-Given a permutation which contains no repeated number, find its index in all
-the permutations of these numbers, which are ordered in lexicographical order.
-The index begins at 1.
+Given a permutation which contains no repeated number, find its index in all the permutations of these numbers, which are ordered in lexicographical order. The index begins at 1.
 
 #### Example
 
-Given [1,2,4], return 1.
+Given \[1,2,4\], return 1.
 
 ## 题解
 
-做过 next permutation 系列题的话自然能想到不断迭代直至最后一个，最后返回计数器的值即可。这种方法理论上自然是可行的，但是最坏情况下时间复杂度为 $$O(n!)$$, 显然是不能接受的。由于这道题只是列出某给定 permutation 的相对顺序(index), 故我们可从 permutation 的特点出发进行分析。
+做过 next permutation 系列题的话自然能想到不断迭代直至最后一个，最后返回计数器的值即可。这种方法理论上自然是可行的，但是最坏情况下时间复杂度为 $$O(n!)$$, 显然是不能接受的。由于这道题只是列出某给定 permutation 的相对顺序\(index\), 故我们可从 permutation 的特点出发进行分析。
 
 以序列`1, 2, 4`为例，其不同的排列共有 `3!=6` 种，以排列`[2, 4, 1]`为例，若将1置于排列的第一位，后面的排列则有 `2!=2` 种。将2置于排列的第一位，由于`[2, 4, 1]`的第二位4在1, 2, 4中为第3大数，故第二位可置1或者2，那么相应的排列共有 `2 * 1! = 2`种，最后一位1为最小的数，故比其小的排列为0。综上，可参考我们常用的十进制和二进制的转换，对于`[2, 4, 1]`, 可总结出其排列的`index`为`2! * (2 - 1) + 1! * (3 - 1) + 0! * (1 - 1) + 1`.
 
@@ -48,7 +46,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -112,4 +110,5 @@ public class Solution {
 
 ## Reference
 
-- [Permutation Index](http://www.geekviewpoint.com/java/numbers/permutation_index)
+* [Permutation Index](http://www.geekviewpoint.com/java/numbers/permutation_index)
+

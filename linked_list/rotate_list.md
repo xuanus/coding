@@ -2,13 +2,12 @@
 
 ## Question
 
-- leetcode: [Rotate List | LeetCode OJ](https://leetcode.com/problems/rotate-list/)
-- lintcode: [(170) Rotate List](http://www.lintcode.com/en/problem/rotate-list/)
+* leetcode: [Rotate List \| LeetCode OJ](https://leetcode.com/problems/rotate-list/)
+* lintcode: [\(170\) Rotate List](http://www.lintcode.com/en/problem/rotate-list/)
 
 ### Problem Statement
 
-Given a list, rotate the list to the right by _k_ places, where _k_ is non-
-negative.
+Given a list, rotate the list to the right by _k_ places, where _k_ is non- negative.
 
 #### Example
 
@@ -62,7 +61,7 @@ public class Solution {
         fast.next = head;
         head = slow.next;
         slow.next = null;
-        
+
         return head;
     }
 }
@@ -75,3 +74,4 @@ public class Solution {
 ### 复杂度分析
 
 时间复杂度 $$O(n)$$, 空间复杂度 $$O(1)$$.
+

@@ -2,26 +2,23 @@
 
 ## Question
 
-- lintcode: [(11) Search Range in Binary Search Tree](http://www.lintcode.com/en/problem/search-range-in-binary-search-tree/)
+* lintcode: [\(11\) Search Range in Binary Search Tree](http://www.lintcode.com/en/problem/search-range-in-binary-search-tree/)
 
 ### Problem Statement
 
-Given two values k1 and k2 (where k1 &lt; k2) and a root pointer to a Binary
-Search Tree. Find all the keys of tree in range k1 to k2. i.e. print all x
-such that k1&lt;=x&lt;=k2 and x is a key of given BST. Return all the keys in
-ascending order.
+Given two values k1 and k2 \(where k1 &lt; k2\) and a root pointer to a Binary Search Tree. Find all the keys of tree in range k1 to k2. i.e. print all x such that k1&lt;=x&lt;=k2 and x is a key of given BST. Return all the keys in ascending order.
 
 #### Example
 
 If k1 = `10` and k2 = `22`, then your function should return `[12, 20, 22]`.
 
-    
-    
-        20
-       /  \
-      8   22
-     / \
-    4   12
+```text
+    20
+   /  \
+  8   22
+ / \
+4   12
+```
 
 ## 题解 - 中序遍历
 
@@ -29,7 +26,7 @@ If k1 = `10` and k2 = `22`, then your function should return `[12, 20, 22]`.
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition of TreeNode:
  * class TreeNode {
@@ -94,13 +91,13 @@ public class Solution {
     public ArrayList<Integer> searchRange(TreeNode root, int k1, int k2) {
         ArrayList<Integer> result = new ArrayList<Integer>();
         helper(root, k1, k2, result);
-        
+
         return result;
     }
-    
+
     private void helper(TreeNode root, int k1, int k2, ArrayList<Integer> result) {
         if (root == null) return;
-        
+
         // in-order binary tree iteration
         helper(root.left, k1, k2, result);
         if (k1 <= root.val && root.val <= k2) {
@@ -115,7 +112,7 @@ public class Solution {
 
 以上为题解思路的简易实现，可以优化的地方为「剪枝过程」的处理——不递归遍历不可能有解的节点。优化后的`inorder_dfs`如下：
 
-```c++
+```cpp
     void inorder_dfs(vector<int> &ret, TreeNode *root, int k1, int k2) {
         if (NULL == root) {
             return;
@@ -136,3 +133,4 @@ public class Solution {
 ```
 
 > **Warning** 「剪枝」的判断条件容易出错，应将当前节点的值与`k1`和`k2`进行比较而不是其左子节点或右子节点的值。
+

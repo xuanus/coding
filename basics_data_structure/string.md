@@ -44,3 +44,4 @@ int index = s2.indexOf('r'); // return 4. if not found, return -1
 ```
 
 StringBuffer 与 StringBuilder, 前者保证线程安全，后者不是，但单线程下效率高一些，一般使用 StringBuilder.
+

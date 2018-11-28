@@ -2,19 +2,18 @@
 
 ## Question
 
-- leetcode: [Word Search | LeetCode OJ](https://leetcode.com/problems/word-search/)
-- lintcode: [(123) Word Search](http://www.lintcode.com/en/problem/word-search/)
+* leetcode: [Word Search \| LeetCode OJ](https://leetcode.com/problems/word-search/)
+* lintcode: [\(123\) Word Search](http://www.lintcode.com/en/problem/word-search/)
 
 ### Problem Statement
 
-Given a 2D board and a word, find if the word exists in the grid.
-The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.
+Given a 2D board and a word, find if the word exists in the grid. The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.
 
 #### Example
 
 Given board =
 
-```
+```text
 [
   "ABCE",
   "SFCS",
@@ -22,9 +21,9 @@ Given board =
 ]
 ```
 
-- word = `"ABCCED"`, -&gt; returns `true`,
-- word = `"SEE"`, -&gt; returns `true`,
-- word = `"ABCB"`, -&gt; returns `false`.
+* word = `"ABCCED"`, -&gt; returns `true`,
+* word = `"SEE"`, -&gt; returns `true`,
+* word = `"ABCB"`, -&gt; returns `false`.
 
 ## 题解
 
@@ -90,8 +89,9 @@ public class Solution {
 
 ### 复杂度分析
 
-DFS 最坏情况下遍历所有坐标点，二重 for 循环最坏情况下也全部执行完，故时间复杂度最差情况下为 $$O(m^2n^2)$$, 使用了`visited`矩阵，空间复杂度为 $$O(mn)$$, 当然这个可以优化到 $$O(1)$$.(原地更改原 board 数组字符内容)。
+DFS 最坏情况下遍历所有坐标点，二重 for 循环最坏情况下也全部执行完，故时间复杂度最差情况下为 $$O(m^2n^2)$$, 使用了`visited`矩阵，空间复杂度为 $$O(mn)$$, 当然这个可以优化到 $$O(1)$$.\(原地更改原 board 数组字符内容\)。
 
 ## Reference
 
-- [LeetCode – Word Search (Java)](http://www.programcreek.com/2014/06/leetcode-word-search-java/)
+* [LeetCode – Word Search \(Java\)](http://www.programcreek.com/2014/06/leetcode-word-search-java/)
+

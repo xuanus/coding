@@ -2,32 +2,26 @@
 
 ## Question
 
-- lintcode: [(431) Find the Connected Component in the Undirected Graph](http://www.lintcode.com/en/problem/find-the-connected-component-in-the-undirected-graph/)
+* lintcode: [\(431\) Find the Connected Component in the Undirected Graph](http://www.lintcode.com/en/problem/find-the-connected-component-in-the-undirected-graph/)
 
 ### Problem Statement
 
-Find the number connected component in the undirected graph. Each node in the
-graph contains a label and a list of its neighbors. (a connected component (or
-just component) of an undirected graph is a subgraph in which any two vertices
-are connected to each other by paths, and which is connected to no additional
-vertices in the supergraph.)
+Find the number connected component in the undirected graph. Each node in the graph contains a label and a list of its neighbors. \(a connected component \(or just component\) of an undirected graph is a subgraph in which any two vertices are connected to each other by paths, and which is connected to no additional vertices in the supergraph.\)
 
 #### Example
 
 Given graph:
 
+```text
+A------B  C
+ \     |  |
+  \    |  |
+   \   |  |
+    \  |  |
+      D   E
+```
 
-
-    A------B  C
-     \     |  |
-      \    |  |
-       \   |  |
-        \  |  |
-          D   E
-
-
-Return `{A,B,D}, {C,E}`. Since there are two connected component which is
-`{A,B,D}, {C,E}`
+Return `{A,B,D}, {C,E}`. Since there are two connected component which is `{A,B,D}, {C,E}`
 
 ## 题解1 - DFS
 
@@ -159,4 +153,5 @@ public class Solution {
 
 ## Reference
 
-- [Find the Connected Component in the Undirected Graph 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/find-the-connected-component-in-the-undirected-graph/)
+* [Find the Connected Component in the Undirected Graph 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/find-the-connected-component-in-the-undirected-graph/)
+

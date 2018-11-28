@@ -4,15 +4,14 @@ Tags: Two Pointers, String, Easy
 
 ## Question
 
-- leetcode: [Implement strStr()](https://leetcode.com/problems/implement-strstr/)
-- lintcode: [strstr](http://www.lintcode.com/en/problem/strstr/)
+* leetcode: [Implement strStr\(\)](https://leetcode.com/problems/implement-strstr/)
+* lintcode: [strstr](http://www.lintcode.com/en/problem/strstr/)
 
 ### Problem Statement
 
-Implement strStr().
+Implement strStr\(\).
 
-Returns the index of the first occurrence of needle in haystack, or -1 if
-needle is not part of haystack.
+Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
 
 ## 题解
 
@@ -58,7 +57,8 @@ int strStr(char* haystack, char* needle) {
 ```
 
 ### C++
-```c++
+
+```cpp
 class Solution {
 public:
     int strStr(string haystack, string needle) {
@@ -73,7 +73,7 @@ public:
             }
             if (j == needle.size()) return i;
         }
-        
+
         return -1;
     }
 };
@@ -87,7 +87,7 @@ public class Solution {
         if (haystack == null && needle == null) return 0;
         if (haystack == null) return -1;
         if (needle == null) return 0;
-        
+
         for (int i = 0; i < haystack.length() - needle.length() + 1; i++) {
             int j = 0;
             for (; j < needle.length(); j++) {
@@ -106,15 +106,15 @@ public class Solution {
 1. 边界检查：`haystack(source)`和`needle(target)`有可能是空串。
 2. 边界检查之下标溢出：注意变量`i`的循环判断条件，如果用的是`i < source.length()`则在后面的`source.charAt(i + j)`时有可能溢出。
 3. 代码风格：
-    - 运算符`==`两边应加空格
-    - 变量名不要起`s1``s2`这类，要有意义，如`target``source`
-    - Java 代码的大括号一般在同一行右边，C++ 代码的大括号一般另起一行
-    - int i, j;`声明前有一行空格，是好的代码风格
-3. 是否在for的条件中声明`i`,`j`，这个视情况而定，如果需要在循环外再使用时，则须在外部初始化，否则没有这个必要。
+   * 运算符`==`两边应加空格
+   * 变量名不要起```s1``s2```这类，要有意义，如```target``source```
+   * Java 代码的大括号一般在同一行右边，C++ 代码的大括号一般另起一行
+   * int i, j;\`声明前有一行空格，是好的代码风格
+4. 是否在for的条件中声明`i`,`j`，这个视情况而定，如果需要在循环外再使用时，则须在外部初始化，否则没有这个必要。
 
-需要注意的是有些题目要求并不是返回索引，而是返回字符串，此时还需要调用相应语言的`substring`方法。Python3 中用`range`替换了`xrange`，Python2 中使用`xrange`效率略高一些。
-另外需要注意的是 Python 代码中的`else`接的是`for` 而不是`if`, 其含义为`no break`, 属于比较 Pythonic 的用法，有兴趣的可以参考 [4. More Control Flow Tools](https://docs.python.org/3/tutorial/controlflow.html) 的 4.4 节和 [if statement - Why does python use 'else' after for and while loops?](http://stackoverflow.com/questions/9979970/why-does-python-use-else-after-for-and-while-loops)
+需要注意的是有些题目要求并不是返回索引，而是返回字符串，此时还需要调用相应语言的`substring`方法。Python3 中用`range`替换了`xrange`，Python2 中使用`xrange`效率略高一些。 另外需要注意的是 Python 代码中的`else`接的是`for` 而不是`if`, 其含义为`no break`, 属于比较 Pythonic 的用法，有兴趣的可以参考 [4. More Control Flow Tools](https://docs.python.org/3/tutorial/controlflow.html) 的 4.4 节和 [if statement - Why does python use 'else' after for and while loops?](http://stackoverflow.com/questions/9979970/why-does-python-use-else-after-for-and-while-loops)
 
 ### 复杂度分析
 
 双重 for 循环，时间复杂度最坏情况下为 $$O((n-m)*m)$$.
+

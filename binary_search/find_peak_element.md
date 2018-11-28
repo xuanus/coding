@@ -2,23 +2,20 @@
 
 ## Question
 
-- leetcode: [Find Peak Element | LeetCode OJ](https://leetcode.com/problems/find-peak-element/)
-- lintcode: [(75) Find Peak Element](http://www.lintcode.com/en/problem/find-peak-element/)
+* leetcode: [Find Peak Element \| LeetCode OJ](https://leetcode.com/problems/find-peak-element/)
+* lintcode: [\(75\) Find Peak Element](http://www.lintcode.com/en/problem/find-peak-element/)
 
 ### Problem Statement
 
 A peak element is an element that is greater than its neighbors.
 
-Given an input array where `num[i] ≠ num[i+1]`, find a peak element and return
-its index.
+Given an input array where `num[i] ≠ num[i+1]`, find a peak element and return its index.
 
-The array may contain multiple peaks, in that case return the index to any one
-of the peaks is fine.
+The array may contain multiple peaks, in that case return the index to any one of the peaks is fine.
 
 You may imagine that `num[-1] = num[n] = -∞`.
 
-For example, in array `[1, 2, 3, 1]`, 3 is a peak element and your function
-should return the index number 2.
+For example, in array `[1, 2, 3, 1]`, 3 is a peak element and your function should return the index number 2.
 
 #### Note:
 
@@ -26,14 +23,11 @@ Your solution should be in logarithmic complexity.
 
 #### Credits:
 
-
-Special thanks to [@ts](https://oj.leetcode.com/discuss/user/ts) for adding
-this problem and creating all test cases.
+Special thanks to [@ts](https://oj.leetcode.com/discuss/user/ts) for adding this problem and creating all test cases.
 
 ## 题解1
 
-由时间复杂度的暗示可知应使用二分搜索。首先分析若使用传统的二分搜索，若`A[mid] > A[mid - 1] && A[mid] < A[mid + 1]`，则找到一个peak为A[mid]；若`A[mid - 1] > A[mid]`，则A[mid]左侧必定存在一个peak，可用反证法证明：若左侧不存在peak，则A[mid]左侧元素必满足`A[0] > A[1] > ... > A[mid -1] > A[mid]`，与已知`A[0] < A[1]`矛盾，证毕。同理可得若`A[mid + 1] > A[mid]`，则A[mid]右侧必定存在一个peak。如此迭代即可得解。
-由于题中假设端点外侧的值均为负无穷大，即`num[-1] < num[0] && num[n-1] > num[n]`, 那么问题来了，这样一来就不能确定峰值一定存在了，因为给定数组为单调序列的话就咩有峰值了，但是实际情况是——题中有负无穷的假设，也就是说在单调序列的情况下，峰值为数组首部或者尾部元素，谁大就是谁了。
+由时间复杂度的暗示可知应使用二分搜索。首先分析若使用传统的二分搜索，若`A[mid] > A[mid - 1] && A[mid] < A[mid + 1]`，则找到一个peak为A\[mid\]；若`A[mid - 1] > A[mid]`，则A\[mid\]左侧必定存在一个peak，可用反证法证明：若左侧不存在peak，则A\[mid\]左侧元素必满足`A[0] > A[1] > ... > A[mid -1] > A[mid]`，与已知`A[0] < A[1]`矛盾，证毕。同理可得若`A[mid + 1] > A[mid]`，则A\[mid\]右侧必定存在一个peak。如此迭代即可得解。 由于题中假设端点外侧的值均为负无穷大，即`num[-1] < num[0] && num[n-1] > num[n]`, 那么问题来了，这样一来就不能确定峰值一定存在了，因为给定数组为单调序列的话就咩有峰值了，但是实际情况是——题中有负无穷的假设，也就是说在单调序列的情况下，峰值为数组首部或者尾部元素，谁大就是谁了。
 
 备注：如果本题是找 first/last peak，就不能用二分法了。
 
@@ -62,7 +56,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -128,7 +122,7 @@ class Solution {
 
 二分法，时间复杂度 $$O(\log n)$$.
 
-#### Java - compact implementation[^leetcode_discussion]
+#### Java - compact implementation
 
 ```java
 public class Solution {
@@ -160,4 +154,4 @@ C++ 的代码可参考 Java 或者 @xuewei4d 的实现。
 
 ## Reference
 
-- [^leetcode_discussion]: [Java - Binary-Search Solution - Leetcode Discuss](https://leetcode.com/discuss/23840/java-binary-search-solution)
+* 

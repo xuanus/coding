@@ -2,10 +2,10 @@
 
 ## Question
 
-- leetcode: [Interleaving String | LeetCode OJ](https://leetcode.com/problems/interleaving-string/)
-- lintcode: [(29) Interleaving String](http://www.lintcode.com/en/problem/interleaving-string/)
+* leetcode: [Interleaving String \| LeetCode OJ](https://leetcode.com/problems/interleaving-string/)
+* lintcode: [\(29\) Interleaving String](http://www.lintcode.com/en/problem/interleaving-string/)
 
-```
+```text
 Given three strings: s1, s2, s3,
 determine whether s3 is formed by the interleaving of s1 and s2.
 
@@ -65,7 +65,7 @@ public class Solution {
 
 异常处理部分：首先求得 s1, s2, s3 的字符串长度，随后用索引 i1, i2, i3 巧妙地避开了繁琐的 null 检测。这段代码能过前面的一部分数据，但在 lintcode 的第15个 test 跪了。不想马上看以下分析的可以自己先 debug 下。
 
-我们可以注意到以上代码还有一种情况并未考虑到，那就是当 s1[i1] 和 s2[i2] 均和 s3[i3] 相等时，我们可以拿 s1 或者 s2 去匹配，那么问题来了，由于不允许跳着取，那么可能出现在取了 s1 中的字符后，接下来的 s1 和 s2 首字符都无法和 s3 匹配到，因此原本应该返回 true 而现在返回 false. 建议将以上代码贴到 OJ 上看看测试用例。
+我们可以注意到以上代码还有一种情况并未考虑到，那就是当 s1\[i1\] 和 s2\[i2\] 均和 s3\[i3\] 相等时，我们可以拿 s1 或者 s2 去匹配，那么问题来了，由于不允许跳着取，那么可能出现在取了 s1 中的字符后，接下来的 s1 和 s2 首字符都无法和 s3 匹配到，因此原本应该返回 true 而现在返回 false. 建议将以上代码贴到 OJ 上看看测试用例。
 
 以上 bug 可以通过加入对 `(s1[i1] == s3[i3]) && (s2[i2] == s3[i3])` 这一特殊情形考虑，即分两种情况递归调用 isInterleave, 只不过 s1, s2, s3 为新生成的字符串。
 
@@ -75,7 +75,7 @@ public class Solution {
 
 ## 题解2
 
-在 `(s1[i1] == s3[i3]) && (s2[i2] == s3[i3])` 时分两种情况考虑，即让 s1[i1] 和 s3[i3] 配对或者 s2[i2] 和 s3[i3] 配对，那么嵌套调用时新生成的字符串则分别为 `s1[1+i1:], s2[i2], s3[1+i3:]` 和 `s1[i1:], s2[1+i2], s3[1+i3:]`. 嵌套调用结束后立即返回最终结果，因为递归调用时整个结果已经知晓，不立即返回则有可能会产生错误结果，递归调用并未影响到调用处的 i1 和 i2.
+在 `(s1[i1] == s3[i3]) && (s2[i2] == s3[i3])` 时分两种情况考虑，即让 s1\[i1\] 和 s3\[i3\] 配对或者 s2\[i2\] 和 s3\[i3\] 配对，那么嵌套调用时新生成的字符串则分别为 `s1[1+i1:], s2[i2], s3[1+i3:]` 和 `s1[i1:], s2[1+i2], s3[1+i3:]`. 嵌套调用结束后立即返回最终结果，因为递归调用时整个结果已经知晓，不立即返回则有可能会产生错误结果，递归调用并未影响到调用处的 i1 和 i2.
 
 ### Python
 
@@ -125,7 +125,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -151,7 +151,7 @@ public:
                 bool case2 = isInterleave(s1.substr(i1), s2.substr(1 + i2), s3.substr(1 + i3));
                 // return instantly
                 return case1 || case2;
-	        }
+            }
 
             if (i1 < len1 && s1[i1] == s3[i3]) {
                 i1++;
@@ -201,7 +201,7 @@ public class Solution {
                 boolean case2 = isInterleave(s1.substring(i1), s2.substring(1 + i2), s3.substring(1 + i3));
                 // return instantly
                 return case1 || case2;
-	        }
+            }
 
             if (i1 < len1 && s1.charAt(i1) == s3.charAt(i3)) {
                 i1++;
@@ -226,11 +226,11 @@ public class Solution {
 
 ## 题解3 - 动态规划
 
-看过题解1 和 题解2 的思路后动规的状态和状态方程应该就不难推出了。按照经典的序列规划，不妨假设状态 f[i1][i2][i3] 为 s1的前i1个字符和 s2的前 i2个字符是否能交叉构成 s3的前 i3个字符，那么根据 s1[i1], s2[i2], s3[i3]的匹配情况可以分为8种情况讨论。咋一看这似乎十分麻烦，但实际上我们注意到其实还有一个隐含条件：`len3 == len1 + len2`, 故状态转移方程得到大幅简化。
+看过题解1 和 题解2 的思路后动规的状态和状态方程应该就不难推出了。按照经典的序列规划，不妨假设状态 f\[i1\]\[i2\]\[i3\] 为 s1的前i1个字符和 s2的前 i2个字符是否能交叉构成 s3的前 i3个字符，那么根据 s1\[i1\], s2\[i2\], s3\[i3\]的匹配情况可以分为8种情况讨论。咋一看这似乎十分麻烦，但实际上我们注意到其实还有一个隐含条件：`len3 == len1 + len2`, 故状态转移方程得到大幅简化。
 
-新的状态可定义为 f[i1][i2], 含义为s1的前`i1`个字符和 s2的前 `i2`个字符是否能交叉构成 s3的前 `i1 + i2` 个字符。根据 `s1[i1] == s3[i3]` 和 `s2[i2] == s3[i3]` 的匹配情况可建立状态转移方程为：
+新的状态可定义为 f\[i1\]\[i2\], 含义为s1的前`i1`个字符和 s2的前 `i2`个字符是否能交叉构成 s3的前 `i1 + i2` 个字符。根据 `s1[i1] == s3[i3]` 和 `s2[i2] == s3[i3]` 的匹配情况可建立状态转移方程为：
 
-```
+```text
 f[i1][i2] = (s1[i1 - 1] == s3[i1 + i2 - 1] && f[i1 - 1][i2]) ||
             (s2[i2 - 1] == s3[i1 + i2 - 1] && f[i1][i2 - 1])
 ```
@@ -274,7 +274,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -354,7 +354,7 @@ public class Solution {
 
 ### 源码分析
 
-为后面递推方便，初始化时数组长度多加1，for 循环时需要注意边界(取到等号)。
+为后面递推方便，初始化时数组长度多加1，for 循环时需要注意边界\(取到等号\)。
 
 ### 复杂度分析
 
@@ -362,5 +362,6 @@ public class Solution {
 
 ## Reference
 
-- soulmachine 的 Interleaving String 部分
-- [Interleaving String 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/interleaving-string/)
+* soulmachine 的 Interleaving String 部分
+* [Interleaving String 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/interleaving-string/)
+

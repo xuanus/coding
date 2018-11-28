@@ -4,8 +4,8 @@ Tags: Array, Backtracking, Bit Manipulation, Medium
 
 ## Question
 
-- leetcode: [Subsets](https://leetcode.com/problems/subsets/)
-- lintcode: [Subsets](http://www.lintcode.com/en/problem/subsets/)
+* leetcode: [Subsets](https://leetcode.com/problems/subsets/)
+* lintcode: [Subsets](http://www.lintcode.com/en/problem/subsets/)
 
 ### Problem Statement
 
@@ -14,18 +14,20 @@ Given a set of distinct integers, _nums_, return all possible subsets.
 **Note:** The solution set must not contain duplicate subsets.
 
 For example,  
-If **_nums_** = `[1,2,3]`, a solution is:
-    
-    [
-      [3],
-      [1],
-      [2],
-      [1,2,3],
-      [1,3],
-      [2,3],
-      [1,2],
-      []
-    ]
+If _**nums**_ = `[1,2,3]`, a solution is:
+
+```text
+[
+  [3],
+  [1],
+  [2],
+  [1,2,3],
+  [1,3],
+  [2,3],
+  [1,2],
+  []
+]
+```
 
 ## 题解
 
@@ -38,7 +40,9 @@ If **_nums_** = `[1,2,3]`, a solution is:
 将上述过程转化为代码即为对数组遍历，每一轮都保存之前的结果并将其依次加入到最终返回结果中。
 
 ### Iterative
+
 ### Python
+
 ```python
 class Solution:
     """
@@ -64,11 +68,13 @@ class Solution:
             ret.append(tmp)
         return ret
 ```
+
 ### 源码分析
+
 利用类似`bit map`的原理， 将 0 ~ $$2^n - 1$$个数值map到每个index上，如果index数值为1，就将该number加入。比如输入是`[1 ,2 ,3]`, 那么当`i = 0`时，`0`也就是`000`， 那么`000 -> []`； 当`i = 1`时， `001 -> [1]`; 直到`i = 7`, `111 -> [1, 2, 3]`.
 
-
 ### Recursive
+
 ### Python
 
 ```python
@@ -95,6 +101,7 @@ class Solution:
 ```
 
 #### less code style
+
 ```python
 class Solution:
     """
@@ -114,7 +121,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     vector<vector<int>> subsets(vector<int>& nums) {
@@ -177,13 +184,13 @@ public class Solution {
 
 ### 源码分析
 
-Java 和 Python 的代码中在将临时list 添加到最终结果时新生成了对象，(Python 使用`[] + `), 否则最终返回结果将随着`list` 的变化而变化。
+Java 和 Python 的代码中在将临时list 添加到最终结果时新生成了对象，\(Python 使用`[] +`\), 否则最终返回结果将随着`list` 的变化而变化。
 
-**Notice: backTrack(num, i + 1, list, ret);中的『i + 1』不可误写为『pos + 1』，因为`pos`用于每次大的循环，`i`用于内循环，第一次写subsets的时候在这坑了很久... :(**
+**Notice: backTrack\(num, i + 1, list, ret\);中的『i + 1』不可误写为『pos + 1』，因为**`pos`**用于每次大的循环，**`i`**用于内循环，第一次写subsets的时候在这坑了很久... :\(**
 
 回溯法可用图示和函数运行的堆栈图来理解，强烈建议**使用图形和递归的思想**分析，以数组`[1, 2, 3]`进行分析。下图所示为`list`及`result`动态变化的过程，箭头向下表示`list.add`及`result.add`操作，箭头向上表示`list.remove`操作。
 
-![Subsets运行递归调用图](../../shared-files/images/subsets.jpg)
+![Subsets&#x8FD0;&#x884C;&#x9012;&#x5F52;&#x8C03;&#x7528;&#x56FE;](https://github.com/xuanus/coding/tree/f09f25ddc0c56beb8d4ed92fcfb3e81a80f8ab75/shared-files/images/subsets.jpg)
 
 ### 复杂度分析
 
@@ -193,5 +200,6 @@ Java 和 Python 的代码中在将临时list 添加到最终结果时新生成�
 
 ## Reference
 
-- [九章算法 - subsets模板](http://www.jiuzhang.com/solutions/subsets/)
-- [LeetCode: Subsets 解题报告 - Yu's Garden - 博客园](http://www.cnblogs.com/yuzhangcmu/p/4211815.html)
+* [九章算法 - subsets模板](http://www.jiuzhang.com/solutions/subsets/)
+* [LeetCode: Subsets 解题报告 - Yu's Garden - 博客园](http://www.cnblogs.com/yuzhangcmu/p/4211815.html)
+

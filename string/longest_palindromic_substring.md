@@ -4,31 +4,30 @@ Tags: String, Medium
 
 ## Question
 
-- leetcode: [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)
-- lintcode: [Longest Palindromic Substring](http://www.lintcode.com/en/problem/longest-palindromic-substring/)
+* leetcode: [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)
+* lintcode: [Longest Palindromic Substring](http://www.lintcode.com/en/problem/longest-palindromic-substring/)
 
 ### Problem Statement
 
-Given a string **s**, find the longest palindromic substring in **s**. You may
-assume that the maximum length of **s** is 1000.
+Given a string **s**, find the longest palindromic substring in **s**. You may assume that the maximum length of **s** is 1000.
 
 **Example:**
-    
-    
-    
-    **Input:** "babad"
-    
-    **Output:** "bab"
-    
-    **Note:** "aba" is also a valid answer.
-    
+
+```text
+**Input:** "babad"
+
+**Output:** "bab"
+
+**Note:** "aba" is also a valid answer.
+```
 
 **Example:**
-    
 
-    **Input:** "cbbd"
-    
-    **Output:** "bb"
+```text
+**Input:** "cbbd"
+
+**Output:** "bb"
+```
 
 ## 题解1 - 穷竭搜索
 
@@ -65,7 +64,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -110,7 +109,7 @@ private:
 public class Solution {
     public String longestPalindrome(String s) {
         if (s == null || s.isEmpty()) return "";
-        
+
         final int sLen = s.length();
         int longest = 0, left = 0;
         for (int i = 0; i < sLen; i++) {
@@ -140,8 +139,7 @@ public class Solution {
 
 ### 复杂度分析
 
-穷举所有的子串，$$O(C_n^2) = O(n^2)$$, 每次判断字符串是否为回文，复杂度为 $$O(n)$$, 故总的时间复杂度为 $$O(n^3)$$, 大数据集下可能 TLE. 仅在最后返回取子串，空间复杂度为 $$O(1)$$.
-P.S. 目前仅 Java 对回文判断优化过。
+穷举所有的子串，$$O(C_n^2) = O(n^2)$$, 每次判断字符串是否为回文，复杂度为 $$O(n)$$, 故总的时间复杂度为 $$O(n^3)$$, 大数据集下可能 TLE. 仅在最后返回取子串，空间复杂度为 $$O(1)$$. P.S. 目前仅 Java 对回文判断优化过。
 
 ## 题解2
 
@@ -149,25 +147,25 @@ P.S. 目前仅 Java 对回文判断优化过。
 
 ### C++
 
-```c++
+```cpp
 string palindrome(string& s, int l, int r) {
-	while (l>=0 && r<s.size() && s[l]==s[r]) l--, r++;
-	return s.substr(l+1, r-l-1);
+    while (l>=0 && r<s.size() && s[l]==s[r]) l--, r++;
+    return s.substr(l+1, r-l-1);
 }
 
 string longestPalindrome(string s) {
-	if (s.empty()) return s;
+    if (s.empty()) return s;
 
-	string res;
-	for (int i=0; i<s.size(); i++) {
-		string t;
-		t = palindrome(s, i, i);
-		if (t.size() > res.size()) res = t;
-	   
-		t = palindrome(s, i, i+1);
-		if (t.size() > res.size()) res = t;   
-	}
-	return res;
+    string res;
+    for (int i=0; i<s.size(); i++) {
+        string t;
+        t = palindrome(s, i, i);
+        if (t.size() > res.size()) res = t;
+
+        t = palindrome(s, i, i+1);
+        if (t.size() > res.size()) res = t;   
+    }
+    return res;
 }
 ```
 
@@ -177,7 +175,7 @@ string longestPalindrome(string s) {
 public class Solution {
     public String longestPalindrome(String s) {
         if (s == null || s.isEmpty()) return "";
-        
+
         final int sLen = s.length();
         int longest = 0, left = 0;
         for (int i = 0; i < sLen; i++) {
@@ -219,10 +217,10 @@ public class Solution {
 
 ## 题解3
 
-另外还有一个O（n）的解法，具体参考下面的链接
-http://articles.leetcode.com/2011/11/longest-palindromic-substring-part-ii.html
+另外还有一个O（n）的解法，具体参考下面的链接 [http://articles.leetcode.com/2011/11/longest-palindromic-substring-part-ii.html](http://articles.leetcode.com/2011/11/longest-palindromic-substring-part-ii.html)
 
 ## Reference
 
-- [Longest Palindromic Substring Part I | LeetCode](http://articles.leetcode.com/2011/11/longest-palindromic-substring-part-i.html)
-- [Longest Palindromic Substring Part II | LeetCode](http://articles.leetcode.com/2011/11/longest-palindromic-substring-part-ii.html)
+* [Longest Palindromic Substring Part I \| LeetCode](http://articles.leetcode.com/2011/11/longest-palindromic-substring-part-i.html)
+* [Longest Palindromic Substring Part II \| LeetCode](http://articles.leetcode.com/2011/11/longest-palindromic-substring-part-ii.html)
+

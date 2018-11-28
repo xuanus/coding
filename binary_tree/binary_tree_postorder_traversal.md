@@ -4,30 +4,27 @@ Tags: Tree, Stack, Hard
 
 ## Question
 
-- leetcode: [Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/)
-- lintcode: [Binary Tree Postorder Traversal](http://www.lintcode.com/en/problem/binary-tree-postorder-traversal/)
+* leetcode: [Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/)
+* lintcode: [Binary Tree Postorder Traversal](http://www.lintcode.com/en/problem/binary-tree-postorder-traversal/)
 
 ### Problem Statement
 
 Given a binary tree, return the _postorder_ traversal of its nodes' values.
 
 For example:  
-Given binary tree `{1,#,2,3}`,  
+Given binary tree `{1,#,2,3}`,
 
-    
-    
-    
-       1
-        \
-         2
-        /
-       3
-    
+```text
+   1
+    \
+     2
+    /
+   3
+```
 
 return `[3,2,1]`.
 
 **Note:** Recursive solution is trivial, could you do it iteratively?
-
 
 ## 题解1 - 递归
 
@@ -56,7 +53,7 @@ class Solution:
 
 ### C++ - Traversal
 
-```c++
+```cpp
 /**
  * Definition of TreeNode:
  * class TreeNode {
@@ -160,7 +157,7 @@ public class Solution {
 
 ## 题解2 - 迭代
 
-使用递归写后序遍历那是相当的简单，我们来个不使用递归的迭代版。整体思路仍然为「左右根」，那么怎么才能知道什么时候该访问根节点呢？问题即转化为如何保证左右子节点一定先被访问到？由于入栈之后左右节点已无法区分，因此需要区分左右子节点是否被访问过(加入到最终返回结果中)。除了有左右节点的情况，根节点也可能没有任何子节点，此时也可直接将其值加入到最终返回结果中。
+使用递归写后序遍历那是相当的简单，我们来个不使用递归的迭代版。整体思路仍然为「左右根」，那么怎么才能知道什么时候该访问根节点呢？问题即转化为如何保证左右子节点一定先被访问到？由于入栈之后左右节点已无法区分，因此需要区分左右子节点是否被访问过\(加入到最终返回结果中\)。除了有左右节点的情况，根节点也可能没有任何子节点，此时也可直接将其值加入到最终返回结果中。
 
 ### Python
 
@@ -203,7 +200,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -306,7 +303,7 @@ public class Solution {
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition of TreeNode:
  * class TreeNode {
@@ -387,5 +384,6 @@ public class Solution {
 
 ## Reference
 
-- [[leetcode]Binary Tree Postorder Traversal @ Python - 南郭子綦](http://www.cnblogs.com/zuoyuan/p/3720846.html) - 解释清晰
-- [更简单的非递归遍历二叉树的方法](http://zisong.me/post/suan-fa/geng-jian-dan-de-bian-li-er-cha-shu-de-fang-fa) - 比较新颖和简洁的实现
+* [\[leetcode\]Binary Tree Postorder Traversal @ Python - 南郭子綦](http://www.cnblogs.com/zuoyuan/p/3720846.html) - 解释清晰
+* [更简单的非递归遍历二叉树的方法](http://zisong.me/post/suan-fa/geng-jian-dan-de-bian-li-er-cha-shu-de-fang-fa) - 比较新颖和简洁的实现
+

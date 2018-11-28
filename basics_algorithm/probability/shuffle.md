@@ -1,8 +1,8 @@
-# Shuffle and Sampling - 随机抽样和洗牌
+# Shuffle
 
 ## 洗牌算法
 
-- [Shuffle a given array - GeeksforGeeks](http://www.geeksforgeeks.org/shuffle-a-given-array/)
+* [Shuffle a given array - GeeksforGeeks](http://www.geeksforgeeks.org/shuffle-a-given-array/)
 
 Given an array, write a program to generate a random permutation of array elements. This question is also asked as “shuffle a deck of cards” or “randomize a given array”.
 
@@ -10,7 +10,7 @@ Given an array, write a program to generate a random permutation of array elemen
 
 这里以 Fisher–Yates shuffle 算法为例，伪代码如下：
 
-```
+```text
 To shuffle an array a of n elements (indices 0..n-1):
   for i from 0 downto i do
        j ← random integer such that 0 ≤ j ≤ i
@@ -38,7 +38,7 @@ To shuffle an array a of n elements (indices 0..n-1):
 
 看了算法和代码后让我们来使用归纳法简单证明下这个洗牌算法的正确性。我们要证明的问题是：**数组中每个元素在每个索引处出现的概率均相等。**
 
-对于单个元素来讲，以上算法显然正确，因为交换后仍然只有一个元素。接下来我们不妨假设其遍历到数组索引为`i-1`时满足随机排列特性，那么当遍历到数组索引为`i`时，随机数`k`为`i`的概率为`1/i`, 为`0~i-1`的概率为`(i-1)/i`. 接下来与索引为`i`的值交换，可以得知`card[i]`出现在索引`i`的位置的概率为`1/i`, 在其他索引位置的概率也为`1/i`; 而对于`card[i]`之前的元素，以索引`j`处的元素`card[j]`为例进行分析可知其在位置`j`的概率为`1/(i-1) * (i-1)/i = 1/i`, 具体含义为遍历到索引`i-1`时`card[j]`位于索引`j`的概率(`1/(i-1)`)乘以遍历到索引`i`时随机数未选择与索引`j`的数进行交换的概率(`(i-1)/i`).
+对于单个元素来讲，以上算法显然正确，因为交换后仍然只有一个元素。接下来我们不妨假设其遍历到数组索引为`i-1`时满足随机排列特性，那么当遍历到数组索引为`i`时，随机数`k`为`i`的概率为`1/i`, 为`0~i-1`的概率为`(i-1)/i`. 接下来与索引为`i`的值交换，可以得知`card[i]`出现在索引`i`的位置的概率为`1/i`, 在其他索引位置的概率也为`1/i`; 而对于`card[i]`之前的元素，以索引`j`处的元素`card[j]`为例进行分析可知其在位置`j`的概率为`1/(i-1) * (i-1)/i = 1/i`, 具体含义为遍历到索引`i-1`时`card[j]`位于索引`j`的概率\(`1/(i-1)`\)乘以遍历到索引`i`时随机数未选择与索引`j`的数进行交换的概率\(`(i-1)/i`\).
 
 需要注意的是前面的`j <= i-1`, 那么`card[j]`位于索引`i`的概率又是多少呢？要位于索引`i`，则随机数`k`须为`i`, 这种概率为`1/i`.
 
@@ -52,7 +52,7 @@ To shuffle an array a of n elements (indices 0..n-1):
 
 比较简洁的有算法 Algorithm R, 伪代码如下：
 
-```
+```text
 /*
   S has items to sample, R will contain the result
 */
@@ -94,11 +94,11 @@ ReservoirSample(S[1..n], R[1..k])
     }
 ```
 
-和洗牌算法类似，我们要证明的问题是：**数组中每个元素在最终采样的数组中出现的概率均相等且为`m/n`.** 洗牌算法中是排列，而对于随机抽样则为组合。
+和洗牌算法类似，我们要证明的问题是：**数组中每个元素在最终采样的数组中出现的概率均相等且为**`m/n`**.** 洗牌算法中是排列，而对于随机抽样则为组合。
 
-维基百科上的证明相对容易懂一些，这里我稍微复述下。首先将数组前 m 个元素填充进新数组`sample`, 然后从`m`开始遍历直至数组最后一个索引。随机数`k`的范围为`0~i`, 如果`k < m`，新数组的索引为 k 的元素则和原数组索引为`i`的元素交换；如果`k >= m`, 则不进行交换。`i == m`时，以原数组中第`j`个元素为例，它被`nums[m]`替换的概率为`1/(m+1)`, 也就是说保留在`sample`数组中的概率为`m/(m+1)`. 对与第`m+1`个元素`nums[m]`来说，其位于`sample`数组中的概率则为`m*1/(m+1)`(可替换 m 个不同的元素).
+维基百科上的证明相对容易懂一些，这里我稍微复述下。首先将数组前 m 个元素填充进新数组`sample`, 然后从`m`开始遍历直至数组最后一个索引。随机数`k`的范围为`0~i`, 如果`k < m`，新数组的索引为 k 的元素则和原数组索引为`i`的元素交换；如果`k >= m`, 则不进行交换。`i == m`时，以原数组中第`j`个元素为例，它被`nums[m]`替换的概率为`1/(m+1)`, 也就是说保留在`sample`数组中的概率为`m/(m+1)`. 对与第`m+1`个元素`nums[m]`来说，其位于`sample`数组中的概率则为`m*1/(m+1)`\(可替换 m 个不同的元素\).
 
-接下来仍然使用数学归纳法证明，若`i`遍历到`r`时，其之前的元素出现的概率为`m/(r-1)`, 那么其之前的元素中任一元素`nums[j]`被替换的概率为`m/r * 1/m = 1/r`, 不被替换的概率则为`(r-1)/r`. 故元素`nums[j]`在`i`遍历完`r`后仍然保留的概率为`m/(r-1) * (r-1)/r = m/r`. 而对于元素`nums[r]`来说，其要被替换至`sample`数组中的概率则为`m/r`(随机数小于m 的个数为 m).
+接下来仍然使用数学归纳法证明，若`i`遍历到`r`时，其之前的元素出现的概率为`m/(r-1)`, 那么其之前的元素中任一元素`nums[j]`被替换的概率为`m/r * 1/m = 1/r`, 不被替换的概率则为`(r-1)/r`. 故元素`nums[j]`在`i`遍历完`r`后仍然保留的概率为`m/(r-1) * (r-1)/r = m/r`. 而对于元素`nums[r]`来说，其要被替换至`sample`数组中的概率则为`m/r`\(随机数小于m 的个数为 m\).
 
 综上，以上算法在遍历完长度为 n 的数组后每个数出现在最终`sample`数组中的概率都为`m/n`.
 
@@ -211,7 +211,7 @@ public class Probability {
 
 以十万次试验为例，左侧是元素`i`, 列代表在相应索引位置出现的次数。可以看出分布还是比较随机的。
 
-```
+```text
 Shuffle cards
    0      1      2      3      4      5      6      7      8      9
 0: 10033  9963   10043  9845   9932   10020  9964   10114  10043  10043
@@ -241,8 +241,9 @@ Random sample
 
 ## Reference
 
-- [Fisher–Yates shuffle](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#The_modern_algorithm) - 洗牌算法的详述，比较简洁的算法
-- [Reservoir sampling ](https://en.wikipedia.org/wiki/Reservoir_sampling) - 水池抽样算法
-- [如何测试洗牌程序 | 酷 壳 - CoolShell.cn](http://coolshell.cn/articles/8593.html) - 借鉴了其中的一些测试方法
-- 《计算机程序设计艺术》第二卷（半数值算法） - 3.4.2 随机抽样和洗牌
-- 《编程珠玑》第十二章 - 抽样问题
+* [Fisher–Yates shuffle](https://en.wikipedia.org/wiki/Fisher–Yates_shuffle#The_modern_algorithm) - 洗牌算法的详述，比较简洁的算法
+* [Reservoir sampling ](https://en.wikipedia.org/wiki/Reservoir_sampling) - 水池抽样算法
+* [如何测试洗牌程序 \| 酷 壳 - CoolShell.cn](http://coolshell.cn/articles/8593.html) - 借鉴了其中的一些测试方法
+* 《计算机程序设计艺术》第二卷（半数值算法） - 3.4.2 随机抽样和洗牌
+* 《编程珠玑》第十二章 - 抽样问题
+

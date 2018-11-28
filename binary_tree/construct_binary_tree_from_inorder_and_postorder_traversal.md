@@ -2,9 +2,9 @@
 
 ## Question
 
-- lintcode: [(72) Construct Binary Tree from Inorder and Postorder Traversal](http://www.lintcode.com/en/problem/construct-binary-tree-from-inorder-and-postorder-traversal/)
+* lintcode: [\(72\) Construct Binary Tree from Inorder and Postorder Traversal](http://www.lintcode.com/en/problem/construct-binary-tree-from-inorder-and-postorder-traversal/)
 
-```
+```text
 Given inorder and postorder traversal of a tree, construct the binary tree.
 
 Example
@@ -86,3 +86,4 @@ public class Solution {
 ### 复杂度分析
 
 找根节点近似 $$O(n)$$, 递归遍历整个数组，嵌套找根节点的方法，故总的时间复杂度为 $$O(n^2)$$.
+

@@ -9,5 +9,6 @@
 
 ## Reference
 
-- [Bucket Sort Visualization](http://www.cs.usfca.edu/~galles/visualization/BucketSort.html) - 动态演示。
-- [桶排序 - 维基百科，自由的百科全书](http://zh.wikipedia.org/wiki/%E6%A1%B6%E6%8E%92%E5%BA%8F)
+* [Bucket Sort Visualization](http://www.cs.usfca.edu/~galles/visualization/BucketSort.html) - 动态演示。
+* [桶排序 - 维基百科，自由的百科全书](http://zh.wikipedia.org/wiki/桶排序)
+

@@ -2,9 +2,9 @@
 
 ## Question
 
-- lintcode: [(42) Maximum Subarray II](http://www.lintcode.com/en/problem/maximum-subarray-ii/)
+* lintcode: [\(42\) Maximum Subarray II](http://www.lintcode.com/en/problem/maximum-subarray-ii/)
 
-```
+```text
 Given an array of integers,
 find two non-overlapping subarrays which have the largest sum.
 
@@ -88,3 +88,4 @@ public class Solution {
 ### 复杂度分析
 
 前向和后向搜索求得最大子数组和，时间复杂度 $$O(2n)=O(n)$$, 空间复杂度 $$O(n)$$. 遍历子数组和的数组求最终两个子数组和的最大值，时间复杂度 $$O(n)$$. 故总的时间复杂度为 $$O(n)$$, 空间复杂度 $$O(n)$$.
+

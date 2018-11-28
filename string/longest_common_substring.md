@@ -4,7 +4,7 @@ Tags: String, LintCode Copyright, Medium
 
 ## Question
 
-- lintcode: [Longest Common Substring](http://www.lintcode.com/en/problem/longest-common-substring/)
+* lintcode: [Longest Common Substring](http://www.lintcode.com/en/problem/longest-common-substring/)
 
 ### Problem Statement
 
@@ -14,16 +14,15 @@ Return the length of it.
 
 #### Notice
 
-The characters in **substring** should occur continuously in original string.
-This is different with **subsequence**.
+The characters in **substring** should occur continuously in original string. This is different with **subsequence**.
 
 **Example**
 
 Given A = `"ABCD"`, B = `"CBCE"`, return `2`.
 
-**Challenge** ****
+**Challenge** _\*\*_
 
-O(n x m) time and memory.
+O\(n x m\) time and memory.
 
 ## 题解1 - 暴力枚举
 
@@ -130,11 +129,11 @@ public class Solution {
 
 ### 复杂度分析
 
-双重 for 循环，最坏时间复杂度约为 $$O(mn \cdot lcs)$$, lcs 最大可为 $$ \min{m, n} $$.
+双重 for 循环，最坏时间复杂度约为 $$O(mn \cdot lcs)$$, lcs 最大可为 $$\min{m, n}$$.
 
 ## 题解2 - 动态规划
 
-题解1中使用了两根指针指向当前所取子串的起点，在实际比较过程中存在较多的重复计算，故可以考虑使用记忆化搜索或者动态规划对其进行优化。动态规划中状态的确定及其状态转移方程最为关键，如果直接以题目所求为状态，我们会发现其状态转移方程似乎写不出来，但退而求其次，我们不妨采用子串/子序列中常用的状态定义——『以(i,j)结尾(如 A[i-1], B[j-1])且其字符相等的子串lcs, 状态转移时只需判断两个字符串后一位字符是否相等，最后再次遍历二维状态数组即可。
+题解1中使用了两根指针指向当前所取子串的起点，在实际比较过程中存在较多的重复计算，故可以考虑使用记忆化搜索或者动态规划对其进行优化。动态规划中状态的确定及其状态转移方程最为关键，如果直接以题目所求为状态，我们会发现其状态转移方程似乎写不出来，但退而求其次，我们不妨采用子串/子序列中常用的状态定义——『以\(i,j\)结尾\(如 A\[i-1\], B\[j-1\]\)且其字符相等的子串lcs, 状态转移时只需判断两个字符串后一位字符是否相等，最后再次遍历二维状态数组即可。
 
 ### Python
 
@@ -237,7 +236,7 @@ public class Solution {
 ### 源码分析
 
 1. 异常处理
-2. 列出状态转移方程，关键处在于以 (i,j) 结尾的两个字符串
+2. 列出状态转移方程，关键处在于以 \(i,j\) 结尾的两个字符串
 
 ### 复杂度分析
 
@@ -245,4 +244,5 @@ public class Solution {
 
 ## Reference
 
-- [Longest Common Substring | 九章算法](http://www.jiuzhang.com/solutions/longest-common-substring/)
+* [Longest Common Substring \| 九章算法](http://www.jiuzhang.com/solutions/longest-common-substring/)
+

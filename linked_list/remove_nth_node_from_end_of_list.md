@@ -1,8 +1,8 @@
 ---
 difficulty: Easy
 tags:
-- Linked List
-- Two Pointers
+  - Linked List
+  - Two Pointers
 title: Remove Nth Node From End of List
 ---
 
@@ -12,26 +12,24 @@ title: Remove Nth Node From End of List
 
 ### Metadata
 
-- tags: Linked List, Two Pointers
-- difficulty: Easy
-- source(lintcode): <https://www.lintcode.com/problem/remove-nth-node-from-end-of-list/>
-- source(leetcode): <https://leetcode.com/problems/remove-nth-node-from-end-of-list/>
+* tags: Linked List, Two Pointers
+* difficulty: Easy
+* source\(lintcode\): [https://www.lintcode.com/problem/remove-nth-node-from-end-of-list/](https://www.lintcode.com/problem/remove-nth-node-from-end-of-list/)
+* source\(leetcode\): [https://leetcode.com/problems/remove-nth-node-from-end-of-list/](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
 
 ### Description
 
-Given a linked list, remove the n<sup>th</sup> node from the end of list and return its head.
-
+Given a linked list, remove the nth node from the end of list and return its head.
 
 #### Notice
 
-The minimum number of nodes in list is *n*.
+The minimum number of nodes in list is _n_.
 
 #### Example
 
-Given linked list: `1->2->3->4->5->null`, and *n* = `2`.
+Given linked list: `1->2->3->4->5->null`, and _n_ = `2`.
 
 After removing the second node from the end, the linked list becomes `1->2->3->5->null`.
-
 
 #### Challenge
 
@@ -136,3 +134,4 @@ class Solution {
 ### 复杂度分析
 
 极限情况下遍历两遍链表，时间复杂度为 $$O(n)$$.
+

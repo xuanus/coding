@@ -2,10 +2,10 @@
 
 ## Question
 
-- leetcode: [Binary Tree Level Order Traversal II | LeetCode OJ](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/)
-- lintcode: [(70) Binary Tree Level Order Traversal II](http://www.lintcode.com/en/problem/binary-tree-level-order-traversal-ii/)
+* leetcode: [Binary Tree Level Order Traversal II \| LeetCode OJ](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/)
+* lintcode: [\(70\) Binary Tree Level Order Traversal II](http://www.lintcode.com/en/problem/binary-tree-level-order-traversal-ii/)
 
-```
+```text
 Given a binary tree, return the bottom-up level order traversal of its nodes' values.
 (ie, from left to right, level by level from leaf to root).
 
@@ -131,3 +131,4 @@ Java 中 Queue 是接口，通常可用 LinkedList 实例化。
 ### 复杂度分析
 
 时间复杂度为 $$O(n)$$, 使用了队列或者辅助栈作为辅助空间，空间复杂度为 $$O(n)$$.
+

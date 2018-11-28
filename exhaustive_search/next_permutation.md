@@ -2,8 +2,8 @@
 
 ## Question
 
-- leetcode: [Next Permutation | LeetCode OJ](https://leetcode.com/problems/next-permutation/)
-- lintcode: [(52) Next Permutation](http://www.lintcode.com/en/problem/next-permutation/)
+* leetcode: [Next Permutation \| LeetCode OJ](https://leetcode.com/problems/next-permutation/)
+* lintcode: [\(52\) Next Permutation](http://www.lintcode.com/en/problem/next-permutation/)
 
 ### Problem Statement
 
@@ -20,7 +20,6 @@ For `[4,3,2,1]`, the next permutation is `[1,2,3,4]`
 #### Note
 
 The list may contains duplicate integers.
-
 
 ## 题解
 
@@ -66,7 +65,7 @@ class Solution(object):
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -170,3 +169,4 @@ public class Solution {
 ### 复杂度分析
 
 最坏情况下，遍历两次原数组，反转一次数组，时间复杂度为 $$O(n)$$, 使用了 temp 临时变量，空间复杂度可认为是 $$O(1)$$.
+

@@ -4,8 +4,8 @@ Tags: String, Cracking The Coding Interview, Easy
 
 ## Question
 
-- leetcode: [Valid Anagram](https://leetcode.com/problems/valid-anagram/)
-- lintcode: [Two Strings Are Anagrams](http://www.lintcode.com/en/problem/two-strings-are-anagrams/)
+* leetcode: [Valid Anagram](https://leetcode.com/problems/valid-anagram/)
+* lintcode: [Two Strings Are Anagrams](http://www.lintcode.com/en/problem/two-strings-are-anagrams/)
 
 ### Problem Statement
 
@@ -14,8 +14,7 @@ Write a method `anagram(s,t)` to decide if two strings are anagrams or not.
 **Clarification**
 
 What is **Anagram**?  
-\- Two strings are anagram if they can be the same after change the order of
-characters.
+- Two strings are anagram if they can be the same after change the order of characters.
 
 **Example**
 
@@ -23,9 +22,9 @@ Given s = `"abcd"`, t = `"dcab"`, return `true`.
 Given s = `"ab"`, t = `"ab"`, return `true`.  
 Given s = `"ab"`, t = `"ac"`, return `false`.
 
-**Challenge** ****
+**Challenge** _\*\*_
 
-O(n) time, O(1) extra space
+O\(n\) time, O\(1\) extra space
 
 ## 题解1 - hashmap 统计字频
 
@@ -33,7 +32,7 @@ O(n) time, O(1) extra space
 
 ### Python
 
-``` python
+```python
 class Solution:
     """
     @param s: The first string
@@ -46,7 +45,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -110,11 +109,11 @@ public class Solution {
 
 ### 源码分析
 
-1. 两个字符串长度不等时必不可能为变位词(需要注意题目条件灵活处理)。
+1. 两个字符串长度不等时必不可能为变位词\(需要注意题目条件灵活处理\)。
 2. 初始化含有256个字符的计数器数组。
 3. 对字符串 s 自增，字符串 t 递减，再次遍历判断`letterCount`数组的值，小于0时返回`false`.
 
-在字符串长度较长(大于所有可能的字符数)时，还可对第二个`for`循环做进一步优化，即`t.size() > 256`时，使用256替代`t.size()`直接比较字符计数, 使用`i`替代`t[i]`.
+在字符串长度较长\(大于所有可能的字符数\)时，还可对第二个`for`循环做进一步优化，即`t.size() > 256`时，使用256替代`t.size()`直接比较字符计数, 使用`i`替代`t[i]`.
 
 ### 复杂度分析
 
@@ -139,7 +138,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -204,4 +203,5 @@ C++的 STL 中 sort 的时间复杂度介于 $$O(n)$$ 和 $$O(n^2)$$之间，判
 
 ## Reference
 
-- *CC150 Chapter 9.1* 中文版 p109
+* _CC150 Chapter 9.1_ 中文版 p109
+

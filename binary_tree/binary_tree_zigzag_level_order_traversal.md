@@ -2,10 +2,10 @@
 
 ## Question
 
-- leetcode: [Binary Tree Zigzag Level Order Traversal | LeetCode OJ](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/)
-- lintcode: [(71) Binary Tree Zigzag Level Order Traversal](http://www.lintcode.com/en/problem/binary-tree-zigzag-level-order-traversal/)
+* leetcode: [Binary Tree Zigzag Level Order Traversal \| LeetCode OJ](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/)
+* lintcode: [\(71\) Binary Tree Zigzag Level Order Traversal](http://www.lintcode.com/en/problem/binary-tree-zigzag-level-order-traversal/)
 
-```
+```text
 Given a binary tree, return the zigzag level order traversal of its nodes' values.
 (ie, from left to right, then right to left for the next level and alternate between).
 
@@ -98,5 +98,6 @@ public class Solution {
 
 ## Reference
 
-- [Binary Tree Zigzag Level Order Traversal 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/binary-tree-zigzag-level-order-traversal/)
-- [Printing a Binary Tree in Zig Zag Level-Order | LeetCode](http://articles.leetcode.com/2010/09/printing-binary-tree-in-zig-zag-level_18.html)
+* [Binary Tree Zigzag Level Order Traversal 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/binary-tree-zigzag-level-order-traversal/)
+* [Printing a Binary Tree in Zig Zag Level-Order \| LeetCode](http://articles.leetcode.com/2010/09/printing-binary-tree-in-zig-zag-level_18.html)
+

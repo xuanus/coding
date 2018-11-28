@@ -2,9 +2,9 @@
 
 ## Question
 
-- lintcode: [(44) Minimum Subarray](http://www.lintcode.com/en/problem/minimum-subarray/)
+* lintcode: [\(44\) Minimum Subarray](http://www.lintcode.com/en/problem/minimum-subarray/)
 
-```
+```text
 Given an array of integers, find the subarray with smallest sum.
 
 Return the sum of the subarray.
@@ -50,3 +50,4 @@ public class Solution {
 ### 复杂度分析
 
 略
+

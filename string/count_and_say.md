@@ -4,8 +4,8 @@ Tags: String, Easy
 
 ## Question
 
-- leetcode: [Count and Say](https://leetcode.com/problems/count-and-say/)
-- lintcode: [Count and Say](http://www.lintcode.com/en/problem/count-and-say/)
+* leetcode: [Count and Say](https://leetcode.com/problems/count-and-say/)
+* lintcode: [Count and Say](http://www.lintcode.com/en/problem/count-and-say/)
 
 ### Problem Statement
 
@@ -14,15 +14,15 @@ The count-and-say sequence is the sequence of integers beginning as follows:
 
 `1` is read off as `"one 1"` or `11`.  
 `11` is read off as `"two 1s"` or `21`.  
-`21` is read off as `"one 2`, then `one 1"` or `1211`.  
+`21` is read off as `"one 2`, then `one 1"` or `1211`.
 
-Given an integer _n_, generate the _n_th sequence.
+Given an integer _n_, generate the \_n\_th sequence.
 
 Note: The sequence of integers will be represented as a string.
 
 ## 题解1 - 迭代
 
-题目大意是找第 n 个数(字符串表示)，规则则是对于连续字符串，表示为重复次数+数本身。那么其中的核心过程则是根据上一个字符串求得下一个字符串，从 `'1'` 开始迭代 n - 1 次即可。
+题目大意是找第 n 个数\(字符串表示\)，规则则是对于连续字符串，表示为重复次数+数本身。那么其中的核心过程则是根据上一个字符串求得下一个字符串，从 `'1'` 开始迭代 n - 1 次即可。
 
 ### Python
 
@@ -179,7 +179,7 @@ class Solution(object):
 
 ### C++
 
-``` c++
+```cpp
 class Solution {
 public:
     string countAndSay(int n) {
@@ -239,4 +239,5 @@ public class Solution {
 
 ## Reference
 
-- [4-5 lines Python solutions](https://discuss.leetcode.com/topic/32023/4-5-lines-python-solutions)
+* [4-5 lines Python solutions](https://discuss.leetcode.com/topic/32023/4-5-lines-python-solutions)
+

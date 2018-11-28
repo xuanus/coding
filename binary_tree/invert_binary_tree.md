@@ -2,10 +2,10 @@
 
 ## Question
 
-- leetcode: [Invert Binary Tree | LeetCode OJ](https://leetcode.com/problems/invert-binary-tree/)
-- lintcode: [(175) Invert Binary Tree](http://www.lintcode.com/en/problem/invert-binary-tree/)
+* leetcode: [Invert Binary Tree \| LeetCode OJ](https://leetcode.com/problems/invert-binary-tree/)
+* lintcode: [\(175\) Invert Binary Tree](http://www.lintcode.com/en/problem/invert-binary-tree/)
 
-```
+```text
 Invert a binary tree.
 
 Example
@@ -24,7 +24,7 @@ Do it in recursion is acceptable, can you do it without recursion?
 
 ### C++ - return void
 
-```c++
+```cpp
 /**
  * Definition of TreeNode:
  * class TreeNode {
@@ -56,9 +56,9 @@ public:
 };
 ```
 
-### C++ - return TreeNode *
+### C++ - return TreeNode \*
 
-```c++
+```cpp
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -96,7 +96,7 @@ public:
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition of TreeNode:
  * class TreeNode {
@@ -144,4 +144,5 @@ public:
 
 ## Reference
 
-- [0ms C++ Recursive/Iterative Solutions with Explanations - Leetcode Discuss](https://leetcode.com/discuss/42613/0ms-c-recursive-iterative-solutions-with-explanations)
+* [0ms C++ Recursive/Iterative Solutions with Explanations - Leetcode Discuss](https://leetcode.com/discuss/42613/0ms-c-recursive-iterative-solutions-with-explanations)
+

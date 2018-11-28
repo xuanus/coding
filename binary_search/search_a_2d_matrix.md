@@ -2,8 +2,8 @@
 
 ## Question
 
-- leetcode: [Search a 2D Matrix | LeetCode OJ](https://leetcode.com/problems/search-a-2d-matrix/)
-- lintcode: [(28) Search a 2D Matrix](http://www.lintcode.com/en/problem/search-a-2d-matrix/)
+* leetcode: [Search a 2D Matrix \| LeetCode OJ](https://leetcode.com/problems/search-a-2d-matrix/)
+* lintcode: [\(28\) Search a 2D Matrix](http://www.lintcode.com/en/problem/search-a-2d-matrix/)
 
 ### Problem Statement
 
@@ -11,33 +11,31 @@ Write an efficient algorithm that searches for a value in an _m_ x _n_ matrix.
 
 This matrix has the following properties:
 
-  * Integers in each row are sorted from left to right.
-  * The first integer of each row is greater than the last integer of the previous row.
+* Integers in each row are sorted from left to right.
+* The first integer of each row is greater than the last integer of the previous row.
 
 #### Example
 
 Consider the following matrix:
 
-
-
-    [
-        [1, 3, 5, 7],
-        [10, 11, 16, 20],
-        [23, 30, 34, 50]
-    ]
-
+```text
+[
+    [1, 3, 5, 7],
+    [10, 11, 16, 20],
+    [23, 30, 34, 50]
+]
+```
 
 Given `target = 3`, return `true`.
 
 #### Challenge
 
-O(log(n) + log(m)) time
+O\(log\(n\) + log\(m\)\) time
 
 ## 题解 - 一次二分搜索 V.S. 两次二分搜索
 
-- **一次二分搜索** - 由于矩阵按升序排列，因此可将二维矩阵转换为一维问题。对原始的二分搜索进行适当改变即可(求行和列)。时间复杂度为 $$O(log(mn))=O(log(m)+log(n))$$
-- **两次二分搜索** - 先按行再按列进行搜索，即两次二分搜索。时间复杂度相同。
-
+* **一次二分搜索** - 由于矩阵按升序排列，因此可将二维矩阵转换为一维问题。对原始的二分搜索进行适当改变即可\(求行和列\)。时间复杂度为 $$O(log(mn))=O(log(m)+log(n))$$
+* **两次二分搜索** - 先按行再按列进行搜索，即两次二分搜索。时间复杂度相同。
 
 ## 一次二分搜索
 
@@ -65,7 +63,8 @@ class Solution:
 ```
 
 ### C++
-```c++
+
+```cpp
 class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
@@ -88,7 +87,9 @@ public:
 ```
 
 ### Java
+
 lower bound 二分模板。
+
 ```java
 public class Solution {
     /**
@@ -122,19 +123,19 @@ public class Solution {
 
 ### 源码分析
 
-仍然可以使用经典的二分搜索模板(lower bound)，注意下标的赋值即可。
+仍然可以使用经典的二分搜索模板\(lower bound\)，注意下标的赋值即可。
 
-1. 首先对输入做异常处理，不仅要考虑到matrix为null，还要考虑到matrix[0]的长度也为0。
+1. 首先对输入做异常处理，不仅要考虑到matrix为null，还要考虑到matrix\[0\]的长度也为0。
 2. 由于 lb 的变化处一定小于 target, 故在 else 中判断。
 
 ### 复杂度分析
 
 二分搜索，$$O(\log mn)$$.
 
-
 ## 两次二分法
 
 ### Python
+
 ```python
 class Solution:
     def search_matrix(self, matrix, target):
@@ -177,4 +178,6 @@ class Solution:
 2. 再在这一行中找target
 
 #### 复杂度分析
+
 二分搜索， $$O(\log m + \log n)$$
+

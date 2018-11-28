@@ -4,25 +4,23 @@ Tags: Tree, Stack, Medium
 
 ## Question
 
-- leetcode: [Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/)
-- lintcode: [Binary Tree Preorder Traversal](http://www.lintcode.com/en/problem/binary-tree-preorder-traversal/)
+* leetcode: [Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/)
+* lintcode: [Binary Tree Preorder Traversal](http://www.lintcode.com/en/problem/binary-tree-preorder-traversal/)
 
 ### Problem Statement
 
 Given a binary tree, return the _preorder_ traversal of its nodes' values.
 
 For example:  
-Given binary tree `{1,#,2,3}`,  
+Given binary tree `{1,#,2,3}`,
 
-    
-    
-    
-       1
-        \
-         2
-        /
-       3
-    
+```text
+   1
+    \
+     2
+    /
+   3
+```
 
 return `[1,2,3]`.
 
@@ -32,7 +30,7 @@ return `[1,2,3]`.
 
 **面试时不推荐递归这种做法。**
 
-递归版很好理解，首先判断当前节点(根节点)是否为`null`，是则返回空vector，否则先返回当前节点的值，然后对当前节点的左节点递归，最后对当前节点的右节点递归。递归时对返回结果的处理方式不同可进一步细分为遍历和分治两种方法。
+递归版很好理解，首先判断当前节点\(根节点\)是否为`null`，是则返回空vector，否则先返回当前节点的值，然后对当前节点的左节点递归，最后对当前节点的右节点递归。递归时对返回结果的处理方式不同可进一步细分为遍历和分治两种方法。
 
 ### Python - Divide and Conquer
 
@@ -60,7 +58,7 @@ class Solution:
 
 ### C++ - Divide and Conquer
 
-```c++
+```cpp
 /**
  * Definition of TreeNode:
  * class TreeNode {
@@ -99,7 +97,7 @@ public:
 
 ### C++ - Traversal
 
-```c++
+```cpp
 /**
  * Definition of TreeNode:
  * class TreeNode {
@@ -161,7 +159,7 @@ public class Solution {
             result.addAll(left);
             result.addAll(right);
         }
-        
+
         return result;
     }
 }
@@ -169,7 +167,7 @@ public class Solution {
 
 ### Java - Traversal
 
-```
+```text
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -196,10 +194,7 @@ public class Solution {
 
 ### 源码分析
 
-使用遍历的方法保存递归返回结果需要使用辅助递归函数`traverse`，将结果作为参数传入递归函数中，传值时注意应使用`vector`的引用。另外一个方法则是使用类的私有变量保存最终结果。
-分治方法首先分开计算各结果，最后合并到最终结果中。
-C++ 中由于是使用vector, 将新的vector插入另一vector不能再使用push_back, 而应该使用insert。
-Java 中使用`addAll`方法.
+使用遍历的方法保存递归返回结果需要使用辅助递归函数`traverse`，将结果作为参数传入递归函数中，传值时注意应使用`vector`的引用。另外一个方法则是使用类的私有变量保存最终结果。 分治方法首先分开计算各结果，最后合并到最终结果中。 C++ 中由于是使用vector, 将新的vector插入另一vector不能再使用push\_back, 而应该使用insert。 Java 中使用`addAll`方法.
 
 ### 复杂度分析
 
@@ -207,7 +202,7 @@ Java 中使用`addAll`方法.
 
 ## 题解2 - 迭代
 
-迭代时需要利用栈来保存遍历到的节点，纸上画图分析后发现应首先进行出栈抛出当前节点，保存当前节点的值，随后将右、左节点分别入栈(注意入栈顺序，先右后左)，迭代到其为叶子节点(NULL)为止。
+迭代时需要利用栈来保存遍历到的节点，纸上画图分析后发现应首先进行出栈抛出当前节点，保存当前节点的值，随后将右、左节点分别入栈\(注意入栈顺序，先右后左\)，迭代到其为叶子节点\(NULL\)为止。
 
 ### Python
 
@@ -236,14 +231,13 @@ class Solution:
                 s.append(root.right)
             if root.left is not None:
                 s.append(root.left)
-                
+
         return result
-        
 ```
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition of TreeNode:
  * class TreeNode {
@@ -321,7 +315,7 @@ public class Solution {
 1. 对root进行异常处理
 2. 将root压入栈
 3. 循环终止条件为栈s为空，所有元素均已处理完
-4. 访问当前栈顶元素(首先取出栈顶元素，随后pop掉栈顶元素)并存入最终结果
+4. 访问当前栈顶元素\(首先取出栈顶元素，随后pop掉栈顶元素\)并存入最终结果
 5. 将右、左节点分别压入栈内，以便取元素时为先左后右。
 6. 返回最终结果
 
@@ -332,3 +326,4 @@ public class Solution {
 ### 复杂度分析
 
 使用辅助栈，最坏情况下栈空间与节点数相等，其空间复杂度为 $$O(n)$$, 对每个节点遍历一次，时间复杂度为 $$O(n)$$.
+

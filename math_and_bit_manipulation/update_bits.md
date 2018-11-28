@@ -2,9 +2,9 @@
 
 ## Question
 
-- CTCI: [(179) Update Bits](http://www.lintcode.com/en/problem/update-bits/)
+* CTCI: [\(179\) Update Bits](http://www.lintcode.com/en/problem/update-bits/)
 
-```
+```text
 Given two 32-bit numbers, N and M, and two bit positions, i and j.
 Write a method to set all bits between i and j in N equal to M
 (e g , M becomes a substring of N located at i and starting at j)
@@ -36,13 +36,13 @@ Cracking The Coding Interview 上的题，题意简单来讲就是使用 M 代�
 1. 得到第`i`位到第`j`位的比特位为0，而其他位均为1的掩码`mask`。
 2. 使用`mask`与 N 进行按位与，清零 N 的第`i`位到第`j`位。
 3. 对 M 右移`i`位，将 M 放到 N 中指定的位置。
-4. 返回 N | M 按位或的结果。
+4. 返回 N \| M 按位或的结果。
 
-获得掩码`mask`的过程可参考 CTCI 书中的方法，先获得掩码(1111...000...111)的左边部分，然后获得掩码的右半部分，最后左右按位或即为最终结果。
+获得掩码`mask`的过程可参考 CTCI 书中的方法，先获得掩码\(1111...000...111\)的左边部分，然后获得掩码的右半部分，最后左右按位或即为最终结果。
 
-### C++ <i class="fa fa-bug"></i>
+### C++ 
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -67,7 +67,7 @@ public:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -101,7 +101,7 @@ public:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -134,6 +134,7 @@ public:
 
 ## Reference
 
-- [c++ - logical shift right on signed data - Stack Overflow](http://stackoverflow.com/questions/13221369/logical-shift-right-on-signed-data)
-- [Update Bits | 九章算法](http://www.jiuzhang.com/solutions/update-bits/)
-- *CTCI 5th Chapter 9.5 中文版* p163
+* [c++ - logical shift right on signed data - Stack Overflow](http://stackoverflow.com/questions/13221369/logical-shift-right-on-signed-data)
+* [Update Bits \| 九章算法](http://www.jiuzhang.com/solutions/update-bits/)
+* _CTCI 5th Chapter 9.5 中文版_ p163
+

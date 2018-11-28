@@ -2,14 +2,14 @@
 
 ## Question
 
-- leetcode: [Find Minimum in Rotated Sorted Array | LeetCode OJ](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
-- lintcode: [(159) Find Minimum in Rotated Sorted Array](http://www.lintcode.com/en/problem/find-minimum-in-rotated-sorted-array/)
+* leetcode: [Find Minimum in Rotated Sorted Array \| LeetCode OJ](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
+* lintcode: [\(159\) Find Minimum in Rotated Sorted Array](http://www.lintcode.com/en/problem/find-minimum-in-rotated-sorted-array/)
 
 ### Problem Statement
 
 Suppose a sorted array is rotated at some pivot unknown to you beforehand.
 
-(i.e., `0 1 2 4 5 6 7` might become `4 5 6 7 0 1 2`).
+\(i.e., `0 1 2 4 5 6 7` might become `4 5 6 7 0 1 2`\).
 
 Find the minimum element.
 
@@ -21,18 +21,17 @@ Given `[4, 5, 6, 7, 0, 1, 2]` return `0`
 
 You may assume no duplicate exists in the array.
 
-
 ## 题解
 
 如前节所述，对于旋转数组的分析可使用画图的方法，如下图所示，升序数组经旋转后可能为如下两种形式。
 
-![Rotated Array](../../shared-files/images/rotated_array.png)
+![Rotated Array](https://github.com/xuanus/coding/tree/f09f25ddc0c56beb8d4ed92fcfb3e81a80f8ab75/shared-files/images/rotated_array.png)
 
 最小值可能在上图中的两种位置出现，如果仍然使用数组首部元素作为target去比较，则需要考虑图中右侧情况。**使用逆向思维分析，如果使用数组尾部元素分析，则无需图中右侧的特殊情况。**不过考虑在内的话也算是一种优化。
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -97,8 +96,9 @@ public class Solution {
 
 ### 源码分析
 
-仅需注意使用`num[end]`(使用 num[lb]不是那么直观)作为判断依据即可，由于题中已给无重复数组的条件，故无需处理`num[mid] == num[end]`特殊条件。
+仅需注意使用`num[end]`\(使用 num\[lb\]不是那么直观\)作为判断依据即可，由于题中已给无重复数组的条件，故无需处理`num[mid] == num[end]`特殊条件。
 
 ### 复杂度分析
 
 由于无重复元素，平均情况下复杂度为 $$O(\log n)$$.
+

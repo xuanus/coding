@@ -2,9 +2,9 @@
 
 ## Question
 
-- lintcode: [(39) Recover Rotated Sorted Array](http://lintcode.com/en/problem/recover-rotated-sorted-array/)
+* lintcode: [\(39\) Recover Rotated Sorted Array](http://lintcode.com/en/problem/recover-rotated-sorted-array/)
 
-```
+```text
 Given a rotated sorted array, recover it to sorted array in-place.
 
 Example
@@ -66,7 +66,7 @@ public class Solution {
 
 ### C++
 
-```c++
+```cpp
 /**
  * forked from
  * http://www.jiuzhang.com/solutions/recover-rotated-sorted-array/
@@ -99,3 +99,4 @@ public:
 ### 源码分析
 
 首先找到分割点，随后分三步调用翻转函数。简单起见可将`vector<int>::size_type`替换为`int`
+

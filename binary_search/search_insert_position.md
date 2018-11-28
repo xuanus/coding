@@ -2,13 +2,11 @@
 
 ## Question
 
-- lintcode: [(60) Search Insert Position](http://www.lintcode.com/en/problem/search-insert-position/)
+* lintcode: [\(60\) Search Insert Position](http://www.lintcode.com/en/problem/search-insert-position/)
 
 ### Problem Statement
 
-Given a sorted array and a target value, return the index if the target is
-found. If not, return the index where it would be if it were inserted in
-order.
+Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
 
 You may assume **NO** duplicates in the array.
 
@@ -24,12 +22,12 @@ You may assume **NO** duplicates in the array.
 
 #### Challenge
 
-O(log(n)) time
-
+O\(log\(n\)\) time
 
 ## 题解
 
 ### Python
+
 问题可以转化为， 寻找`first position that value is >= target`。如果没找到， 那么就插入在list的尾部。
 
 ```python
@@ -60,7 +58,8 @@ class Solution:
 ```
 
 ### C++
-```c++
+
+```cpp
 class Solution {
     /** 
      * param A : an integer sorted array
@@ -71,7 +70,7 @@ public:
     int searchInsert(vector<int> &A, int target) {
         // write your code here
         if (A.empty()) return 0;
-        
+
         int n = A.size();
         int lb = -1, ub = n;
         while (lb + 1 < ub) {
@@ -88,6 +87,7 @@ public:
 ```
 
 ### Java
+
 仍然是 [Binary Search](http://algorithm.yuanbin.me/zh-hans/basics_algorithm/binary_search.html) 中`lower_bound`的变形，两大关键点：`start` 和`end` 的初始化；最终插入位置和`start` 以及`end` 之间的关系，由于`start`对应的索引一定是小于目标值的，那么`start + 1` 就是要求的值了，再检查下两端的边界，DONE
 
 ```java
@@ -114,7 +114,7 @@ public class Solution {
             }
         }
 
-	return start + 1;
+    return start + 1;
     }
 }
 ```
@@ -134,3 +134,4 @@ public class Solution {
 ### 复杂度分析
 
 时间复杂度 $$O(\log n)$$, 空间复杂度 $$O(1)$$.
+

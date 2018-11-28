@@ -2,7 +2,7 @@
 
 ## Source
 
-- [hihoCoder](http://hihocoder.com/problemset/problem/1152)
+* [hihoCoder](http://hihocoder.com/problemset/problem/1152)
 
 ### Problem
 
@@ -14,10 +14,7 @@
 
 ### 描述
 
-A string s is **LUCKY** if and only if the number of different characters in s
-is a [fibonacci number](http://en.wikipedia.org/wiki/Fibonacci_number). Given
-a string consisting of only lower case letters, output all its lucky non-empty
-substrings in lexicographical order. Same substrings should be printed once.
+A string s is **LUCKY** if and only if the number of different characters in s is a [fibonacci number](http://en.wikipedia.org/wiki/Fibonacci_number). Given a string consisting of only lower case letters, output all its lucky non-empty substrings in lexicographical order. Same substrings should be printed once.
 
 ### 输入
 
@@ -25,33 +22,30 @@ A string consisting no more than 100 lower case letters.
 
 ### 输出
 
-Output the lucky substrings in lexicographical order, one per line. Same
-substrings should be printed once.
+Output the lucky substrings in lexicographical order, one per line. Same substrings should be printed once.
 
 样例输入
 
-
-
-
-    aabcd
+```text
+aabcd
+```
 
 样例输出
 
-
-
-
-    a
-    aa
-    aab
-    aabc
-    ab
-    abc
-    b
-    bc
-    bcd
-    c
-    cd
-    d
+```text
+a
+aa
+aab
+aabc
+ab
+abc
+b
+bc
+bcd
+c
+cd
+d
+```
 
 ## 题解
 
@@ -128,3 +122,4 @@ fibonacci 数组的生成使用迭代的方式，由于保存的是`Long`类型�
 ### 复杂度分析
 
 遍历所有可能子串，时间复杂度 $$O(n^2)$$, fibonacci 数组和临时子串，空间复杂度 $$O(n)$$.
+

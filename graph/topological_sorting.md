@@ -1,11 +1,11 @@
 ---
 difficulty: Medium
 tags:
-- Geeks for Geeks
-- Topological Sort
-- LintCode Copyright
-- BFS
-- DFS
+  - Geeks for Geeks
+  - Topological Sort
+  - LintCode Copyright
+  - BFS
+  - DFS
 title: Topological Sorting
 ---
 
@@ -15,17 +15,17 @@ title: Topological Sorting
 
 ### Metadata
 
-- tags: Geeks for Geeks, Topological Sort, LintCode Copyright, BFS, DFS
-- difficulty: Medium
-- source(lintcode): <https://www.lintcode.com/problem/topological-sorting/>
-- source(geeksforgeeks): <http://www.geeksforgeeks.org/topological-sorting/>
+* tags: Geeks for Geeks, Topological Sort, LintCode Copyright, BFS, DFS
+* difficulty: Medium
+* source\(lintcode\): [https://www.lintcode.com/problem/topological-sorting/](https://www.lintcode.com/problem/topological-sorting/)
+* source\(geeksforgeeks\): [http://www.geeksforgeeks.org/topological-sorting/](http://www.geeksforgeeks.org/topological-sorting/)
 
 ### Description
 
 Given an directed graph, a topological order of the graph nodes is defined as follow:
 
-- For each directed edge `A -> B` in graph, A must before B in the order list.
-- The first node in the order can be any node in the graph with no nodes direct to it.
+* For each directed edge `A -> B` in graph, A must before B in the order list.
+* The first node in the order can be any node in the graph with no nodes direct to it.
 
 Find any topological order for the given graph.
 
@@ -35,26 +35,27 @@ You can assume that there is at least one topological order in the graph.
 
 #### Clarification
 
-[Learn more about representation of graphs](http://www.lintcode.com/help/graph "Graph example")
+[Learn more about representation of graphs](http://www.lintcode.com/help/graph)
 
 #### Example
 
-For graph as follow: 
+For graph as follow:
 
-![picture](../../shared-files/images/topological-sorting.jpeg)
-
+![picture](https://github.com/xuanus/coding/tree/f09f25ddc0c56beb8d4ed92fcfb3e81a80f8ab75/shared-files/images/topological-sorting.jpeg)
 
 The topological order can be:
 
-    [0, 1, 2, 3, 4, 5]
-    [0, 2, 3, 1, 5, 4]
-    ...
+```text
+[0, 1, 2, 3, 4, 5]
+[0, 2, 3, 1, 5, 4]
+...
+```
 
 #### Challenge
 
 Can you do it in both BFS and DFS?
 
-## 题解1 - DFS(统计节点入度数)
+## 题解1 - DFS\(统计节点入度数\)
 
 图搜索相关的问题较为常见的解法是用 DFS 或者 BFS，这里我们先分析一下拓扑排序的核心要求：对于有向边 `A -> B`, A 需要出现在 B 之前。用过 Linux/MAC 的人对包管理工具肯定不陌生，如 apt-get, yum, pacman, brew 等，安装一项软件时往往要先将其所有依赖的软件包安装完，拓扑排序解决的就是此类问题。这个需求实现起来大概可以分为如下几个步骤：
 
@@ -65,7 +66,7 @@ Can you do it in both BFS and DFS?
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition for Directed graph.
  * struct DirectedGraphNode {
@@ -187,14 +188,13 @@ public class Solution {
 
 ### 源码分析
 
-C++中使用 unordered_map 可获得更高的性能，私有方法中使用引用传值。在 `dfs` 递归的过程中，将节点加入到最终结果后需要对其入度减一，否则在上层循环邻居节点时会有重复。这里的 `dfs` 是剪枝过后的 DFS, 因为这里只处理入度为 0 的节点。另外在第一次求各节点的入度数时，需要先初始化为0，否则会漏掉部分入度为0的节点。
+C++中使用 unordered\_map 可获得更高的性能，私有方法中使用引用传值。在 `dfs` 递归的过程中，将节点加入到最终结果后需要对其入度减一，否则在上层循环邻居节点时会有重复。这里的 `dfs` 是剪枝过后的 DFS, 因为这里只处理入度为 0 的节点。另外在第一次求各节点的入度数时，需要先初始化为0，否则会漏掉部分入度为0的节点。
 
 ### 复杂度分析
 
 以 V 表示顶点数，E 表示有向图中边的条数。
 
-首先获得节点的入度数，时间复杂度为 $$O(V+E)$$, 使用了哈希表存储，空间复杂度为 $$O(V)$$. 遍历图求得入度为0的节点，时间复杂度为 $$O(V)$$. 仅在入度为0时调用 DFS，故时间复杂度为 $$O(V+E)$$.
-综上，时间复杂度近似为 $$O(V+E)$$, 空间复杂度为 $$O(V)$$.
+首先获得节点的入度数，时间复杂度为 $$O(V+E)$$, 使用了哈希表存储，空间复杂度为 $$O(V)$$. 遍历图求得入度为0的节点，时间复杂度为 $$O(V)$$. 仅在入度为0时调用 DFS，故时间复杂度为 $$O(V+E)$$. 综上，时间复杂度近似为 $$O(V+E)$$, 空间复杂度为 $$O(V)$$.
 
 ## 题解2 - BFS
 
@@ -206,7 +206,7 @@ C++中使用 unordered_map 可获得更高的性能，私有方法中使用引�
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition for Directed graph.
  * struct DirectedGraphNode {
@@ -255,7 +255,7 @@ private:
 
     void bfs(vector<DirectedGraphNode*> &graph, map<DirectedGraphNode*, int> &indegree,
              queue<DirectedGraphNode *> &q, vector<DirectedGraphNode*> &ret) {
-        
+
         for (int i = 0; i < graph.size(); ++i) {
             if (indegree[graph[i]] == 0) {
                 ret.push_back(graph[i]);
@@ -350,7 +350,7 @@ C++中在判断入度是否为0时将对 map 产生副作用，在求入度数�
 
 同题解1 的分析，时间复杂度为 $$O(V+E)$$, 空间复杂度为 $$O(V)$$.
 
-## 题解3 - DFS(递归保证局部拓扑排序)
+## 题解3 - DFS\(递归保证局部拓扑排序\)
 
 与题解1和题解2中依赖先计算入度数不同，这种解法可以不必事先计算入度数，从图中任意一个节点递归，直至将其所有邻接节点入栈后再对自己入栈，这样可保证有依赖的节点一定在其父节点后面出栈，遍历完图中所有节点即可得最终有效结果。这里需要借助辅助标记 Set 或者数组。具体过程可参考 GeeksforGeeks 中的视频讲解。
 
@@ -415,5 +415,6 @@ public class Solution {
 
 ## Reference
 
-- [Topological Sorting 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/topological-sorting/)
-- [Topological Sorting - GeeksforGeeks](https://www.geeksforgeeks.org/topological-sorting/)
+* [Topological Sorting 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/topological-sorting/)
+* [Topological Sorting - GeeksforGeeks](https://www.geeksforgeeks.org/topological-sorting/)
+

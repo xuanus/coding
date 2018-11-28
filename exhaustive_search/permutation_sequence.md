@@ -2,8 +2,8 @@
 
 ## Question
 
-- leetcode: [Permutation Sequence | LeetCode OJ](https://leetcode.com/problems/permutation-sequence/)
-- lintcode: [(388) Permutation Sequence](http://www.lintcode.com/en/problem/permutation-sequence/)
+* leetcode: [Permutation Sequence \| LeetCode OJ](https://leetcode.com/problems/permutation-sequence/)
+* lintcode: [\(388\) Permutation Sequence](http://www.lintcode.com/en/problem/permutation-sequence/)
 
 ### Problem Statement
 
@@ -13,15 +13,14 @@ Given _n_ and _k_, return the _k_-th permutation sequence.
 
 For `n = 3`, all permutations are listed as follows:
 
-
-
-    "123"
-    "132"
-    "213"
-    "231"
-    "312"
-    "321"
-
+```text
+"123"
+"132"
+"213"
+"231"
+"312"
+"321"
+```
 
 If `k = 4`, the fourth permutation is `"231"`
 
@@ -31,8 +30,7 @@ _n_ will be between 1 and 9 inclusive.
 
 #### Challenge
 
-O(n*k) in time complexity is easy, can you do it in O(n^2) or less?
-
+O\(n\*k\) in time complexity is easy, can you do it in O\(n^2\) or less?
 
 ## 题解
 
@@ -67,7 +65,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -155,6 +153,7 @@ class Solution {
 
 ## Reference
 
-- [Permutation Sequence 解题报告](http://blog.sina.com.cn/s/blog_eb52001d0102v1ss.html)
-- [Permutation Sequence 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/permutation-sequence/)
-- [c++ - How to transform a vector<int> into a string? - Stack Overflow](http://stackoverflow.com/questions/2518979/how-to-transform-a-vectorint-into-a-string)
+* [Permutation Sequence 解题报告](http://blog.sina.com.cn/s/blog_eb52001d0102v1ss.html)
+* [Permutation Sequence 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/permutation-sequence/)
+* [c++ - How to transform a vector into a string? - Stack Overflow](http://stackoverflow.com/questions/2518979/how-to-transform-a-vectorint-into-a-string)
+

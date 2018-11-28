@@ -16,7 +16,6 @@ s.add('shaunwei')
 s.remove('shaunwei')
 ```
 
-
 ### Java
 
 Set 与 Collection 具有安全一样的接口，通常有`HashSet`, `TreeSet` 或 `LinkedHashSet`三种实现。`HashSet`基于散列函数实现，无序，查询速度最快；`TreeSet`基于红-黑树实现，有序。
@@ -28,3 +27,4 @@ hash.contains("billryan");
 ```
 
 在不允许重复元素时可当做哈希表来用。
+

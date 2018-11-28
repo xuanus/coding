@@ -2,15 +2,12 @@
 
 ## Question
 
-- lintcode: [(403) Continuous Subarray Sum II](http://www.lintcode.com/en/problem/continuous-subarray-sum-ii/)
-- [Maximum circular subarray sum - GeeksforGeeks](http://www.geeksforgeeks.org/maximum-contiguous-circular-sum/)
+* lintcode: [\(403\) Continuous Subarray Sum II](http://www.lintcode.com/en/problem/continuous-subarray-sum-ii/)
+* [Maximum circular subarray sum - GeeksforGeeks](http://www.geeksforgeeks.org/maximum-contiguous-circular-sum/)
 
 ### Problem Statement
 
-Given an integer array, find a continuous rotate subarray where the sum of
-numbers is the biggest. Your code should return the index of the first number
-and the index of the last number. (If their are duplicate answer, return
-anyone. The answer can be rorate array or non- rorate array)
+Given an integer array, find a continuous rotate subarray where the sum of numbers is the biggest. Your code should return the index of the first number and the index of the last number. \(If their are duplicate answer, return anyone. The answer can be rorate array or non- rorate array\)
 
 #### Example
 
@@ -97,4 +94,5 @@ public class Solution {
 
 ## Reference
 
-- [CC150+Leetcode Continuous Subarray Sum II](http://meetqun.com/thread-9856-1-1.html)
+* [CC150+Leetcode Continuous Subarray Sum II](http://meetqun.com/thread-9856-1-1.html)
+

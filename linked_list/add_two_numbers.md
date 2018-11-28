@@ -2,13 +2,12 @@
 
 ## Question
 
-- leetcode: [Add Two Numbers | LeetCode OJ](https://leetcode.com/problems/add-two-numbers/)
-- lintcode: [Add Two Numbers](http://www.lintcode.com/en/problem/add-two-numbers/)
+* leetcode: [Add Two Numbers \| LeetCode OJ](https://leetcode.com/problems/add-two-numbers/)
+* lintcode: [Add Two Numbers](http://www.lintcode.com/en/problem/add-two-numbers/)
 
 ### Problem Statement
 
-You have two numbers represented by a linked list, where each node contains a single digit. The digits are stored in `reverse` order, such that the 1's digit is at the head of the list. Write a function that adds the two numbers
-and returns the sum as a linked list.
+You have two numbers represented by a linked list, where each node contains a single digit. The digits are stored in `reverse` order, such that the 1's digit is at the head of the list. Write a function that adds the two numbers and returns the sum as a linked list.
 
 #### Example
 
@@ -50,7 +49,7 @@ class Solution:
 
             prev.next = ListNode(val)
             prev = prev.next
-            
+
             if l1:
                 l1 = l1.next
             if l2:
@@ -60,7 +59,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -114,7 +113,7 @@ public class Solution {
             int l1_val = (l1 != null) ? l1.val : 0;
             int l2_val = (l2 != null) ? l2.val : 0;
             int sum = carry + l1_val + l2_val;
-	    // update carry
+        // update carry
             carry = sum / 10;
             curr.next = new ListNode(sum % 10);
 
@@ -132,7 +131,7 @@ public class Solution {
 
 1. 迭代能正常进行的条件为`(NULL != l1) || (NULL != l2) || (0 != carry)`, 缺一不可。
 2. 对于空指针节点的处理可以用相对优雅的方式处理 - `int l1_val = (NULL == l1) ? 0 : l1->val;`
-3. ~~生成新节点时需要先判断迭代终止条件 - `(NULL == l1) && (NULL == l2) && (0 == carry)`, 避免多生成一位数0。~~ 使用 dummy 节点可避免这一情况。
+3. ~~生成新节点时需要先判断迭代终止条件 -~~ `(NULL == l1) && (NULL == l2) && (0 == carry)`~~, 避免多生成一位数0。~~ 使用 dummy 节点可避免这一情况。
 
 ### 复杂度分析
 
@@ -140,5 +139,6 @@ public class Solution {
 
 ## Reference
 
-- *CC150 Chapter 9.2* 题2.5，中文版 p123
-- [Add two numbers represented by linked lists | Set 1 - GeeksforGeeks](http://www.geeksforgeeks.org/add-two-numbers-represented-by-linked-lists/)
+* _CC150 Chapter 9.2_ 题2.5，中文版 p123
+* [Add two numbers represented by linked lists \| Set 1 - GeeksforGeeks](http://www.geeksforgeeks.org/add-two-numbers-represented-by-linked-lists/)
+

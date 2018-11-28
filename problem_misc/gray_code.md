@@ -2,19 +2,18 @@
 
 ## Question
 
-- leetcode: [Gray Code | LeetCode OJ](https://leetcode.com/problems/gray-code/)
-- lintcode: [(411) Gray Code](http://www.lintcode.com/en/problem/gray-code/)
+* leetcode: [Gray Code \| LeetCode OJ](https://leetcode.com/problems/gray-code/)
+* lintcode: [\(411\) Gray Code](http://www.lintcode.com/en/problem/gray-code/)
 
 ### Problem Statement
 
-The gray code is a binary numeral system where two successive values differ in only one bit.
-Given a non-negative integer n representing the total number of bits in the code, find the sequence of gray code. A gray code sequence must begin with 0 and with cover all $$2^n$$ integers.
+The gray code is a binary numeral system where two successive values differ in only one bit. Given a non-negative integer n representing the total number of bits in the code, find the sequence of gray code. A gray code sequence must begin with 0 and with cover all $$2^n$$ integers.
 
 #### Example
 
 Given `n = 2`, return `[0,1,3,2]`. Its gray code sequence is:
 
-```
+```text
 00 - 0
 01 - 1
 11 - 3
@@ -35,9 +34,9 @@ $$O(2^n)$$ time.
 
 第一次遇到这个题是在腾讯的在线笔试中，当时找到了规律，用的是递归，但是实现似乎有点问题... 直接从 n 位的格雷码分析不太好分析，比如题中`n = 2`的格雷码，我们不妨试试从小到大分析，以 `n = 1` 往后递推。
 
-![Gray Code](../../shared-files/images/Binary-reflected_Gray_code_construction.png)
+![Gray Code](https://github.com/xuanus/coding/tree/f09f25ddc0c56beb8d4ed92fcfb3e81a80f8ab75/shared-files/images/Binary-reflected_Gray_code_construction.png)
 
-从图中我们可以看出n 位的格雷码可由 n-1位的格雷码递推，在最高位前顺序加0，逆序加1即可。实际实现时我们可以省掉在最高位加0的过程，因为其在数值上和前 n-1位格雷码相同。另外一点则是初始化的处理，图中为从1开始，但若从0开始可进一步简化程序。而且根据 [格雷码](https://zh.wikipedia.org/wiki/%E6%A0%BC%E9%9B%B7%E7%A0%81) 的定义，n=0时确实应该返回0.
+从图中我们可以看出n 位的格雷码可由 n-1位的格雷码递推，在最高位前顺序加0，逆序加1即可。实际实现时我们可以省掉在最高位加0的过程，因为其在数值上和前 n-1位格雷码相同。另外一点则是初始化的处理，图中为从1开始，但若从0开始可进一步简化程序。而且根据 [格雷码](https://zh.wikipedia.org/wiki/格雷码) 的定义，n=0时确实应该返回0.
 
 ### Java
 
@@ -76,4 +75,5 @@ public class Solution {
 
 ## Reference
 
-- Soulmachine 的 leetcode 题解
+* Soulmachine 的 leetcode 题解
+

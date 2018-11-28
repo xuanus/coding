@@ -2,10 +2,10 @@
 
 ## Question
 
-- leetcode: [Combination Sum | LeetCode OJ](https://leetcode.com/problems/combination-sum/)
-- lintcode: [(135) Combination Sum](http://www.lintcode.com/en/problem/combination-sum/)
+* leetcode: [Combination Sum \| LeetCode OJ](https://leetcode.com/problems/combination-sum/)
+* lintcode: [\(135\) Combination Sum](http://www.lintcode.com/en/problem/combination-sum/)
 
-```
+```text
 Given a set of candidate numbers (C) and a target number (T),
 find all unique combinations in C where the candidate numbers sums to T.
 The same repeated number may be chosen from C unlimited number of times.
@@ -85,4 +85,5 @@ public class Solution {
 
 ## Reference
 
-- Soulmachine 的 leetcode 题解
+* Soulmachine 的 leetcode 题解
+

@@ -1,4 +1,4 @@
-# Binary Search - 二分搜索
+# Binary Search
 
 二分搜索是一种在有序数组中寻找目标值的经典方法，也就是说使用前提是『有序数组』。非常简单的题中『有序』特征非常明显，但更多时候可能需要我们自己去构造『有序数组』。下面我们从最基本的二分搜索开始逐步深入。
 
@@ -92,7 +92,7 @@ public class Main {
 
 #### 输入
 
-```
+```text
 N = 4, L = {8.02, 7.43, 4.57, 5.39}, K = 11
 ```
 
@@ -102,7 +102,8 @@ N = 4, L = {8.02, 7.43, 4.57, 5.39}, K = 11
 
 ### 题解
 
-这道题看似是一个最优化问题，我们来尝试下使用模板二的思想求解，**令 $$C(x)$$ 为『可以得到 $$K$$ 条长度为 $$x$$ 的绳子』。**根据题意，我们可以将上述条件进一步细化为：
+这道题看似是一个最优化问题，我们来尝试下使用模板二的思想求解，**令** $$C(x)$$ **为『可以得到** $$K$$ **条长度为** $$x$$ **的绳子』。**根据题意，我们可以将上述条件进一步细化为：
+
 $$
 C(x) = \sum_i(floor(L_i / x)) \geq K
 $$
@@ -130,7 +131,7 @@ public class Main {
     public static double solve(double[] nums, int K) {
         double lb = 0.00, ub = 10e5 + 0.01;
         // while (lb + 0.001 < ub) {
-	for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 100; i++) {
             double mid = lb + (ub - lb) / 2;
             if (C(nums, mid, K)) {
                 lb = mid;
@@ -163,16 +164,24 @@ public class Main {
 
 这个模版跟第一个模版类似， 但是相对更容易上手。这个模版的核心是， `将binary search 问题转化成：寻找第一个或者最后一个，该target元素出现的位置的问题`，`Find the any/first/last position of target in nums`. 详解请见下面的例题。这个模版有四个要素。
 
-1. start + 1 < end
+1. start + 1 &lt; end
+
     表示， 当指针指到两个元素，相邻或者相交的时候， 循环停止。 这样的话在最终分情况讨论的时候，只用考虑`1～2`个元素。
-2. start + (end - start) / 2
+
+2. start + \(end - start\) / 2
+
     写C++ 和 Java的同学要考虑到int overflow的问题， 所以需要考虑边界情况。 写Python的同学就不用考虑了， 因为python这个语言本身已经非常努力的保证了number不会overflow。
-3. A[mid] ==, >, <
+
+3. A\[mid\] ==, &gt;, &lt;
+
     在循环中， 分三种情况讨论边界。 要注意， 在移动`start`和`end`的时候， 只要单纯的把指针指向`mid`的位置， 不要`+1`或者`-1`。 因为只移动边界到`mid`的位置， 不会误删除target。在工程中，尽量在程序最后的时候统一写`return`, 这样可以增强可读性。
-4. A[start], A[end]? target
-    在循环结束时，因为只有1～2个元素需要讨论，所以结果非常容易解释清楚。 只存在的2种情况为， 1. `start + 1 == end` 边界指向相邻的两个元素， 这时只需要分情况讨论`start`和`end`与target的关系，就可以得出结果。 2. `start == end` 边界指向同一元素， 其实这个情况还是可以按照1的方法，分成`start``end`讨论，只不过讨论结果一样而已。
+
+4. A\[start\], A\[end\]? target
+
+    在循环结束时，因为只有1～2个元素需要讨论，所以结果非常容易解释清楚。 只存在的2种情况为， 1. `start + 1 == end` 边界指向相邻的两个元素， 这时只需要分情况讨论`start`和`end`与target的关系，就可以得出结果。 2. `start == end` 边界指向同一元素， 其实这个情况还是可以按照1的方法，分成```start``end```讨论，只不过讨论结果一样而已。
 
 ### Python
+
 ```python
 class Solution:
     def binary_search(self, array, target):
@@ -197,6 +206,7 @@ class Solution:
 ```
 
 ### Java
+
 ```java
 class Solution {
     public int binarySearch(int[] array, int target) {
@@ -227,14 +237,17 @@ class Solution {
 ```
 
 ### Problem Statement
+
 [Search for a Range](http://www.lintcode.com/zh-hans/problem/search-for-a-range/)
 
 #### 样例
-给出[5, 7, 7, 8, 8, 10]和目标值target=8,
 
-返回[3, 4]
+给出\[5, 7, 7, 8, 8, 10\]和目标值target=8,
+
+返回\[3, 4\]
 
 ### Python
+
 ```python
 class Solution:
     def search_range(self, array, target):
@@ -273,9 +286,12 @@ class Solution:
 
         return ret
 ```
+
 ### 源码分析
+
 search range的问题可以理解为， 寻找第一次target出现的位置和最后一次target出现的位置。 当寻找第一次target出现位置的循环中， `array[mid] == target`表示， target可以出现在mid或者mid更前的位置， 所以将ed移动到mid。当循环跳出时， st的位置在ed之前，所以先判断在st位置上是否是target， 再判断ed位置。当寻找最后一次target出现位置的循环中，`array[mid] == target`表示， target可以出现在mid或者mid之后的位置， 所以将st移动到mid。 当循环结束时，ed的位置比st的位置更靠后， 所以先判断ed的位置是否为target， 再判断st位置。 最后返回ret。
 
 ## Reference
 
-- 《挑战程序设计竞赛》
+* 《挑战程序设计竞赛》
+

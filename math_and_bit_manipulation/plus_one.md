@@ -2,8 +2,8 @@
 
 ## Question
 
-- leetcode: [Plus One | LeetCode OJ](https://leetcode.com/problems/plus-one/)
-- lintcode: [(407) Plus One](http://www.lintcode.com/en/problem/plus-one/)
+* leetcode: [Plus One \| LeetCode OJ](https://leetcode.com/problems/plus-one/)
+* lintcode: [\(407\) Plus One](http://www.lintcode.com/en/problem/plus-one/)
 
 ### Problem Statement
 
@@ -13,16 +13,17 @@ The digits are stored such that the most significant digit is at the head of the
 
 #### Example
 
-Given [1,2,3] which represents 123, return [1,2,4].
+Given \[1,2,3\] which represents 123, return \[1,2,4\].
 
-Given [9,9,9] which represents 999, return [1,0,0,0].
+Given \[9,9,9\] which represents 999, return \[1,0,0,0\].
 
 ## 题解
 
 又是一道两个整数按数位相加的题，自后往前累加，处理下进位即可。这道题中是加1，其实还可以扩展至加2，加3等。
 
 ### C++
-```c++
+
+```cpp
 class Solution {
 public:
     /**
@@ -32,7 +33,7 @@ public:
     vector<int> plusOne(vector<int>& digits) {
         return plusN(digits, 1);
     }
-    
+
     vector<int> plusN(vector<int>& digits, int n) {
         vector<int> result;
         int carry = n;
@@ -83,7 +84,7 @@ public class Solution {
 
 ### 源码分析
 
-源码中单独实现了加任何数(0~9)的私有方法，更为通用，对于末尾第一个数，可以将要加的数当做进位处理，这样就不必单独区分最后一位了，十分优雅！
+源码中单独实现了加任何数\(0~9\)的私有方法，更为通用，对于末尾第一个数，可以将要加的数当做进位处理，这样就不必单独区分最后一位了，十分优雅！
 
 ### 复杂度分析
 
@@ -91,4 +92,5 @@ Java 中需要返回数组，而这个数组在处理之前是不知道大小的
 
 ## Reference
 
-- Soulmachine 的 leetcode 题解，将要加的数当做进位处理就是从这学到的。
+* Soulmachine 的 leetcode 题解，将要加的数当做进位处理就是从这学到的。
+

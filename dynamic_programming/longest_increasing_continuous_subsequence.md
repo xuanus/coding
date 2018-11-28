@@ -2,11 +2,11 @@
 
 ## Question
 
-- lintcode: [(397) Longest Increasing Continuous subsequence](http://www.lintcode.com/en/problem/longest-increasing-continuous-subsequence/)
+* lintcode: [\(397\) Longest Increasing Continuous subsequence](http://www.lintcode.com/en/problem/longest-increasing-continuous-subsequence/)
 
 ### Problem Statement
 
-Give you an integer array (index from 0 to n-1, where n is the size of this array)，find the longest increasing continuous subsequence in this array. (The definition of the longest increasing continuous subsequence here can be from right to left or from left to right)
+Give you an integer array \(index from 0 to n-1, where n is the size of this array\)，find the longest increasing continuous subsequence in this array. \(The definition of the longest increasing continuous subsequence here can be from right to left or from left to right\)
 
 #### Example
 
@@ -16,7 +16,7 @@ For `[5, 1, 2, 3, 4]`, the LICS is `[1, 2, 3, 4]`, return 4.
 
 #### Note
 
-O(n) time and O(1) extra space.
+O\(n\) time and O\(1\) extra space.
 
 ## 题解1
 
@@ -152,4 +152,5 @@ dfs 中使用记忆化存储避免重复递归，分左右两个方向递增，�
 
 ## Reference
 
-- [Lintcode: Longest Increasing Continuous subsequence | codesolutiony](https://codesolutiony.wordpress.com/2015/05/25/lintcode-longest-increasing-continuous-subsequence/)
+* [Lintcode: Longest Increasing Continuous subsequence \| codesolutiony](https://codesolutiony.wordpress.com/2015/05/25/lintcode-longest-increasing-continuous-subsequence/)
+

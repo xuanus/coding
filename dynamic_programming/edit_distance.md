@@ -1,13 +1,13 @@
 # Edit Distance
 
-- tags: [DP_Two_Sequence]
+* tags: \[DP\_Two\_Sequence\]
 
 ## Question
 
-- leetcode: [Edit Distance | LeetCode OJ](https://leetcode.com/problems/edit-distance/)
-- lintcode: [(119) Edit Distance](http://www.lintcode.com/en/problem/edit-distance/)
+* leetcode: [Edit Distance \| LeetCode OJ](https://leetcode.com/problems/edit-distance/)
+* lintcode: [\(119\) Edit Distance](http://www.lintcode.com/en/problem/edit-distance/)
 
-```
+```text
 Given two words word1 and word2, find the minimum number of steps required 
 to convert word1 to word2. (each operation is counted as 1 step.)
 
@@ -48,9 +48,9 @@ class Solution:
             len2 = len(word2)
         if not word1 or not word2:
             return max(len1, len2)
-        
+
         f = [[i + j for i in xrange(1 + len2)] for j in xrange(1 + len1)]
-        
+
         for i in xrange(1, 1 + len1):
             for j in xrange(1, 1 + len2):
                 if word1[i - 1] == word2[j - 1]:
@@ -59,9 +59,10 @@ class Solution:
                     f[i][j] = 1 + min(f[i - 1][j - 1], f[i - 1][j], f[i][j - 1])
         return f[len1][len2]
 ```
+
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -114,7 +115,7 @@ public class Solution {
         if (word1 == null || word2 == null) {
             return Math.max(len1, len2);
         }
-        
+
         int[][] f = new int[1 + len1][1 + len2];
         for (int i = 0; i <= len1; i++) {
             f[i][0] = i;
@@ -122,7 +123,7 @@ public class Solution {
         for (int i = 0; i <= len2; i++) {
             f[0][i] = i;
         }
-        
+
         for (int i = 1; i <= len1; i++) {
             for (int j = 1; j <= len2; j++) {
                 if (word1.charAt(i - 1) == word2.charAt(j - 1)) {
@@ -134,7 +135,7 @@ public class Solution {
                 }
             }
         }
-        
+
         return f[len1][len2];
     }
 }
@@ -143,10 +144,11 @@ public class Solution {
 ### 源码解析
 
 1. 边界处理
-2. 初始化二维矩阵(Python 中初始化时 list 中 len2 在前，len1 在后)
+2. 初始化二维矩阵\(Python 中初始化时 list 中 len2 在前，len1 在后\)
 3. i, j 从1开始计数，比较 word1 和 word2 时注意下标
 4. 返回`f[len1][len2]`
 
 ### 复杂度分析
 
 两重 for 循环，时间复杂度为 $$O(len1 \cdot len2)$$. 使用二维矩阵，空间复杂度为 $$O(len1 \cdot len2)$$.
+

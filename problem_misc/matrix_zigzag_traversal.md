@@ -2,9 +2,9 @@
 
 ## Question
 
-- lintcode: [(185) Matrix Zigzag Traversal](http://www.lintcode.com/en/problem/matrix-zigzag-traversal/)
+* lintcode: [\(185\) Matrix Zigzag Traversal](http://www.lintcode.com/en/problem/matrix-zigzag-traversal/)
 
-```
+```text
 Given a matrix of m x n elements (m rows, n columns),
 return all elements of the matrix in ZigZag-order.
 
@@ -23,7 +23,7 @@ return [1, 2, 5, 9, 6, 3, 4, 7, 10, 11, 8, 12]
 
 按之字形遍历矩阵，纯粹找下标规律。以题中所给范例为例，设`(x, y)`为矩阵坐标，按之字形遍历有如下规律：
 
-```
+```text
 (0, 0)
 (0, 1), (1, 0)
 (2, 0), (1, 1), (0, 2)
@@ -121,4 +121,5 @@ public class Solution {
 
 ## Reference
 
-- [LintCode/matrix-zigzag-traversal.cpp at master · kamyu104/LintCode](https://github.com/kamyu104/LintCode/blob/master/C++/matrix-zigzag-traversal.cpp)
+* [LintCode/matrix-zigzag-traversal.cpp at master · kamyu104/LintCode](https://github.com/kamyu104/LintCode/blob/master/C++/matrix-zigzag-traversal.cpp)
+

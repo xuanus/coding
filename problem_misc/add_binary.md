@@ -2,10 +2,10 @@
 
 ## Question
 
-- leetcode: [Add Binary | LeetCode OJ](https://leetcode.com/problems/add-binary/)
-- lintcode: [(408) Add Binary](http://www.lintcode.com/en/problem/add-binary/)
+* leetcode: [Add Binary \| LeetCode OJ](https://leetcode.com/problems/add-binary/)
+* lintcode: [\(408\) Add Binary](http://www.lintcode.com/en/problem/add-binary/)
 
-```
+```text
 Given two binary strings, return their sum (also a binary string).
 
 For example,
@@ -61,3 +61,4 @@ public class Solution {
 ### 复杂度分析
 
 遍历两个字符串，时间复杂度 $$O(n)$$. reverse 操作时间复杂度 $$O(n)$$, 故总的时间复杂度 $$O(n)$$. 使用了 StringBuilder 作为临时存储对象，空间复杂度 $$O(n)$$.
+

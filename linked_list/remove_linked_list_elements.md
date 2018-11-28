@@ -2,8 +2,8 @@
 
 ## Question
 
-- leetcode: [Remove Linked List Elements | LeetCode OJ](https://leetcode.com/problems/remove-linked-list-elements/)
-- lintcode: [(452) Remove Linked List Elements](http://www.lintcode.com/en/problem/remove-linked-list-elements/)
+* leetcode: [Remove Linked List Elements \| LeetCode OJ](https://leetcode.com/problems/remove-linked-list-elements/)
+* lintcode: [\(452\) Remove Linked List Elements](http://www.lintcode.com/en/problem/remove-linked-list-elements/)
 
 ### Problem Statement
 
@@ -11,8 +11,7 @@ Remove all elements from a linked list of integers that have value `val`.
 
 #### Example
 
-Given `1->2->3->3->4->5->3`, val = 3, you should return the list as
-`1->2->4->5`
+Given `1->2->3->3->4->5->3`, val = 3, you should return the list as `1->2->4->5`
 
 ## 题解
 
@@ -42,7 +41,7 @@ class Solution(object):
                 curr.next = curr.next.next
             else:
                 curr = curr.next
-        
+
         return dummy.next
 ```
 
@@ -87,3 +86,4 @@ while 循环中使用`curr.next`较为方便，if 语句中比较时也使用`cu
 ### 复杂度分析
 
 略
+

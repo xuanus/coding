@@ -2,13 +2,12 @@
 
 ## Question
 
-- leetcode: [Minimum Window Substring | LeetCode OJ](https://leetcode.com/problems/minimum-window-substring/)
-- lintcode: [(32) Minimum Window Substring](http://www.lintcode.com/en/problem/minimum-window-substring/)
+* leetcode: [Minimum Window Substring \| LeetCode OJ](https://leetcode.com/problems/minimum-window-substring/)
+* lintcode: [\(32\) Minimum Window Substring](http://www.lintcode.com/en/problem/minimum-window-substring/)
 
 ### Problem Statement
 
-Given a string source and a string target, find the minimum window in source
-which will contain all the characters in target.
+Given a string source and a string target, find the minimum window in source which will contain all the characters in target.
 
 #### Example
 
@@ -16,21 +15,19 @@ source = "**ADOBECODEBANC**" target = "**ABC**" Minimum window is "**BANC**".
 
 #### Note
 
-If there is no such window in source that covers all characters in target,
-return the emtpy string "".
+If there is no such window in source that covers all characters in target, return the emtpy string "".
 
-If there are multiple such windows, you are guaranteed that there will always
-be only one unique minimum window in source.
+If there are multiple such windows, you are guaranteed that there will always be only one unique minimum window in source.
 
 #### Challenge
 
-Can you do it in time complexity O(n) ?
+Can you do it in time complexity O\(n\) ?
 
 #### Clarification
 
 Should the characters in minimum window has the same order in target?
 
-- Not necessary.
+* Not necessary.
 
 ## 题解
 
@@ -51,7 +48,7 @@ public class Solution {
     public String minWindow(String source, String target) {
         if (source == null || target == null) return "";
         if (source.length() < target.length()) return "";
-        
+
         final int ASCII_COUNT = 256;
         int[] targetCount = new int[ASCII_COUNT];
         int[] sourceCount = new int[ASCII_COUNT];
@@ -86,7 +83,7 @@ public class Solution {
                 }
             }
         }
-        
+
         if (winMin == Integer.MAX_VALUE) {
             return "";
         } else {
@@ -106,4 +103,5 @@ public class Solution {
 
 ## Reference
 
-- [水中的鱼: [LeetCode] Minimum Window Substring 解题报告](http://fisherlei.blogspot.com/2012/12/leetcode-minimum-window-substring.html)
+* [水中的鱼: \[LeetCode\] Minimum Window Substring 解题报告](http://fisherlei.blogspot.com/2012/12/leetcode-minimum-window-substring.html)
+

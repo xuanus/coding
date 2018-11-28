@@ -1,42 +1,40 @@
 # Validate Binary Search Tree
 
-**TAGS:** TAG_Divide_and_Conquer TAG_Recursion TAG_Binary_Search_Tree TAG_Binary_Tree TAG_Medium
+**TAGS:** TAG\_Divide\_and\_Conquer TAG\_Recursion TAG\_Binary\_Search\_Tree TAG\_Binary\_Tree TAG\_Medium
 
 ## Question
 
-- leetcode: [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)
-- lintcode: [Validate Binary Search Tree](http://www.lintcode.com/en/problem/validate-binary-search-tree/)
+* leetcode: [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)
+* lintcode: [Validate Binary Search Tree](http://www.lintcode.com/en/problem/validate-binary-search-tree/)
 
 ### Problem Statement
 
-Given a binary tree, determine if it is a valid binary search tree (BST).
+Given a binary tree, determine if it is a valid binary search tree \(BST\).
 
 Assume a BST is defined as follows:
 
-  * The left subtree of a node contains only nodes with keys **less than** the node's key.
-  * The right subtree of a node contains only nodes with keys **greater than** the node's key.
-  * Both the left and right subtrees must also be binary search trees.
-  * A single node tree is a BST
+* The left subtree of a node contains only nodes with keys **less than** the node's key.
+* The right subtree of a node contains only nodes with keys **greater than** the node's key.
+* Both the left and right subtrees must also be binary search trees.
+* A single node tree is a BST
 
 **Example**
 
 An example:
 
-    
-      2
-     / \
-    1   4
-       / \
-      3   5
-    
+```text
+  2
+ / \
+1   4
+   / \
+  3   5
+```
 
-The above binary tree is serialized as `{2,1,4,#,#,3,5}` (in level order).
+The above binary tree is serialized as `{2,1,4,#,#,3,5}` \(in level order\).
 
 ## 题解1 - recursion
 
-按照题中对二叉搜索树所给的定义递归判断，我们从递归的两个步骤出发分析：
-1. 基本条件/终止条件 - 返回值需斟酌。
-2. 递归步/条件递归 - 能使原始问题收敛。
+按照题中对二叉搜索树所给的定义递归判断，我们从递归的两个步骤出发分析： 1. 基本条件/终止条件 - 返回值需斟酌。 2. 递归步/条件递归 - 能使原始问题收敛。
 
 终止条件好确定——当前节点为空，或者不符合二叉搜索树的定义，返回值分别是什么呢？先别急，分析下递归步试试先。递归步的核心步骤为比较当前节点的`key`和左右子节点的`key`大小，和定义不符则返回`false`, 否则递归处理。从这里可以看出在节点为空时应返回`true`, 由上层的其他条件判断。但需要注意的是这里不仅要考虑根节点与当前的左右子节点，**还需要考虑左子树中父节点的最小值和右子树中父节点的最大值。**否则程序在`[10,5,15,#,#,6,20]` 这种 case 误判。
 
@@ -44,7 +42,7 @@ The above binary tree is serialized as `{2,1,4,#,#,3,5}` (in level order).
 
 ### C++ - long long
 
-```c++
+```cpp
 /**
  * Definition of TreeNode:
  * class TreeNode {
@@ -83,7 +81,7 @@ public:
 
 ### C++ - without long long
 
-```c++
+```cpp
 /**
  * Definition of TreeNode:
  * class TreeNode {
@@ -214,4 +212,5 @@ public class Solution {
 
 ## Reference
 
-- [LeetCode: Validate Binary Search Tree 解题报告 - Yu's Garden - 博客园](http://www.cnblogs.com/yuzhangcmu/p/4177047.html) - 提供了4种不同的方法，思路可以参考。
+* [LeetCode: Validate Binary Search Tree 解题报告 - Yu's Garden - 博客园](http://www.cnblogs.com/yuzhangcmu/p/4177047.html) - 提供了4种不同的方法，思路可以参考。
+

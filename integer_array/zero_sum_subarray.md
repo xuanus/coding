@@ -2,10 +2,10 @@
 
 ## Question
 
-- lintcode: [(138) Subarray Sum](http://www.lintcode.com/en/problem/subarray-sum/)
-- GeeksforGeeks: [Find if there is a subarray with 0 sum - GeeksforGeeks](http://www.geeksforgeeks.org/find-if-there-is-a-subarray-with-0-sum/)
+* lintcode: [\(138\) Subarray Sum](http://www.lintcode.com/en/problem/subarray-sum/)
+* GeeksforGeeks: [Find if there is a subarray with 0 sum - GeeksforGeeks](http://www.geeksforgeeks.org/find-if-there-is-a-subarray-with-0-sum/)
 
-```
+```text
 Given an integer array, find a subarray where the sum of numbers is zero.
 Your code should return the index of the first number and the index of the last number.
 
@@ -18,15 +18,15 @@ There is at least one subarray that it's sum equals to zero.
 
 ## 题解1 - 两重 for 循环
 
-题目中仅要求返回一个子串(连续)中和为0的索引，而不必返回所有可能满足题意的解。最简单的想法是遍历所有子串，判断其和是否为0，使用两重循环即可搞定，最坏情况下时间复杂度为 $$O(n^2)$$, 这种方法显然是极其低效的，极有可能会出现 TLE. 下面就不浪费篇幅贴代码了。
+题目中仅要求返回一个子串\(连续\)中和为0的索引，而不必返回所有可能满足题意的解。最简单的想法是遍历所有子串，判断其和是否为0，使用两重循环即可搞定，最坏情况下时间复杂度为 $$O(n^2)$$, 这种方法显然是极其低效的，极有可能会出现 TLE. 下面就不浪费篇幅贴代码了。
 
-## 题解2 - 比较子串和(TLE)
+## 题解2 - 比较子串和\(TLE\)
 
 两重 for 循环显然是我们不希望看到的解法，那么我们再来分析下题意，题目中的对象是分析子串和，那么我们先从常见的对数组求和出发，$$f(i) = \sum _{0} ^{i} nums[i]$$ 表示从数组下标 0 开始至下标 i 的和。子串和为0，也就意味着存在不同的 $$i_1$$ 和 $$i_2$$ 使得 $$f(i_1) - f(i_2) = 0$$, 等价于 $$f(i_1) = f(i_2)$$. 思路很快就明晰了，使用一 vector 保存数组中从 0 开始到索引`i`的和，在将值 push 进 vector 之前先检查 vector 中是否已经存在，若存在则将相应索引加入最终结果并返回。
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -73,11 +73,11 @@ public:
 
 ## 题解3 - 哈希表
 
-终于到了祭出万能方法时候了，题解2可以认为是哈希表的雏形，而哈希表利用空间换时间的思路争取到了宝贵的时间资源 :)
+终于到了祭出万能方法时候了，题解2可以认为是哈希表的雏形，而哈希表利用空间换时间的思路争取到了宝贵的时间资源 :\)
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -120,11 +120,11 @@ public:
 
 ## 题解4 - 排序
 
-除了使用哈希表，我们还可使用排序的方法找到两个子串和相等的情况。这种方法的时间复杂度主要集中在排序方法的实现。由于除了记录子串和之外还需记录索引，故引入`pair`记录索引，最后排序时先按照`sum`值来排序，然后再按照索引值排序。如果需要自定义排序规则可参考[^sort_pair_second].
+除了使用哈希表，我们还可使用排序的方法找到两个子串和相等的情况。这种方法的时间复杂度主要集中在排序方法的实现。由于除了记录子串和之外还需记录索引，故引入`pair`记录索引，最后排序时先按照`sum`值来排序，然后再按照索引值排序。如果需要自定义排序规则可参考.
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -169,11 +169,10 @@ public:
 
 ## 扩展
 
-这道题的要求是找到一个即可，但是要找出所有满足要求的解呢？Stackoverflow 上有这道延伸题的讨论[^stackoverflow].
+这道题的要求是找到一个即可，但是要找出所有满足要求的解呢？Stackoverflow 上有这道延伸题的讨论.
 
 另一道扩展题来自 Google 的面试题 - [Find subarray with given sum - GeeksforGeeks](http://www.geeksforgeeks.org/find-subarray-with-given-sum/).
 
 ## Reference
 
-- [^stackoverflow]: [algorithm - Zero sum SubArray - Stack Overflow](http://stackoverflow.com/questions/5534063/zero-sum-subarray)
-- [^sort_pair_second]: [c++ - How do I sort a vector of pairs based on the second element of the pair? - Stack Overflow](http://stackoverflow.com/questions/279854/how-do-i-sort-a-vector-of-pairs-based-on-the-second-element-of-the-pair)
+* * 

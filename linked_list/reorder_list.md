@@ -2,28 +2,28 @@
 
 ## Question
 
-- leetcode: [Reorder List | LeetCode OJ](https://leetcode.com/problems/reorder-list/)
-- lintcode: [(99) Reorder List](http://www.lintcode.com/en/problem/reorder-list/)
+* leetcode: [Reorder List \| LeetCode OJ](https://leetcode.com/problems/reorder-list/)
+* lintcode: [\(99\) Reorder List](http://www.lintcode.com/en/problem/reorder-list/)
 
 ### Problem Statement
 
-Given a singly linked list _L_: _L_0→_L_1→…→_L__n_-1→_L_n,  
-reorder it to: _L_0→_L__n_→_L_1→_L__n_-1→_L_2→_L__n_-2→…
+Given a singly linked list _L_: _L\_0→\_L\_1→…→\_L\_\_n_-1→_L\_n,  
+reorder it to: \_L\_0→\_L\_\_n_→_L\_1→\_L\_\_n_-1→_L\_2→\_L\_\_n_-2→…
 
 You must do this in-place without altering the nodes' values.
 
 For example,  
 Given `{1,2,3,4}`, reorder it to `{1,4,2,3}`.
 
-### 题解1 - 链表长度(TLE) <i class="fa fa-thumbs-o-down"></i>
+### 题解1 - 链表长度\(TLE\) 
 
-直观角度来考虑，如果把链表视为数组来处理，那么我们要做的就是依次将下标之和为`n`的两个节点链接到一块儿，使用两个索引即可解决问题，一个索引指向`i`, 另一个索引则指向其之后的第`n - 2*i`个节点(对于链表来说实际上需要获取的是其前一个节点), 直至第一个索引大于第二个索引为止即处理完毕。
+直观角度来考虑，如果把链表视为数组来处理，那么我们要做的就是依次将下标之和为`n`的两个节点链接到一块儿，使用两个索引即可解决问题，一个索引指向`i`, 另一个索引则指向其之后的第`n - 2*i`个节点\(对于链表来说实际上需要获取的是其前一个节点\), 直至第一个索引大于第二个索引为止即处理完毕。
 
 既然依赖链表长度信息，那么要做的第一件事就是遍历当前链表获得其长度喽。获得长度后即对链表进行遍历，小心处理链表节点的断开及链接。用这种方法会提示 TLE，也就是说还存在较大的优化空间！
 
 ### C++ - TLE
 
-```c++
+```cpp
 /**
  * Definition of ListNode
  * class ListNode {
@@ -92,7 +92,7 @@ public:
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition of ListNode
  * class ListNode {
@@ -215,4 +215,5 @@ public class Solution {
 
 ## Reference
 
-- [Reorder List | 九章算法](http://www.jiuzhang.com/solutions/reorder-list/)
+* [Reorder List \| 九章算法](http://www.jiuzhang.com/solutions/reorder-list/)
+

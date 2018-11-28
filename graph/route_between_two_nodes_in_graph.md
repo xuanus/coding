@@ -2,24 +2,25 @@
 
 ## Question
 
-- lintcode: [(176) Route Between Two Nodes in Graph](http://www.lintcode.com/en/problem/route-between-two-nodes-in-graph/)
-- [Find if there is a path between two vertices in a directed graph - GeeksforGeeks](http://www.geeksforgeeks.org/find-if-there-is-a-path-between-two-vertices-in-a-given-graph/)
+* lintcode: [\(176\) Route Between Two Nodes in Graph](http://www.lintcode.com/en/problem/route-between-two-nodes-in-graph/)
+* [Find if there is a path between two vertices in a directed graph - GeeksforGeeks](http://www.geeksforgeeks.org/find-if-there-is-a-path-between-two-vertices-in-a-given-graph/)
 
 ### Problem Statement
 
-Given a directed graph, design an algorithm to find out whether there is a
-route between two nodes.
+Given a directed graph, design an algorithm to find out whether there is a route between two nodes.
 
 #### Example
 
 Given graph:
 
-    A----->B----->C
-     \     |
-      \    |
-       \   |
-        \  v
-         ->D----->E
+```text
+A----->B----->C
+ \     |
+  \    |
+   \   |
+    \  v
+     ->D----->E
+```
 
 for `s = B` and `t = E`, return `true`
 
@@ -85,9 +86,11 @@ public class Solution {
 ### 源码分析
 
 根据构造函数的实现，Java 中判断是否有邻居节点时使用`.size`，而不是`null`. 注意深搜前检测是否被处理过。行
+
 ```java
 if (dfs(graph, node, t, visited)) return true;
 ```
+
 中注意不是直接 return, 只在为 true 时返回。
 
 ### 复杂度分析
@@ -156,3 +159,4 @@ public class Solution {
 ### 复杂度分析
 
 时间复杂度同题解一，也是 $$O(V+E)$$, 空间复杂度最坏情况下为两层多叉树，为 $$O(V+E)$$.
+

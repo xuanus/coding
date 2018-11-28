@@ -2,10 +2,10 @@
 
 ## Question
 
-- leetcode: [String to Integer (atoi) | LeetCode OJ](https://leetcode.com/problems/string-to-integer-atoi/)
-- lintcode: [(54) String to Integer(atoi)](http://www.lintcode.com/en/problem/string-to-integer-ii/)
+* leetcode: [String to Integer \(atoi\) \| LeetCode OJ](https://leetcode.com/problems/string-to-integer-atoi/)
+* lintcode: [\(54\) String to Integer\(atoi\)](http://www.lintcode.com/en/problem/string-to-integer-ii/)
 
-```
+```text
 Implement function atoi to convert a string to an integer.
 
 If no valid conversion could be performed, a zero value is returned.
@@ -25,7 +25,7 @@ Example
 
 ## 题解
 
-经典的字符串转整数题，边界条件比较多，比如是否需要考虑小数点，空白及非法字符的处理，正负号的处理，科学计数法等。最先处理的是空白字符，然后是正负号，接下来只要出现非法字符(包含正负号，小数点等，无需对这两类单独处理)即退出，否则按照正负号的整数进位加法处理。
+经典的字符串转整数题，边界条件比较多，比如是否需要考虑小数点，空白及非法字符的处理，正负号的处理，科学计数法等。最先处理的是空白字符，然后是正负号，接下来只要出现非法字符\(包含正负号，小数点等，无需对这两类单独处理\)即退出，否则按照正负号的整数进位加法处理。
 
 ### Java
 
@@ -83,4 +83,5 @@ public class Solution {
 
 ## Reference
 
-- [String to Integer (atoi) 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/string-to-integer-atoi/)
+* [String to Integer \(atoi\) 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/string-to-integer-atoi/)
+

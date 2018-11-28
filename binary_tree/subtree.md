@@ -2,9 +2,9 @@
 
 ## Question
 
-- lintcode: [(245) Subtree](http://www.lintcode.com/en/problem/subtree/#)
+* lintcode: [\(245\) Subtree](http://www.lintcode.com/en/problem/subtree/#)
 
-```
+```text
 You have two every large binary trees: T1,
 with millions of nodes, and T2, with hundreds of nodes.
 Create an algorithm to decide if T2 is a subtree of T1.
@@ -77,4 +77,5 @@ identical 的调用，时间复杂度近似 $$O(n)$$, 查根节点的时间复�
 
 ## Reference
 
-- [LintCode: Subtree](http://cherylintcode.blogspot.com/2015/06/subtree.html)
+* [LintCode: Subtree](http://cherylintcode.blogspot.com/2015/06/subtree.html)
+

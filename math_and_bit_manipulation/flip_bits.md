@@ -1,29 +1,28 @@
-# [Flip Bits](http://www.lintcode.com/en/problem/flip-bits/)
+# Convert Integer A to Integer B
 
 ## Question
 
-- lintcode: [Flip Bits](http://www.lintcode.com/en/problem/flip-bits/)
+* lintcode: [Flip Bits](http://www.lintcode.com/en/problem/flip-bits/)
 
 ### Problem Statement
 
-Determine the number of bits required to flip if you want to convert integer
-_n_ to integer _m_.
+Determine the number of bits required to flip if you want to convert integer _n_ to integer _m_.
 
-##### Notice
+**Notice**
 
 Both _n_ and _m_ are 32-bit integers.
 
 #### Example
 
-Given _n_ = `31` (11111), _m_ = `14` (01110), return `2`.
+Given _n_ = `31` \(11111\), _m_ = `14` \(01110\), return `2`.
 
 ## 题解
 
 比较两个数不同的比特位个数，显然容易想到可以使用异或处理两个整数，相同的位上为0，不同的位上为1，故接下来只需将异或后1的个数求出即可。容易想到的方法是移位后和1按位与得到最低位的结果，使用计数器记录这一结果，直至最后操作数为0时返回最终值。这种方法需要遍历元素的每一位，有咩有更为高效的做法呢？还记得之前做过的 [O1 Check Power of 2](http://algorithm.yuanbin.me/zh-hans/math_and_bit_manipulation/o1_check_power_of_2.html) 吗？`x & (x - 1)`既然可以检查2的整数次幂，那么如何才能进一步得到所有1的个数呢？——将异或得到的数分拆为若干个2的整数次幂，计算得到有多少个2的整数次幂即可。
 
-以上的分析过程对于正数来说是毫无问题的，但问题就在于如果出现了负数如何破？不确定的时候就来个实例测测看，以-2为例，(-2) & (-2 - 1)的计算如下所示(简单起见这里以8位为准)：
+以上的分析过程对于正数来说是毫无问题的，但问题就在于如果出现了负数如何破？不确定的时候就来个实例测测看，以-2为例，\(-2\) & \(-2 - 1\)的计算如下所示\(简单起见这里以8位为准\)：
 
-```
+```text
  11111110 <==> -2   -2 <==> 11111110
 +                          &
  11111111 <==> -1   -3 <==> 11111101
@@ -62,7 +61,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -117,6 +116,7 @@ Python 中 int 溢出时会自动变为 long 类型，故处理负数时需要�
 
 ## Reference
 
-- [BitManipulation - Python Wiki](https://wiki.python.org/moin/BitManipulation)
-- [5. Expressions — Python 2.7.10rc0 documentation](https://docs.python.org/2/reference/expressions.html#shifting)
-- [Python之位移操作符所带来的困惑 - 旁观者 - 博客园](http://www.cnblogs.com/zhengyun_ustc/archive/2009/10/14/shifting.html)
+* [BitManipulation - Python Wiki](https://wiki.python.org/moin/BitManipulation)
+* [5. Expressions — Python 2.7.10rc0 documentation](https://docs.python.org/2/reference/expressions.html#shifting)
+* [Python之位移操作符所带来的困惑 - 旁观者 - 博客园](http://www.cnblogs.com/zhengyun_ustc/archive/2009/10/14/shifting.html)
+

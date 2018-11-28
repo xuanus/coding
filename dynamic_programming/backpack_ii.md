@@ -2,37 +2,33 @@
 
 ## Question
 
-- lintcode: [(125) Backpack II](http://www.lintcode.com/en/problem/backpack-ii/)
+* lintcode: [\(125\) Backpack II](http://www.lintcode.com/en/problem/backpack-ii/)
 
 ### Problem Statement
 
-Given _n_ items with size $$Ai$$ and value Vi, and a backpack with size _m_.
-What's the maximum value can you put into the backpack?
+Given _n_ items with size $$Ai$$ and value Vi, and a backpack with size _m_. What's the maximum value can you put into the backpack?
 
 #### Example
 
-Given 4 items with size `[2, 3, 5, 7]` and value `[1, 5, 2, 4]`, and a
-backpack with size `10`. The maximum value is `9`.
+Given 4 items with size `[2, 3, 5, 7]` and value `[1, 5, 2, 4]`, and a backpack with size `10`. The maximum value is `9`.
 
 #### Note
 
-You cannot divide item into small pieces and the total size of items you
-choose should smaller or equal to m.
+You cannot divide item into small pieces and the total size of items you choose should smaller or equal to m.
 
 #### Challenge
 
-O(n x m) memory is acceptable, can you do it in O(m) memory?
+O\(n x m\) memory is acceptable, can you do it in O\(m\) memory?
 
 ## 题解
 
-首先定义状态 $$K(i,w)$$ 为前 $$i$$ 个物品放入size为 $$w$$ 的背包中所获得的最大价值，则相应的状态转移方程为：
-$$K(i,w) = \max \{K(i-1, w), K(i-1, w - w_i) + v_i\}$$
+首先定义状态 $$K(i,w)$$ 为前 $$i$$ 个物品放入size为 $$w$$ 的背包中所获得的最大价值，则相应的状态转移方程为： $$K(i,w) = \max \{K(i-1, w), K(i-1, w - w_i) + v_i\}$$
 
 详细分析过程见 [Knapsack](http://algorithm.yuanbin.me/zh-hans/basics_algorithm/knapsack.html)
 
 ### C++ - 2D vector for result
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -80,7 +76,7 @@ public class Solution {
      */
     public int backPackII(int m, int[] A, int V[]) {
         if (A == null || V == null || A.length == 0 || V.length == 0) return 0;
-        
+
         final int N = A.length;
         final int M = m;
         int[][] bp = new int[N + 1][M + 1];
@@ -93,7 +89,7 @@ public class Solution {
                 }
             }
         }
-        
+
         return bp[N][M];
     }
 }
@@ -108,7 +104,7 @@ public class Solution {
 
 ### C++ 1D vector for result
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -144,5 +140,6 @@ public:
 
 ## Reference
 
-- [Lintcode: Backpack II - neverlandly - 博客园](http://www.cnblogs.com/EdwardLiu/p/4272300.html)
-- [九章算法 | 背包问题](http://www.jiuzhang.com/problem/58/)
+* [Lintcode: Backpack II - neverlandly - 博客园](http://www.cnblogs.com/EdwardLiu/p/4272300.html)
+* [九章算法 \| 背包问题](http://www.jiuzhang.com/problem/58/)
+

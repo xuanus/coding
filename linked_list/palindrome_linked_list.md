@@ -2,9 +2,9 @@
 
 ## Question
 
-- leetcode: [Palindrome Linked List | LeetCode OJ](https://leetcode.com/problems/palindrome-linked-list/)
-- lintcode: [Palindrome Linked List](http://www.lintcode.com/en/problem/palindrome-linked-list/)
-- [Function to check if a singly linked list is palindrome - GeeksforGeeks](http://www.geeksforgeeks.org/function-to-check-if-a-singly-linked-list-is-palindrome/)
+* leetcode: [Palindrome Linked List \| LeetCode OJ](https://leetcode.com/problems/palindrome-linked-list/)
+* lintcode: [Palindrome Linked List](http://www.lintcode.com/en/problem/palindrome-linked-list/)
+* [Function to check if a singly linked list is palindrome - GeeksforGeeks](http://www.geeksforgeeks.org/function-to-check-if-a-singly-linked-list-is-palindrome/)
 
 ### Problem Statement
 
@@ -16,12 +16,11 @@ Given `1->2->1`, return true
 
 #### Challenge
 
-Could you do it in O(n) time and O(1) space?
-
+Could you do it in O\(n\) time and O\(1\) space?
 
 ## 题解1 - 使用辅助栈
 
-根据栈的特性(FILO)，可以首先遍历链表并入栈(最后访问栈时则反过来了)，随后再次遍历链表并比较当前节点和栈顶元素，若比较结果完全相同则为回文。 又根据回文的特性，实际上还可以只遍历链表前半部分节点，再用栈中的元素和后半部分元素进行比较，分链表节点个数为奇数或者偶数考虑即可。由于链表长度未知，因此可以考虑使用快慢指针求得。
+根据栈的特性\(FILO\)，可以首先遍历链表并入栈\(最后访问栈时则反过来了\)，随后再次遍历链表并比较当前节点和栈顶元素，若比较结果完全相同则为回文。 又根据回文的特性，实际上还可以只遍历链表前半部分节点，再用栈中的元素和后半部分元素进行比较，分链表节点个数为奇数或者偶数考虑即可。由于链表长度未知，因此可以考虑使用快慢指针求得。
 
 ### Python
 
@@ -57,9 +56,10 @@ class Solution:
             curt = curt.next
         return True
 ```
-#### 源码分析
-注意， 在python code中， slow 和 fast pointer 分别指向head 和head.next。 这样指向的好处是：当linked－list 有奇数个数字的时候， 最终位置，slow会停在mid的位置， 而fast指向空。 当linked－list有偶数个node时， 最终位置，slow和slow.next为中间的两个元素， fast指向最后一个node。所以slow的最终位置总是mid 或者mid 偏左一点的位置。这样的位置非常方便分割linked－list，以及其他计算。推荐采用这种方法来寻找linked－list的mid位置。模版优势，请见solution2。
 
+#### 源码分析
+
+注意， 在python code中， slow 和 fast pointer 分别指向head 和head.next。 这样指向的好处是：当linked－list 有奇数个数字的时候， 最终位置，slow会停在mid的位置， 而fast指向空。 当linked－list有偶数个node时， 最终位置，slow和slow.next为中间的两个元素， fast指向最后一个node。所以slow的最终位置总是mid 或者mid 偏左一点的位置。这样的位置非常方便分割linked－list，以及其他计算。推荐采用这种方法来寻找linked－list的mid位置。模版优势，请见solution2。
 
 ### Java
 
@@ -121,6 +121,7 @@ public class Solution {
 4. 链表复原，翻转后半部分链表。
 
 ### Python
+
 ```python
 # class ListNode:
 #     def __init__(self, val):
@@ -158,8 +159,8 @@ class Solution:
 ```
 
 #### 源码分析
-对比Java code， 会发现，把slow 和fast pointer 放在head和head.next减少了对odd 或者even number的判断。因为slow总是在mid的位置或者mid偏左的位置上， 所以把mid assign 为slow.next总是对的。
 
+对比Java code， 会发现，把slow 和fast pointer 放在head和head.next减少了对odd 或者even number的判断。因为slow总是在mid的位置或者mid偏左的位置上， 所以把mid assign 为slow.next总是对的。
 
 ### Java
 
@@ -222,7 +223,8 @@ public class Solution {
 ```
 
 ### C++
-```c++
+
+```cpp
 class Solution {
 public:
     bool isPalindrome(ListNode* head) {
@@ -276,11 +278,12 @@ public:
 
 遍历链表若干次，时间复杂度近似为 $$O(n)$$, 使用了几个临时遍历，空间复杂度为 $$O(1)$$.
 
-## 题解3 - 递归(TLE)
+## 题解3 - 递归\(TLE\)
 
-递归需要两个重要条件，递归步的建立和递归终止条件。对于回文比较，理所当然应该递归比较第 i 个节点和第 n-i 个节点，那么问题来了，如何构建这个递归步？大致可以猜想出来递归的传入参数应该包含两个节点，用以指代第 i 个节点和第 n-i 个节点。返回参数应该包含布尔值(用以提前返回不是回文的情况)和左半部分节点的下一个节点(用以和右半部分的节点进行比较)。由于需要返回两个值，在 Java 中需要使用自定义类进行封装，C/C++ 中则可以使用指针改变在**递归调用后**进行比较时节点的值。
+递归需要两个重要条件，递归步的建立和递归终止条件。对于回文比较，理所当然应该递归比较第 i 个节点和第 n-i 个节点，那么问题来了，如何构建这个递归步？大致可以猜想出来递归的传入参数应该包含两个节点，用以指代第 i 个节点和第 n-i 个节点。返回参数应该包含布尔值\(用以提前返回不是回文的情况\)和左半部分节点的下一个节点\(用以和右半部分的节点进行比较\)。由于需要返回两个值，在 Java 中需要使用自定义类进行封装，C/C++ 中则可以使用指针改变在**递归调用后**进行比较时节点的值。
 
 ### Python
+
 ```python
 class Solution:
     def is_palindrome(self, head):
@@ -347,8 +350,8 @@ public class Solution {
 
 递归调用 n 层，时间复杂度近似为 $$O(n)$$, 使用了几个临时变量，空间复杂度为 $$O(1)$$.
 
-
 ### Bonus - Fancy Python Solution
+
 ```python
 class Solution:
     def is_palindrome(self, head):
@@ -358,16 +361,18 @@ class Solution:
             head = head.next
         return nodes == nodes[::-1]
 ```
+
 ### 源码分析
 
 将linked－list问题，转化成判断一个array是否为palindrome的问题。
 
 ### 复杂度分析
-时间复杂度 $$O(n)$$, 空间复杂度也是 $$O(n)$$
 
+时间复杂度 $$O(n)$$, 空间复杂度也是 $$O(n)$$
 
 ## Reference
 
-- [Function to check if a singly linked list is palindrome - GeeksforGeeks](http://www.geeksforgeeks.org/function-to-check-if-a-singly-linked-list-is-palindrome/)
-- [回文判断 | The-Art-Of-Programming-By-July/01.04.md](https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/zh/01.04.md)
-- [ctci/QuestionB.java at master · gaylemcd/ctci](https://github.com/gaylemcd/ctci/blob/master/java/Chapter%202/Question2_7/QuestionB.java)
+* [Function to check if a singly linked list is palindrome - GeeksforGeeks](http://www.geeksforgeeks.org/function-to-check-if-a-singly-linked-list-is-palindrome/)
+* [回文判断 \| The-Art-Of-Programming-By-July/01.04.md](https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/zh/01.04.md)
+* [ctci/QuestionB.java at master · gaylemcd/ctci](https://github.com/gaylemcd/ctci/blob/master/java/Chapter%202/Question2_7/QuestionB.java)
+

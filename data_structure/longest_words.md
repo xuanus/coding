@@ -2,9 +2,9 @@
 
 ## Question
 
-- lintcode: [(133) Longest Words](http://www.lintcode.com/en/problem/longest-words/)
+* lintcode: [\(133\) Longest Words](http://www.lintcode.com/en/problem/longest-words/)
 
-```
+```text
 Given a dictionary, find all of the longest words in the dictionary.
 
 Example
@@ -74,4 +74,5 @@ class Solution {
 
 ## Reference
 
-- [Lintcode: Longest Words | codesolutiony](https://codesolutiony.wordpress.com/2015/06/07/lintcode-longest-words/)
+* [Lintcode: Longest Words \| codesolutiony](https://codesolutiony.wordpress.com/2015/06/07/lintcode-longest-words/)
+

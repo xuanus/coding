@@ -1,9 +1,9 @@
-# Permutations II
+# Unique Permutations
 
 ## Question
 
-- leetcode: [Permutations II | LeetCode OJ](https://leetcode.com/problems/permutations-ii/)
-- lintcode: [(16) Permutations II](http://www.lintcode.com/en/problem/permutations-ii/)
+* leetcode: [Permutations II \| LeetCode OJ](https://leetcode.com/problems/permutations-ii/)
+* lintcode: [\(16\) Permutations II](http://www.lintcode.com/en/problem/permutations-ii/)
 
 ### Problem Statement
 
@@ -13,7 +13,7 @@ Given a list of numbers with duplicate number in it. Find all **unique** permuta
 
 For numbers `[1,2,2]` the unique permutations are:
 
-```
+```text
 [
 
     [1,2,2],
@@ -42,13 +42,13 @@ Do it without recursion.
 
 从以上结果我们注意到`1`和`2`重复，`5`和`3`重复，`6`和`4`重复，从重复的解我们可以发现其共同特征均是第二个 $$2_2$$ 在前，而第一个 $$2_1$$ 在后，因此我们的**剪枝方法为：对于有相同的元素来说，我们只取不重复的一次。**嗯，这样说还是有点模糊，下面以 $$[1, 2_1, 2_2]$$ 和 $$[1, 2_2, 2_1]$$ 进行说明。
 
-首先可以确定 $$[1, 2_1, 2_2]$$ 是我们要的一个解，此时`list`为  $$[1, 2_1, 2_2]$$, 经过两次`list.pop_back()`之后，`list`为 $$[1]$$, 如果不进行剪枝，那么接下来要加入`list`的将为 $$2_2$$, 那么我们剪枝要做的就是避免将 $$2_2$$ 加入到`list`中，如何才能做到这一点呢？我们仍然从上述例子出发进行分析，在第一次加入 $$2_2$$ 时，相对应的`visited[1]`为`true`(对应 $$2_1$$)，而在第二次加入 $$2_2$$ 时，相对应的`visited[1]`为`false`，因为在`list`为 $$[1, 2_1]$$ 时，执行`list.pop_back()`后即置为`false`。
+首先可以确定 $$[1, 2_1, 2_2]$$ 是我们要的一个解，此时`list`为 $$[1, 2_1, 2_2]$$, 经过两次`list.pop_back()`之后，`list`为 $$[1]$$, 如果不进行剪枝，那么接下来要加入`list`的将为 $$2_2$$, 那么我们剪枝要做的就是避免将 $$2_2$$ 加入到`list`中，如何才能做到这一点呢？我们仍然从上述例子出发进行分析，在第一次加入 $$2_2$$ 时，相对应的`visited[1]`为`true`\(对应 $$2_1$$\)，而在第二次加入 $$2_2$$ 时，相对应的`visited[1]`为`false`，因为在`list`为 $$[1, 2_1]$$ 时，执行`list.pop_back()`后即置为`false`。
 
-一句话总结即为：在遇到当前元素和前一个元素相等时，如果前一个元素`visited[i - 1] == false`,  那么我们就跳过当前元素并进入下一次循环，这就是剪枝的关键所在。另一点需要特别注意的是这种剪枝的方法能使用的前提是提供的`nums`是有序数组，否则无效。
+一句话总结即为：在遇到当前元素和前一个元素相等时，如果前一个元素`visited[i - 1] == false`, 那么我们就跳过当前元素并进入下一次循环，这就是剪枝的关键所在。另一点需要特别注意的是这种剪枝的方法能使用的前提是提供的`nums`是有序数组，否则无效。
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -168,4 +168,5 @@ class Solution {
 
 ## Reference
 
-- [Permutation II | 九章算法](http://www.jiuzhang.com/solutions/permutations-ii/)
+* [Permutation II \| 九章算法](http://www.jiuzhang.com/solutions/permutations-ii/)
+

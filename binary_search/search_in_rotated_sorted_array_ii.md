@@ -2,13 +2,12 @@
 
 ## Question
 
-- leetcode: [Search in Rotated Sorted Array II | LeetCode OJ](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/)
-- lintcode: [(63) Search in Rotated Sorted Array II](http://www.lintcode.com/en/problem/search-in-rotated-sorted-array-ii/)
+* leetcode: [Search in Rotated Sorted Array II \| LeetCode OJ](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/)
+* lintcode: [\(63\) Search in Rotated Sorted Array II](http://www.lintcode.com/en/problem/search-in-rotated-sorted-array-ii/)
 
 ### Problem Statement
 
-Follow up for "Search in Rotated Sorted Array":
-What if _duplicates_ are allowed?
+Follow up for "Search in Rotated Sorted Array": What if _duplicates_ are allowed?
 
 Would this affect the run-time complexity? How and why?
 
@@ -16,11 +15,11 @@ Write a function to determine if a given target is in the array.
 
 ## 题解
 
-仔细分析此题和之前一题的不同之处，前一题我们利用`A[start] < A[mid]`这一关键信息，而在此题中由于有重复元素的存在，在`A[start] == A[mid]`时无法确定有序数组，此时只能依次递增start/递减end以缩小搜索范围，时间复杂度最差变为O(n)。
+仔细分析此题和之前一题的不同之处，前一题我们利用`A[start] < A[mid]`这一关键信息，而在此题中由于有重复元素的存在，在`A[start] == A[mid]`时无法确定有序数组，此时只能依次递增start/递减end以缩小搜索范围，时间复杂度最差变为O\(n\)。
 
 ### C++
 
-```c++
+```cpp
 class Solution {
     /**
      * param A : an integer ratated sorted array and duplicates are allowed
@@ -122,3 +121,4 @@ public class Solution {
 ### 复杂度分析
 
 最差情况下 $$O(n)$$, 平均情况下 $$O(\log n)$$.
+

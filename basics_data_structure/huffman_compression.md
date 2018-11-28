@@ -1,4 +1,4 @@
-# Huffman Compression - 霍夫曼压缩
+# Huffman Compression
 
 主要思想：放弃文本文件的普通保存方式：不再使用7位或8位二进制数表示每一个字符，而是**用较少的比特表示出现频率最高的字符，用较多的比特表示出现频率低的字符**。
 
@@ -7,16 +7,15 @@
 以符号F, O, R, G, E, T为例，其出现的频次如以下表格所示。
 
 | Symbol | F | O | R | G | E | T |
-| -- | -- | -- | -- | -- | -- | -- |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | Frequence | 2 | 3 | 4 | 4 | 5 | 7 |
 | Code | 000 | 001 | 100 | 101 | 01 | 11 |
 
 则对各符号进行霍夫曼编码的动态演示如下图所示。基本步骤是将出现频率由小到大排列，组成子树后频率相加作为整体再和其他未加入二叉树中的节点频率比较。加权路径长为节点的频率乘以树的深度。
 
-![Huffman](../../shared-files/images/huffman_algorithm.gif)
+![Huffman](https://github.com/xuanus/coding/tree/f09f25ddc0c56beb8d4ed92fcfb3e81a80f8ab75/shared-files/images/huffman_algorithm.gif)
 
-
-### Python 实现
+## Python 实现
 
 ```python
 """
@@ -170,9 +169,10 @@ Uncompressed: everyday is awesome!
 Huffman Compression-compress rate: 45%
 """
 ```
-### 源码分析
 
-简单压缩： 根据字符串出现的字符，将ASCII替换成更短的表示形式
-霍夫曼压缩： 根据字符串出现频率，构建Trie树， 对每个tree node进行定义，使得频率越高的字符离root节点越近
+## 源码分析
 
-有关霍夫曼编码的具体步骤可参考 [Huffman 编码压缩算法 | 酷 壳 - CoolShell.cn](http://coolshell.cn/articles/7459.html) 和 [霍夫曼编码 - 维基百科，自由的百科全书](http://zh.wikipedia.org/wiki/%E9%9C%8D%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81)，清晰易懂。
+简单压缩： 根据字符串出现的字符，将ASCII替换成更短的表示形式 霍夫曼压缩： 根据字符串出现频率，构建Trie树， 对每个tree node进行定义，使得频率越高的字符离root节点越近
+
+有关霍夫曼编码的具体步骤可参考 [Huffman 编码压缩算法 \| 酷 壳 - CoolShell.cn](http://coolshell.cn/articles/7459.html) 和 [霍夫曼编码 - 维基百科，自由的百科全书](http://zh.wikipedia.org/wiki/霍夫曼编码)，清晰易懂。
+

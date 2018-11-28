@@ -2,14 +2,11 @@
 
 ## Question
 
-- lintcode: [(183) Wood Cut](http://www.lintcode.com/en/problem/wood-cut/)
+* lintcode: [\(183\) Wood Cut](http://www.lintcode.com/en/problem/wood-cut/)
 
 ### Problem Statement
 
-Given n pieces of wood with length `L[i]` (integer array). Cut them into small
-pieces to guarantee you could have equal or more than k pieces with the same
-length. What is the longest length you can get from the n pieces of wood?
-Given L &amp; k, return the maximum length of the small pieces.
+Given n pieces of wood with length `L[i]` \(integer array\). Cut them into small pieces to guarantee you could have equal or more than k pieces with the same length. What is the longest length you can get from the n pieces of wood? Given L & k, return the maximum length of the small pieces.
 
 #### Example
 
@@ -21,14 +18,13 @@ You couldn't cut wood into float length.
 
 #### Challenge
 
-O(n log Len), where Len is the longest length of the wood.
+O\(n log Len\), where Len is the longest length of the wood.
 
 ## 题解 - 二分搜索
 
 这道题要直接想到二分搜素其实不容易，但是看到题中 Challenge 的提示后你大概就能想到往二分搜索上靠了。首先来分析下题意，题目意思是说给出 n 段木材`L[i]`, 将这 n 段木材切分为至少 k 段，这 k 段等长，求能从 n 段原材料中获得的最长单段木材长度。以 k=7 为例，要将 L 中的原材料分为7段，能得到的最大单段长度为114, 232/114 = 2, 124/114 = 1, 456/114 = 4, 2 + 1 + 4 = 7.
 
-理清题意后我们就来想想如何用算法的形式表示出来，显然在计算如`2`, `1`, `4`等分片数时我们进行了取整运算，在计算机中则可以使用下式表示：
-$$\sum _{i = 1} ^{n} \frac {L[i]}{l} \geq k$$
+理清题意后我们就来想想如何用算法的形式表示出来，显然在计算如`2`, `1`, `4`等分片数时我们进行了取整运算，在计算机中则可以使用下式表示： $$\sum _{i = 1} ^{n} \frac {L[i]}{l} \geq k$$
 
 其中 $$l$$ 为单段最大长度，显然有 $$1 \leq l \leq max(L[i])$$. 单段长度最小为1，最大不可能超过给定原材料中的最大木材长度。
 
@@ -66,7 +62,8 @@ class Solution:
 ```
 
 ### C++
-```c++
+
+```cpp
 class Solution {
 public:
     /** 
@@ -78,7 +75,7 @@ public:
         // write your code here
         int lb = 0, ub = 0;
         for (auto l : L) if (l + 1 > ub) ub = l + 1;
-        
+
         while (lb + 1 < ub) {
             int mid = lb + (ub - lb) / 2;
             if (C(L, k, mid)) lb = mid;
@@ -86,7 +83,7 @@ public:
         }
         return lb;
     }
-    
+
     int C(vector<int> L, int k, int mid) {
         int sum = 0;
         for (auto l : L) {
@@ -146,4 +143,5 @@ public class Solution {
 
 ## Reference
 
-- [Binary Search](http://algorithm.yuanbin.me/zh-hans/basics_algorithm/binary_search.html)
+* [Binary Search](http://algorithm.yuanbin.me/zh-hans/basics_algorithm/binary_search.html)
+

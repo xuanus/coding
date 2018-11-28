@@ -2,13 +2,13 @@
 
 ## Question
 
-- lintcode: [(140) Fast Power](http://www.lintcode.com/en/problem/fast-power/)
+* lintcode: [\(140\) Fast Power](http://www.lintcode.com/en/problem/fast-power/)
 
 ## 题解
 
 数学题，考察整数求模的一些特性，不知道这个特性的话此题一时半会解不出来，本题中利用的关键特性为：
 
-```
+```text
 (a * b) % p = ((a % p) * (b % p)) % p
 ```
 
@@ -48,7 +48,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /*
@@ -122,5 +122,6 @@ class Solution {
 
 ## Reference
 
-- [Lintcode: Fast Power 解题报告 - Yu's Garden - 博客园](http://www.cnblogs.com/yuzhangcmu/p/4174781.html)
-- [Fast Power 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/fast-power/)
+* [Lintcode: Fast Power 解题报告 - Yu's Garden - 博客园](http://www.cnblogs.com/yuzhangcmu/p/4174781.html)
+* [Fast Power 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/fast-power/)
+

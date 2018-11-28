@@ -1,13 +1,13 @@
 # Palindrome Partitioning II
 
-- tags: [DP_Sequence]
+* tags: \[DP\_Sequence\]
 
 ## Question
 
-- leetcode: [Palindrome Partitioning II | LeetCode OJ](https://leetcode.com/problems/palindrome-partitioning-ii/)
-- lintcode: [(108) Palindrome Partitioning II](http://www.lintcode.com/en/problem/palindrome-partitioning-ii/)
+* leetcode: [Palindrome Partitioning II \| LeetCode OJ](https://leetcode.com/problems/palindrome-partitioning-ii/)
+* lintcode: [\(108\) Palindrome Partitioning II](http://www.lintcode.com/en/problem/palindrome-partitioning-ii/)
 
-```
+```text
 Given a string s, cut s into some substrings such that
 every substring is a palindrome.
 
@@ -22,7 +22,7 @@ using 1 cut.
 
 ## 题解1 - 仅对最小切割数使用动态规划
 
-此题为难题，费了我九牛二虎之力才bug-free :( 求最小切分数，非常明显的动规暗示。由问题出发可建立状态`f[i]` 表示到索引`i` 处时需要的最少切割数(即切割前 i 个字符组成的字符串)，状态转移方程为`f[i] = min{1 + f[j]}, where j < i and substring [j, i] is palindrome`, 判断区间[j, i] 是否为回文简单的方法可反转后比较。
+此题为难题，费了我九牛二虎之力才bug-free :\( 求最小切分数，非常明显的动规暗示。由问题出发可建立状态`f[i]` 表示到索引`i` 处时需要的最少切割数\(即切割前 i 个字符组成的字符串\)，状态转移方程为`f[i] = min{1 + f[j]}, where j < i and substring [j, i] is palindrome`, 判断区间\[j, i\] 是否为回文简单的方法可反转后比较。
 
 ### Python
 
@@ -54,14 +54,13 @@ class Solution:
 
 ### 复杂度分析
 
-两重循环，遍历的总次数为 $$1/2 \cdots n^2)$$, 每次回文的判断时间复杂度为 $$O(len(s))$$, 故总的时间复杂度近似为 $$O(n^3)$$. 在 s 长度较长时会 TLE.
-使用了与 s 等长的辅助切割数数组，空间复杂度近似为 $$O(n)$$.
+两重循环，遍历的总次数为 $$1/2 \cdots n^2)$$, 每次回文的判断时间复杂度为 $$O(len(s))$$, 故总的时间复杂度近似为 $$O(n^3)$$. 在 s 长度较长时会 TLE. 使用了与 s 等长的辅助切割数数组，空间复杂度近似为 $$O(n)$$.
 
 ## 题解2 - 使用动态规划计算子字符串回文状态
 
 切割数部分使用的是动态规划，优化的空间不大，仔细瞅瞅可以发现在判断字符串是否为回文的部分存在大量重叠计算，故可引入动态规划进行优化，时间复杂度可优化至到平方级别。
 
-定义状态 PaMat[i][j]  为区间 `[i,j]` 是否为回文的标志, 对应此状态的子问题可从回文的定义出发，如果字符串首尾字符相同且在去掉字符串首尾字符后字符串仍为回文，则原字符串为回文，相应的状态转移方程 `PaMat[i][j] = s[i] == s[j] && PaMat[i+1][j-1]`, 由于状态转移方程中依赖比`i`大的结果，故实现中需要从索引大的往索引小的递推，另外还需要考虑一些边界条件和初始化方式，做到 bug-free 需要点时间。
+定义状态 PaMat\[i\]\[j\] 为区间 `[i,j]` 是否为回文的标志, 对应此状态的子问题可从回文的定义出发，如果字符串首尾字符相同且在去掉字符串首尾字符后字符串仍为回文，则原字符串为回文，相应的状态转移方程 `PaMat[i][j] = s[i] == s[j] && PaMat[i+1][j-1]`, 由于状态转移方程中依赖比`i`大的结果，故实现中需要从索引大的往索引小的递推，另外还需要考虑一些边界条件和初始化方式，做到 bug-free 需要点时间。
 
 ### Python
 
@@ -88,7 +87,7 @@ class Solution:
             for j in xrange(i, len(s)):
                 if j == i:
                     PaMat[i][j] = True
-		# not necessary if init with True
+        # not necessary if init with True
                 # elif j == i + 1:
                 #     PaMat[i][j] = s[i] == s[j]
                 else:
@@ -98,7 +97,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     int minCut(string s) {
@@ -190,7 +189,7 @@ public class Solution {
 
 ### 源码分析
 
-初始化 cut 长度为`1 + len(s)`, `cut[0] = -1` 便于状态转移方程实现。在执行`mat[i][j] == ... mat[i + 1][j - 1]`时前提是`j - 1 > i + 1`, 所以才需要分情况赋值。使用`getMat` 得到字符串区间的回文矩阵，由于cut 的长度为1+len(s), 两重 for 循环时需要注意索引的取值，这个地方非常容易错。
+初始化 cut 长度为`1 + len(s)`, `cut[0] = -1` 便于状态转移方程实现。在执行`mat[i][j] == ... mat[i + 1][j - 1]`时前提是`j - 1 > i + 1`, 所以才需要分情况赋值。使用`getMat` 得到字符串区间的回文矩阵，由于cut 的长度为1+len\(s\), 两重 for 循环时需要注意索引的取值，这个地方非常容易错。
 
 ### 复杂度分析
 
@@ -198,5 +197,6 @@ public class Solution {
 
 ## Reference
 
-- [Palindrome Partitioning II 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/palindrome-partitioning-ii/)
-- soulmachine 的 leetcode 题解
+* [Palindrome Partitioning II 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/palindrome-partitioning-ii/)
+* soulmachine 的 leetcode 题解
+

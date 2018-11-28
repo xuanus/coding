@@ -2,9 +2,9 @@
 
 ## Question
 
-- lintcode: [(40) Implement Queue by Two Stacks](http://www.lintcode.com/en/problem/implement-queue-by-two-stacks/)
+* lintcode: [\(40\) Implement Queue by Two Stacks](http://www.lintcode.com/en/problem/implement-queue-by-two-stacks/)
 
-```
+```text
 As the title described, you should only use two stacks to implement a queue's actions.
 
 The queue should support push(element), 
@@ -22,7 +22,7 @@ pop and top should be O(1) by AVERAGE.
 
 ## 题解
 
-两个栈模拟队列，栈是 LIFO, 队列是 FIFO, 故用两个栈模拟队列时可结合栈1和栈2, LIFO + LIFO ==> FIFO, 即先将一个栈元素全部 push 到另一个栈，效果即等价于 Queue.
+两个栈模拟队列，栈是 LIFO, 队列是 FIFO, 故用两个栈模拟队列时可结合栈1和栈2, LIFO + LIFO ==&gt; FIFO, 即先将一个栈元素全部 push 到另一个栈，效果即等价于 Queue.
 
 ### Java
 
@@ -74,4 +74,5 @@ public class Solution {
 
 ## Reference
 
-- [Implement Queue by Two Stacks 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/implement-queue-by-two-stacks/)
+* [Implement Queue by Two Stacks 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/implement-queue-by-two-stacks/)
+

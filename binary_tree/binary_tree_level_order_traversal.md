@@ -2,36 +2,34 @@
 
 ## Question
 
-- leetcode: [Binary Tree Level Order Traversal | LeetCode OJ](https://leetcode.com/problems/binary-tree-level-order-traversal/)
-- lintcode: [(69) Binary Tree Level Order Traversal](http://www.lintcode.com/en/problem/binary-tree-level-order-traversal/)
+* leetcode: [Binary Tree Level Order Traversal \| LeetCode OJ](https://leetcode.com/problems/binary-tree-level-order-traversal/)
+* lintcode: [\(69\) Binary Tree Level Order Traversal](http://www.lintcode.com/en/problem/binary-tree-level-order-traversal/)
 
 ### Problem Statement
 
-Given a binary tree, return the _level order_ traversal of its nodes' values.
-(ie, from left to right, level by level).
+Given a binary tree, return the _level order_ traversal of its nodes' values. \(ie, from left to right, level by level\).
 
 #### Example
 
 Given binary tree `{3,9,20,#,#,15,7}`,
 
-
-
-        3
-       / \
-      9  20
-        /  \
-       15   7
-
+```text
+    3
+   / \
+  9  20
+    /  \
+   15   7
+```
 
 return its level order traversal as:
 
-
-
-    [
-      [3],
-      [9,20],
-      [15,7]
-    ]
+```text
+[
+  [3],
+  [9,20],
+  [15,7]
+]
+```
 
 #### Challenge
 
@@ -39,14 +37,13 @@ Challenge 1: Using only 1 queue to implement it.
 
 Challenge 2: Use DFS algorithm to do it.
 
-
 ## 题解 - 使用队列
 
 此题为广搜的基础题，使用一个队列保存每层的节点即可。出队和将子节点入队的实现使用 for 循环，将每一轮的节点输出。
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition of TreeNode:
  * class TreeNode {
@@ -144,3 +141,4 @@ public class Solution {
 ### 复杂度分析
 
 使用辅助队列，空间复杂度 $$O(n)$$, 时间复杂度 $$O(n)$$.
+

@@ -2,9 +2,9 @@
 
 ## Question
 
-- lintcode: [(7) Binary Tree Serialization](http://www.lintcode.com/en/problem/binary-tree-serialization/)
+* lintcode: [\(7\) Binary Tree Serialization](http://www.lintcode.com/en/problem/binary-tree-serialization/)
 
-```
+```text
 Design an algorithm and write code to serialize and deserialize a binary tree.
 Writing the tree to a file is called 'serialization'
 and reading back from the file to reconstruct
@@ -208,12 +208,11 @@ class Solution2:
 
 ### 源码分析
 
-第零种解法是后序遍历（推荐）， 在`serialize`的时候， 需要先左->右->中。 在`deserialize`的时候，因为是从最后一个值开始pop， 构成tree的时候， 就应该先中->右->左。
+第零种解法是后序遍历（推荐）， 在`serialize`的时候， 需要先左-&gt;右-&gt;中。 在`deserialize`的时候，因为是从最后一个值开始pop， 构成tree的时候， 就应该先中-&gt;右-&gt;左。
 
 第一种解法是前序遍历， 其中巧妙的利用了python的closure， 在`serialize`中， 利用了list mutable 的特性， 修改了ret中的值。 `deserialize`中， 利用了`self.i`来储存`instance variable`。
 
 第二种解法是广度遍历。 在`deserialize`的时候， 保持一个`index i`，记录用过的node。
-
 
 ### Java
 
@@ -295,5 +294,6 @@ class Solution {
 
 ## Reference
 
-- [Serialize and Deserialize a Binary Tree (pre order).](https://gist.github.com/bittib/5620951)
-- [Serialization/Deserialization of a Binary Tree | LeetCode](http://articles.leetcode.com/2010/09/serializationdeserialization-of-binary.html)
+* [Serialize and Deserialize a Binary Tree \(pre order\).](https://gist.github.com/bittib/5620951)
+* [Serialization/Deserialization of a Binary Tree \| LeetCode](http://articles.leetcode.com/2010/09/serializationdeserialization-of-binary.html)
+

@@ -2,19 +2,15 @@
 
 ## Question
 
-- lintcode: [(92) Backpack](http://www.lintcode.com/en/problem/backpack/)
+* lintcode: [\(92\) Backpack](http://www.lintcode.com/en/problem/backpack/)
 
 ### Problem Statement
 
-Given _n_ items with size $$A_i$$, an integer _m_ denotes the size of a backpack.
-How full you can fill this backpack?
+Given _n_ items with size $$A_i$$, an integer _m_ denotes the size of a backpack. How full you can fill this backpack?
 
 #### Example
 
-If we have `4` items with size `[2, 3, 5, 7]`, the backpack size is 11, we can
-select `[2, 3, 5]`, so that the max size we can fill this backpack is `10`. If
-the backpack size is `12`. we can select `[2, 3, 7]` so that we can fulfill
-the backpack.
+If we have `4` items with size `[2, 3, 5, 7]`, the backpack size is 11, we can select `[2, 3, 5]`, so that the max size we can fill this backpack is `10`. If the backpack size is `12`. we can select `[2, 3, 7]` so that we can fulfill the backpack.
 
 You function should return the max size we can fill in the given backpack.
 
@@ -24,9 +20,9 @@ You can not divide any item into small pieces.
 
 #### Challenge
 
-O(n x m) time and O(m) memory.
+O\(n x m\) time and O\(m\) memory.
 
-O(n x m) memory is also acceptable if you do not know how to optimize memory.
+O\(n x m\) memory is also acceptable if you do not know how to optimize memory.
 
 ## 题解1
 
@@ -77,17 +73,17 @@ public class Solution {
 
 接下来看看 [九章算法](http://www.jiuzhang.com/solutions/backpack/) 的题解，**这种解法感觉不是很直观，推荐使用题解1的解法。**
 
-1. 状态: result[i][S] 表示前i个物品，取出一些物品能否组成体积和为S的背包
-2. 状态转移方程: $$f[i][S] = f[i-1][S-A[i]] ~or~ f[i-1][S]$$ (A[i]为第i个物品的大小)
-    - 欲从前i个物品中取出一些组成体积和为S的背包，可从两个状态转换得到。
-        1. $$f[i-1][S-A[i]]$$: **放入第i个物品**，前 $$i-1$$ 个物品能否取出一些体积和为 $$S-A[i]$$ 的背包。
-        2. $$f[i-1][S]$$: **不放入第i个物品**，前 $$i-1$$ 个物品能否取出一些组成体积和为S的背包。
+1. 状态: result\[i\]\[S\] 表示前i个物品，取出一些物品能否组成体积和为S的背包
+2. 状态转移方程: $$f[i][S] = f[i-1][S-A[i]] ~or~ f[i-1][S]$$ \(A\[i\]为第i个物品的大小\)
+   * 欲从前i个物品中取出一些组成体积和为S的背包，可从两个状态转换得到。
+     1. $$f[i-1][S-A[i]]$$: **放入第i个物品**，前 $$i-1$$ 个物品能否取出一些体积和为 $$S-A[i]$$ 的背包。
+     2. $$f[i-1][S]$$: **不放入第i个物品**，前 $$i-1$$ 个物品能否取出一些组成体积和为S的背包。
 3. 状态初始化: $$f[1 \cdots n][0]=true; ~f[0][1 \cdots m]=false$$. 前1~n个物品组成体积和为0的背包始终为真，其他情况为假。
-4. 返回结果: 寻找使 $$f[n][S]$$ 值为true的最大S ($$1 \leq S \leq m$$)
+4. 返回结果: 寻找使 $$f[n][S]$$ 值为true的最大S \($$1 \leq S \leq m$$\)
 
 ### C++ - 2D vector
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -140,7 +136,7 @@ public:
 
 状态转移逻辑中代码可以进一步简化，即：
 
-```
+```text
         for (int i = 1; i != N; ++i) {
             for (int j = 0; j != M; ++j) {
                 result[i][j] = result[i - 1][j];
@@ -155,7 +151,7 @@ public:
 
 ### C++ - 1D vector
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -199,7 +195,8 @@ public:
 
 ## Reference
 
-- 《挑战程序设计竞赛》第二章
-- [Lintcode: Backpack - neverlandly - 博客园](http://www.cnblogs.com/EdwardLiu/p/4269149.html)
-- [九章算法 | 背包问题](http://www.jiuzhang.com/problem/58/)
-- [崔添翼 § 翼若垂天之云 › 《背包问题九讲》2.0 alpha1](http://cuitianyi.com/blog/%E3%80%8A%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E4%B9%9D%E8%AE%B2%E3%80%8B2-0-alpha1/)
+* 《挑战程序设计竞赛》第二章
+* [Lintcode: Backpack - neverlandly - 博客园](http://www.cnblogs.com/EdwardLiu/p/4269149.html)
+* [九章算法 \| 背包问题](http://www.jiuzhang.com/problem/58/)
+* [崔添翼 § 翼若垂天之云 › 《背包问题九讲》2.0 alpha1](http://cuitianyi.com/blog/《背包问题九讲》2-0-alpha1/)
+

@@ -2,12 +2,12 @@
 
 ## Question
 
-- leetcode: [Reverse Integer | LeetCode OJ](https://leetcode.com/problems/reverse-integer/)
-- lintcode: [(413) Reverse Integer](http://www.lintcode.com/en/problem/reverse-integer/)
+* leetcode: [Reverse Integer \| LeetCode OJ](https://leetcode.com/problems/reverse-integer/)
+* lintcode: [\(413\) Reverse Integer](http://www.lintcode.com/en/problem/reverse-integer/)
 
 ### Problem Statement
 
-Reverse digits of an integer. Returns 0 when the reversed integer overflows (signed 32-bit integer).
+Reverse digits of an integer. Returns 0 when the reversed integer overflows \(signed 32-bit integer\).
 
 #### Example
 
@@ -48,4 +48,5 @@ public class Solution {
 
 ## Reference
 
-- [LeetCode-Sol-Res/ReverseInt.java at master · FreeTymeKiyan/LeetCode-Sol-Res](https://github.com/FreeTymeKiyan/LeetCode-Sol-Res/blob/master/Easy/ReverseInt.java)
+* [LeetCode-Sol-Res/ReverseInt.java at master · FreeTymeKiyan/LeetCode-Sol-Res](https://github.com/FreeTymeKiyan/LeetCode-Sol-Res/blob/master/Easy/ReverseInt.java)
+

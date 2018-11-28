@@ -2,18 +2,18 @@
 
 ## Question
 
-- leetcode: [Merge k Sorted Lists | LeetCode OJ](https://leetcode.com/problems/merge-k-sorted-lists/)
-- lintcode: [(104) Merge k Sorted Lists](http://www.lintcode.com/en/problem/merge-k-sorted-lists/)
+* leetcode: [Merge k Sorted Lists \| LeetCode OJ](https://leetcode.com/problems/merge-k-sorted-lists/)
+* lintcode: [\(104\) Merge k Sorted Lists](http://www.lintcode.com/en/problem/merge-k-sorted-lists/)
 
-## 题解1 - 选择归并(TLE) <i class="fa fa-thumbs-o-down"></i>
+## 题解1 - 选择归并\(TLE\) 
 
-参考 [Merge Two Sorted Lists | Data Structure and Algorithm](http://algorithm.yuanbin.me/zh-hans/linked_list/merge_two_sorted_lists.html) 中对两个有序链表的合并方法，这里我们也可以采用从 k 个链表中选择其中最小值的节点链接到`lastNode->next`(和选择排序思路有点类似)，同时该节点所在的链表表头节点往后递推一个。直至`lastNode`遍历完 k 个链表的所有节点，此时表头节点均为`NULL`, 返回`dummy->next`.
+参考 [Merge Two Sorted Lists \| Data Structure and Algorithm](http://algorithm.yuanbin.me/zh-hans/linked_list/merge_two_sorted_lists.html) 中对两个有序链表的合并方法，这里我们也可以采用从 k 个链表中选择其中最小值的节点链接到`lastNode->next`\(和选择排序思路有点类似\)，同时该节点所在的链表表头节点往后递推一个。直至`lastNode`遍历完 k 个链表的所有节点，此时表头节点均为`NULL`, 返回`dummy->next`.
 
 这种方法非常简单直接，但是时间复杂度较高，容易出现 TLE.
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition of ListNode
  * class ListNode {
@@ -43,16 +43,16 @@ public:
 
         while (true) {
             int count = 0;
-	        int index = -1, tempVal = INT_MAX;
+            int index = -1, tempVal = INT_MAX;
             for (int i = 0; i != lists.size(); ++i) {
-		        if (NULL == lists[i]) {
-		            ++count;
+                if (NULL == lists[i]) {
+                    ++count;
                     if (count == lists.size()) {
                         last->next = NULL;
                         return dummy->next;
                     }
-		            continue;
-		        }
+                    continue;
+                }
 
                 // choose the min value in non-NULL ListNode
                 if (NULL != lists[i] && lists[i]->val <= tempVal) {
@@ -61,9 +61,9 @@ public:
                 }
             }
 
-	        last->next = lists[index];
-	        last = last->next;
-	        lists[index] = lists[index]->next;
+            last->next = lists[index];
+            last = last->next;
+            lists[index] = lists[index]->next;
         }
     }
 };
@@ -80,13 +80,13 @@ public:
 
 由于每次`for`循环只能选择出一个最小值，总的时间复杂度最坏情况下为 $$O(k \cdot \sum ^{k}_{i=1}l_i)$$. 空间复杂度近似为 $$O(1)$$.
 
-## 题解2 - 迭代调用`Merge Two Sorted Lists`(TLE) <i class="fa fa-thumbs-o-down"></i>
+## 题解2 - 迭代调用`Merge Two Sorted Lists`\(TLE\) 
 
-鉴于题解1时间复杂度较高，题解2中我们可以反复利用时间复杂度相对较低的 [Merge Two Sorted Lists | Data Structure and Algorithm](http://algorithm.yuanbin.me/zh-hans/linked_list/merge_two_sorted_lists.html). 即先合并链表1和2，接着将合并后的新链表再与链表3合并，如此反复直至 vector 内所有链表均已完全合并[^soulmachine]。
+鉴于题解1时间复杂度较高，题解2中我们可以反复利用时间复杂度相对较低的 [Merge Two Sorted Lists \| Data Structure and Algorithm](http://algorithm.yuanbin.me/zh-hans/linked_list/merge_two_sorted_lists.html). 即先合并链表1和2，接着将合并后的新链表再与链表3合并，如此反复直至 vector 内所有链表均已完全合并。
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition of ListNode
  * class ListNode {
@@ -156,7 +156,7 @@ private:
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition of ListNode
  * class ListNode {
@@ -237,4 +237,4 @@ private:
 
 ## Reference
 
-- [^soulmachine]: [soulmachine的LeetCode 题解](http://7xojrx.com1.z0.glb.clouddn.com/docs/algorithm-exercise/docs/leetcode-cpp.pdf)
+* 

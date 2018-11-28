@@ -2,9 +2,9 @@
 
 ## Question
 
-- lintcode: [(1) A + B Problem](http://www.lintcode.com/en/problem/a-b-problem/)
+* lintcode: [\(1\) A + B Problem](http://www.lintcode.com/en/problem/a-b-problem/)
 
-```
+```text
 Write a function that add two numbers A and B.
 You should not use + or any arithmetic operators.
 
@@ -60,3 +60,4 @@ class Solution {
 ### 复杂度分析
 
 取决于进位，近似为 $$O(1)$$. 使用了部分额外变量，空间复杂度为 $$O(1)$$.
+

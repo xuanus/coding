@@ -2,8 +2,8 @@
 
 ## Question
 
-- lintcode: [(196) Find the Missing Number](http://www.lintcode.com/en/problem/find-the-missing-number/)
-- [Find the Missing Number - GeeksforGeeks](http://www.geeksforgeeks.org/find-the-missing-number/)
+* lintcode: [\(196\) Find the Missing Number](http://www.lintcode.com/en/problem/find-the-missing-number/)
+* [Find the Missing Number - GeeksforGeeks](http://www.geeksforgeeks.org/find-the-missing-number/)
 
 ### Problem Statement
 
@@ -91,13 +91,13 @@ public class Solution {
     private void bucketSort(int[] nums) {
         for (int i = 0; i < nums.length; i++) {
             while (nums[i] != i) {
-		        // ignore nums[i] == nums.length
+                // ignore nums[i] == nums.length
                 if (nums[i] == nums.length) {
                     break;
                 }
                 int nextNum = nums[nums[i]];
                 nums[nums[i]] = nums[i];
-		        nums[i] = nextNum;
+                nums[i] = nextNum;
             }
         }
     }
@@ -123,3 +123,4 @@ public class Solution {
 ### 复杂度分析
 
 桶排时间复杂度 $$O(n)$$, 空间复杂度 $$O(1)$$. 遍历原数组找缺失数时间复杂度 $$O(n)$$. 故总的时间复杂度为 $$O(n)$$, 空间复杂度 $$O(1)$$.
+

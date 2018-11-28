@@ -2,9 +2,9 @@
 
 ## Question
 
-- lintcode: [(12) Min Stack](http://www.lintcode.com/en/problem/min-stack/)
+* lintcode: [\(12\) Min Stack](http://www.lintcode.com/en/problem/min-stack/)
 
-```
+```text
 Implement a stack with min() function,
 which will return the smallest number in the stack.
 
@@ -55,8 +55,9 @@ public class Solution {
 
 ### 源码分析
 
-取最小栈的栈顶值时需要先判断是否为空栈(而不仅是 null)。
+取最小栈的栈顶值时需要先判断是否为空栈\(而不仅是 null\)。
 
 ### 复杂度分析
 
 均为 $$O(1)$$.
+

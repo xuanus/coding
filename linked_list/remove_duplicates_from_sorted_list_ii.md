@@ -1,26 +1,24 @@
-# ￼Remove Duplicates from Sorted List II
+# Remove Duplicates from Sorted List II
 
 ## Question
 
-- leetcode: [Remove Duplicates from Sorted List II | LeetCode OJ](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/)
-- lintcode: [(113) Remove Duplicates from Sorted List II](http://www.lintcode.com/en/problem/remove-duplicates-from-sorted-list-ii/)
+* leetcode: [Remove Duplicates from Sorted List II \| LeetCode OJ](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/)
+* lintcode: [\(113\) Remove Duplicates from Sorted List II](http://www.lintcode.com/en/problem/remove-duplicates-from-sorted-list-ii/)
 
 ### Problem Statement
 
-Given a sorted linked list, delete all nodes that have duplicate numbers,
-leaving only _distinct_ numbers from the original list.
+Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only _distinct_ numbers from the original list.
 
 #### Example
 
 Given `1->2->3->3->4->4->5`, return `1->2->5`.  
 Given `1->1->1->2->3`, return `2->3`.
 
-
 ## 题解
 
-上题为保留重复值节点的一个，这题删除全部重复节点，看似区别不大，但是考虑到链表头不确定(可能被删除，也可能保留)，因此若用传统方式需要较多的if条件语句。这里介绍一个**处理链表头节点不确定的方法——引入dummy node.**
+上题为保留重复值节点的一个，这题删除全部重复节点，看似区别不大，但是考虑到链表头不确定\(可能被删除，也可能保留\)，因此若用传统方式需要较多的if条件语句。这里介绍一个**处理链表头节点不确定的方法——引入dummy node.**
 
-```
+```text
 ListNode *dummy = new ListNode(0);
 dummy->next = head;
 ListNode *node = dummy;
@@ -37,7 +35,7 @@ ListNode *node = dummy;
 
 ### C++ - Wrong
 
-```
+```text
 /**
  * Definition of ListNode
  * class ListNode {
@@ -88,9 +86,9 @@ public:
 错在什么地方？
 
 1. 节点dummy的初始化有问题，对类的初始化应该使用`new`
-2. 在else语句中`node->next = node->next->next;`改写了`dummy-next`中的内容，返回的`dummy-next`不再是队首元素，而是队尾元素。原因很微妙，应该使用`node = node->next;`，node代表节点指针变量，而node->next代表当前节点所指向的下一节点地址。具体分析可自行在纸上画图分析，可对指针和链表的理解又加深不少。
+2. 在else语句中`node->next = node->next->next;`改写了`dummy-next`中的内容，返回的`dummy-next`不再是队首元素，而是队尾元素。原因很微妙，应该使用`node = node->next;`，node代表节点指针变量，而node-&gt;next代表当前节点所指向的下一节点地址。具体分析可自行在纸上画图分析，可对指针和链表的理解又加深不少。
 
-![remove_duplicates_from_sorted_listd内存分析](../../shared-files/images/remove_duplicates_from_sorted_list.jpg)
+![remove\_duplicates\_from\_sorted\_listd&#x5185;&#x5B58;&#x5206;&#x6790;](https://github.com/xuanus/coding/tree/f09f25ddc0c56beb8d4ed92fcfb3e81a80f8ab75/shared-files/images/remove_duplicates_from_sorted_list.jpg)
 
 图中上半部分为ListNode的内存示意图，每个框底下为其内存地址。`dummy`指针变量本身的地址为ox7fff5d0d2500，其保存着指针变量值为0x7fbe7bc04c50. `head`指针变量本身的地址为ox7fff5d0d2508，其保存着指针变量值为0x7fbe7bc04c00.
 
@@ -128,7 +126,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -141,7 +139,7 @@ class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
         if (head == NULL) return NULL;
-        
+
         ListNode dummy(0);
         dummy.next = head;
         ListNode *node = &dummy;
@@ -158,7 +156,7 @@ public:
                 node = node->next;
             }
         }
-        
+
         return dummy.next;
     }
 };
@@ -201,7 +199,7 @@ public class Solution {
 ### 源码分析
 
 1. 首先考虑异常情况，head 为 NULL 时返回 NULL
-2. new一个dummy变量，`dummy->next`指向原链表头。(C++中最好不要使用 new 的方式生成 dummy, 否则会有内存泄露)
+2. new一个dummy变量，`dummy->next`指向原链表头。\(C++中最好不要使用 new 的方式生成 dummy, 否则会有内存泄露\)
 3. 使用新变量node并设置其为dummy头节点，遍历用。
 4. 当前节点和下一节点val相同时先保存当前值，便于while循环终止条件判断和删除节点。注意这一段代码也比较精炼。
 5. 最后返回`dummy->next`，即题目所要求的头节点。
@@ -210,8 +208,9 @@ Python 中也可不使用`is not None`判断，但是效率会低一点。
 
 ### 复杂度分析
 
-两根指针(node.next 和 node.next.next)遍历，时间复杂度为 $$O(2n)$$. 使用了一个 dummy 和中间缓存变量，空间复杂度近似为 $$O(1)$$.
+两根指针\(node.next 和 node.next.next\)遍历，时间复杂度为 $$O(2n)$$. 使用了一个 dummy 和中间缓存变量，空间复杂度近似为 $$O(1)$$.
 
 ## Reference
 
-- [Remove Duplicates from Sorted List II | 九章](http://www.jiuzhang.com/solutions/remove-duplicates-from-sorted-list-ii/)
+* [Remove Duplicates from Sorted List II \| 九章](http://www.jiuzhang.com/solutions/remove-duplicates-from-sorted-list-ii/)
+

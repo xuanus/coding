@@ -1,11 +1,11 @@
-# Sqrt(x)
+# Sqrt x
 
 Tags: Binary Search, Math, Medium
 
 ## Question
 
-- leetcode: [Sqrt(x)](https://leetcode.com/problems/sqrtx/)
-- lintcode: [Sqrt(x)](http://www.lintcode.com/en/problem/sqrtx/)
+* leetcode: [Sqrt\(x\)](https://leetcode.com/problems/sqrtx/)
+* lintcode: [Sqrt\(x\)](http://www.lintcode.com/en/problem/sqrtx/)
 
 ### Problem Statement
 
@@ -110,4 +110,5 @@ public class Solution {
 
 经典的二分搜索，时间复杂度为 $$O(\log n)$$, 使用了`lb`, `ub`, `mid`变量，空间复杂度为 $$O(1)$$.
 
-除了使用二分法求平方根近似解之外，还可使用牛顿迭代法进一步提高运算效率，欲知后事如何，请猛戳 [求平方根sqrt()函数的底层算法效率问题 -- 简明现代魔法](http://www.nowamagic.net/algorithm/algorithm_EfficacyOfFunctionSqrt.php)，不得不感叹算法的魔力！
+除了使用二分法求平方根近似解之外，还可使用牛顿迭代法进一步提高运算效率，欲知后事如何，请猛戳 [求平方根sqrt\(\)函数的底层算法效率问题 -- 简明现代魔法](http://www.nowamagic.net/algorithm/algorithm_EfficacyOfFunctionSqrt.php)，不得不感叹算法的魔力！
+

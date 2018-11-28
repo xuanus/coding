@@ -2,10 +2,10 @@
 
 ## Question
 
-- leetcode: [Best Time to Buy and Sell Stock | LeetCode OJ](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
-- lintcode: [(149) Best Time to Buy and Sell Stock](http://www.lintcode.com/en/problem/best-time-to-buy-and-sell-stock/)
+* leetcode: [Best Time to Buy and Sell Stock \| LeetCode OJ](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+* lintcode: [\(149\) Best Time to Buy and Sell Stock](http://www.lintcode.com/en/problem/best-time-to-buy-and-sell-stock/)
 
-```
+```text
 Say you have an array for
 which the ith element is the price of a given stock on day i.
 
@@ -44,7 +44,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -79,10 +79,10 @@ public class Solution {
 
         int profit = 0;
         int curPriceMin = Integer.MAX_VALUE;
-    	for (int price : prices) {
+        for (int price : prices) {
             profit = Math.max(profit, price - curPriceMin);
             curPriceMin = Math.min(curPriceMin, price);
-    	}
+        }
 
         return profit;
     }
@@ -99,4 +99,5 @@ public class Solution {
 
 ## Reference
 
-- soulmachine 的卖股票系列
+* soulmachine 的卖股票系列
+

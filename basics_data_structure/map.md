@@ -1,4 +1,4 @@
-# Map - 哈希表
+# Map
 
 Map 是一种关联数组的数据结构，也常被称为字典或键值对。
 
@@ -6,7 +6,7 @@ Map 是一种关联数组的数据结构，也常被称为字典或键值对。
 
 ### Python
 
-在 Python 中 `dict`(Map) 是一种基本的数据结构。
+在 Python 中 `dict`\(Map\) 是一种基本的数据结构。
 
 ```python
 # map 在 python 中是一个keyword
@@ -42,3 +42,4 @@ for (Map.Entry<String, Integer> entry : map.entrySet()) {
     // do some thing
 }
 ```
+

@@ -2,10 +2,10 @@
 
 ## Question
 
-- leetcode: [Best Time to Buy and Sell Stock IV | LeetCode OJ](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/)
-- lintcode: [(393) Best Time to Buy and Sell Stock IV](http://www.lintcode.com/en/problem/best-time-to-buy-and-sell-stock-iv/)
+* leetcode: [Best Time to Buy and Sell Stock IV \| LeetCode OJ](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/)
+* lintcode: [\(393\) Best Time to Buy and Sell Stock IV](http://www.lintcode.com/en/problem/best-time-to-buy-and-sell-stock-iv/)
 
-```
+```text
 Say you have an array for
 which the ith element is the price of a given stock on day i.
 
@@ -27,11 +27,11 @@ O(nk) time.
 
 卖股票系列中最难的一道，较易实现的方法为使用动态规划，动规的实现又分为大约3大类方法，这里先介绍一种最为朴素的方法，过不了大量数据，会 TLE.
 
-最多允许 k 次交易，由于一次增加收益的交易至少需要两天，故当 k >= n/2时，此题退化为卖股票的第二道题，即允许任意多次交易。当 k < n/2 时，使用动规来求解，动规的几个要素如下：
+最多允许 k 次交易，由于一次增加收益的交易至少需要两天，故当 k &gt;= n/2时，此题退化为卖股票的第二道题，即允许任意多次交易。当 k &lt; n/2 时，使用动规来求解，动规的几个要素如下：
 
-f[i][j] 代表第 i 天为止交易 k 次获得的最大收益，那么将问题分解为前 x 天交易 k-1 次，第 x+1 天至第 i 天交易一次两个子问题，于是动态方程如下：
+f\[i\]\[j\] 代表第 i 天为止交易 k 次获得的最大收益，那么将问题分解为前 x 天交易 k-1 次，第 x+1 天至第 i 天交易一次两个子问题，于是动态方程如下：
 
-```
+```text
 f[i][j] = max(f[x][j - 1] + profit(x + 1, i))
 ```
 
@@ -82,7 +82,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -193,7 +193,8 @@ class Solution {
 
 ## Reference
 
-- [[LeetCode] Best Time to Buy and Sell Stock I II III IV | 梁佳宾的网络日志](http://liangjiabin.com/blog/2015/04/leetcode-best-time-to-buy-and-sell-stock.html)
-- [Best Time to Buy and Sell Stock IV 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/best-time-to-buy-and-sell-stock-iv/)
-- [leetcode-Best Time to Buy and Sell Stock 系列 // 陈辉的技术博客](http://www.devhui.com/2015/02/23/Best-Time-to-Buy-and-Sell-Stock/)
-- [[LeetCode]Best Time to Buy and Sell Stock IV | 书影博客](http://bookshadow.com/weblog/2015/02/18/leetcode-best-time-to-buy-and-sell-stock-iv/)
+* [\[LeetCode\] Best Time to Buy and Sell Stock I II III IV \| 梁佳宾的网络日志](http://liangjiabin.com/blog/2015/04/leetcode-best-time-to-buy-and-sell-stock.html)
+* [Best Time to Buy and Sell Stock IV 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/best-time-to-buy-and-sell-stock-iv/)
+* [leetcode-Best Time to Buy and Sell Stock 系列 // 陈辉的技术博客](http://www.devhui.com/2015/02/23/Best-Time-to-Buy-and-Sell-Stock/)
+* [\[LeetCode\]Best Time to Buy and Sell Stock IV \| 书影博客](http://bookshadow.com/weblog/2015/02/18/leetcode-best-time-to-buy-and-sell-stock-iv/)
+

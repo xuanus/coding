@@ -2,10 +2,10 @@
 
 ## Question
 
-- leetcode: [Valid Sudoku | LeetCode OJ](https://leetcode.com/problems/valid-sudoku/)
-- lintcode: [(389) Valid Sudoku](http://www.lintcode.com/en/problem/valid-sudoku/)
+* leetcode: [Valid Sudoku \| LeetCode OJ](https://leetcode.com/problems/valid-sudoku/)
+* lintcode: [\(389\) Valid Sudoku](http://www.lintcode.com/en/problem/valid-sudoku/)
 
-```
+```text
 Determine whether a Sudoku is valid.
 
 The Sudoku board could be partially filled,
@@ -15,9 +15,9 @@ Example
 The following partially filed sudoku is valid.
 ```
 
-![valid-sudoku.png](../../shared-files/images/valid-sudoku.png)
+![valid-sudoku.png](https://github.com/xuanus/coding/tree/f09f25ddc0c56beb8d4ed92fcfb3e81a80f8ab75/shared-files/images/valid-sudoku.png)
 
-```
+```text
 Valid Sudoku
 
 Note
@@ -114,4 +114,5 @@ class Solution {
 
 ## Reference
 
-- Soulmachine 的 leetcode 题解
+* Soulmachine 的 leetcode 题解
+

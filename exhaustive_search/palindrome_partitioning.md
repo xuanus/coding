@@ -1,13 +1,13 @@
 # Palindrome Partitioning
 
-- tags: [palindrome]
+* tags: \[palindrome\]
 
 ## Question
 
-- leetcode: [Palindrome Partitioning | LeetCode OJ](https://leetcode.com/problems/palindrome-partitioning/)
-- lintcode: [(136) Palindrome Partitioning](http://www.lintcode.com/en/problem/palindrome-partitioning/)
+* leetcode: [Palindrome Partitioning \| LeetCode OJ](https://leetcode.com/problems/palindrome-partitioning/)
+* lintcode: [\(136\) Palindrome Partitioning](http://www.lintcode.com/en/problem/palindrome-partitioning/)
 
-```
+```text
 Given a string s, partition s such that every substring of the partition is a palindrome.
 
 Return all possible palindrome partitioning of s.
@@ -39,24 +39,24 @@ class Solution:
         result = []
         if not s:
             return result
-        
+
         palindromes = []
         self.dfs(s, 0, palindromes, result)
         return result
-    
+
     def dfs(self, s, pos, palindromes, ret):
         if pos == len(s):
             ret.append([] + palindromes)
             return
-        
+
         for i in xrange(pos + 1, len(s) + 1):
             if not self.isPalindrome(s[pos:i]):
                 continue
-            
+
             palindromes.append(s[pos:i])
             self.dfs(s, i, palindromes, ret)
             palindromes.pop()
-    
+
     def isPalindrome(self, s):
         if not s:
             return False
@@ -66,7 +66,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -76,42 +76,42 @@ public:
     vector<vector<string>> partition(string s) {
         vector<vector<string> > result;
         if (s.empty()) return result;
-        
+
         vector<string> palindromes;
         dfs(s, 0, palindromes, result);
-        
+
         return result;
     }
-    
+
 private:
     void dfs(string s, int pos, vector<string> &palindromes, 
              vector<vector<string> > &ret) {
-        
+
         if (pos == s.size()) {
             ret.push_back(palindromes);
             return;
         }
-        
+
         for (int i = pos + 1; i <= s.size(); ++i) {
             string substr = s.substr(pos, i - pos);
             if (!isPalindrome(substr)) {
                 continue;
             }
-            
+
             palindromes.push_back(substr);
             dfs(s, i, palindromes, ret);
             palindromes.pop_back();
         }
     }
-    
+
     bool isPalindrome(string s) {
         if (s.empty()) return false;
-        
+
         int n = s.size();
         for (int i = 0; i < n; ++i) {
             if (s[i] != s[n - i - 1]) return false;
         }
-        
+
         return true;
     }
 };
@@ -128,13 +128,13 @@ public class Solution {
     public List<List<String>> partition(String s) {
         List<List<String>> result = new ArrayList<List<String>>();
         if (s == null || s.isEmpty()) return result;
-        
+
         List<String> palindromes = new ArrayList<String>();
         dfs(s, 0, palindromes, result);
-        
+
         return result;
     }
-    
+
     private void dfs(String s, int pos, List<String> palindromes, 
                      List<List<String>> ret) {
 
@@ -142,27 +142,27 @@ public class Solution {
             ret.add(new ArrayList<String>(palindromes));
             return;
         }
-        
+
         for (int i = pos + 1; i <= s.length(); i++) {
             String substr = s.substring(pos, i);
             if (!isPalindrome(substr)) {
                 continue;
             }
-            
+
             palindromes.add(substr);
             dfs(s, i, palindromes, ret);
             palindromes.remove(palindromes.size() - 1);
         }
     }
-    
+
     private boolean isPalindrome(String s) {
         if (s == null || s.isEmpty()) return false;
-        
+
         int n = s.length();
         for (int i = 0; i < n; i++) {
             if (s.charAt(i) != s.charAt(n - i - 1)) return false;
         }
-        
+
         return true;
     }
 }
@@ -170,7 +170,7 @@ public class Solution {
 
 ### 源码分析
 
-回文的判断采用了简化的版本，没有考虑空格等非字母数字字符要求。Java 中 ArrayList 和 List 的实例化需要注意下。Python 中 result 的初始化为[], 不需要初始化为 [[]] 画蛇添足。C++ 中的`.substr(pos, n)` 含义为从索引为 pos 的位置往后取 n 个(含) 字符，注意与 Java 中区别开来。
+回文的判断采用了简化的版本，没有考虑空格等非字母数字字符要求。Java 中 ArrayList 和 List 的实例化需要注意下。Python 中 result 的初始化为\[\], 不需要初始化为 \[\[\]\] 画蛇添足。C++ 中的`.substr(pos, n)` 含义为从索引为 pos 的位置往后取 n 个\(含\) 字符，注意与 Java 中区别开来。
 
 ### 复杂度分析
 
@@ -178,5 +178,6 @@ DFS，状态数最多 $$O(2^{n-1})$$, 故时间复杂度为 $$O(2^n)$$, 使用�
 
 ## Reference
 
-- [Palindrome Partitioning 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/palindrome-partitioning/)
-- soulmachine 的 Palindrome Partitioning
+* [Palindrome Partitioning 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/palindrome-partitioning/)
+* soulmachine 的 Palindrome Partitioning
+

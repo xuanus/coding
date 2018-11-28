@@ -2,10 +2,10 @@
 
 ## Question
 
-- lintcode: [(50) Product of Array Exclude Itself](http://www.lintcode.com/en/problem/product-of-array-exclude-itself/)
-- GeeksforGeeks: [A Product Array Puzzle - GeeksforGeeks](http://www.geeksforgeeks.org/a-product-array-puzzle/)
+* lintcode: [\(50\) Product of Array Exclude Itself](http://www.lintcode.com/en/problem/product-of-array-exclude-itself/)
+* GeeksforGeeks: [A Product Array Puzzle - GeeksforGeeks](http://www.geeksforgeeks.org/a-product-array-puzzle/)
 
-```
+```text
 Given an integers array A.
 
 Define B[i] = A[0] * ... * A[i-1] * A[i+1] * ... * A[n-1], calculate B WITHOUT divide operation.
@@ -20,7 +20,7 @@ For A=[1, 2, 3], return [6, 3, 2].
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -63,7 +63,7 @@ public:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -98,3 +98,4 @@ public:
 ### 复杂度分析
 
 时间复杂度同上，空间复杂度为 $$O(1)$$.
+

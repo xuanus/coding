@@ -1,4 +1,4 @@
-# Quick Sort - 快速排序
+# Quick Sort
 
 核心：快排是一种采用分治思想的排序算法，大致分为三个步骤。
 
@@ -30,7 +30,7 @@ print(qsort1(unsortedArray))
 
 输出如下所示：
 
-```
+```text
 [6, 5, 3, 1, 8, 7, 2, 4]
 [5, 3, 1, 2, 4]
 [3, 1, 2, 4]
@@ -51,8 +51,7 @@ print(qsort1(unsortedArray))
 
 在最好情况下，快速排序的基准元素正好是整个数组的中位数，可以近似为二分，那么最好情况下递归的层数为 $$\log n$$, 咋看一下每一层的元素个数都是 $$n$$, 那么空间复杂度为 $$O(n)$$ 无疑了，不过这只答对了一半，从结论上来看是对的，但分析方法是错的。
 
-首先来看看什么叫空间复杂度——简单来讲可以认为是程序在运行过程中所占用的存储空间大小。那么对于递归的 out-in-place 调用而言，排除函数调用等栈空间，**最好情况下，每往下递归调用一层，所需要的存储空间是上一层中的一半。完成最底层的调用后即向上返回执行出栈操作，故并不需要保存每层所有元素的值。**所以需要的总的存储空间就是
-$$\sum _{i=0} ^{} \frac {n}{2^i} = 2n$$
+首先来看看什么叫空间复杂度——简单来讲可以认为是程序在运行过程中所占用的存储空间大小。那么对于递归的 out-in-place 调用而言，排除函数调用等栈空间，**最好情况下，每往下递归调用一层，所需要的存储空间是上一层中的一半。完成最底层的调用后即向上返回执行出栈操作，故并不需要保存每层所有元素的值。**所以需要的总的存储空间就是 $$\sum _{i=0} ^{} \frac {n}{2^i} = 2n$$
 
 不是特别理解的可以结合下图的非严格分析和上面 Python 的代码，递归调用的第一层保存8个元素的值，那么第二层调用时实际需要保存的其实仅为4个元素，逐层往下递归，而不是自左向右保存每一层的所有元素。
 
@@ -60,15 +59,15 @@ $$\sum _{i=0} ^{} \frac {n}{2^i} = 2n$$
 
 $$\sum_{i=0}^n (n-i+1) = O(n^2)$$
 
-![Quicksort Recursive](../../shared-files/images/qsort1.png)
+![Quicksort Recursive](https://github.com/xuanus/coding/tree/f09f25ddc0c56beb8d4ed92fcfb3e81a80f8ab75/shared-files/images/qsort1.png)
 
 ## in-place - 原地快排
 
 ### one index for partition
 
-先来看一种简单的 in-place 实现，仍然以`[6, 5, 3, 1, 8, 7, 2, 4]`为例，结合下图进行分析。以下标 $$l$$ 和 $$u$$ 表示数组待排序部分的下界(lower bound)和上界(upper bound)，下标 $$m$$ 表示遍历到数组第 $$i$$ 个元素时当前 partition 的索引，基准元素为 $$t$$, 即图中的 target.
+先来看一种简单的 in-place 实现，仍然以`[6, 5, 3, 1, 8, 7, 2, 4]`为例，结合下图进行分析。以下标 $$l$$ 和 $$u$$ 表示数组待排序部分的下界\(lower bound\)和上界\(upper bound\)，下标 $$m$$ 表示遍历到数组第 $$i$$ 个元素时当前 partition 的索引，基准元素为 $$t$$, 即图中的 target.
 
-![Quick Sort one index for partition](../../shared-files/images/qsort2.png)
+![Quick Sort one index for partition](https://github.com/xuanus/coding/tree/f09f25ddc0c56beb8d4ed92fcfb3e81a80f8ab75/shared-files/images/qsort2.png)
 
 在遍历到第 $$i$$ 个元素时，$$x[i]$$ 有两种可能，第一种是 $$x[i] \geq t$$, $$i$$ 自增往后遍历；第二种是 $$x[i] < t$$, 此时需要将 $$x[i]$$ 置于前半部分，比较简单的实现为 `swap(x[++m], x[i])`. 直至 `i == u` 时划分阶段结束，分两截递归进行快排。既然说到递归，就不得不提递归的终止条件，容易想到递归的终止步为 `l >= u`, 即索引相等或者交叉时退出。使用 Python 的实现如下所示：
 
@@ -101,44 +100,44 @@ print(qsort2(unsortedArray, 0, len(unsortedArray) - 1))
 
 ```java
 public class Sort {
-	public static void main(String[] args) {
-		int unsortedArray[] = new int[]{6, 5, 3, 1, 8, 7, 2, 4};
-		quickSort(unsortedArray);
-		System.out.println("After sort: ");
-		for (int item : unsortedArray) {
-			System.out.print(item + " ");
-		}
-	}
+    public static void main(String[] args) {
+        int unsortedArray[] = new int[]{6, 5, 3, 1, 8, 7, 2, 4};
+        quickSort(unsortedArray);
+        System.out.println("After sort: ");
+        for (int item : unsortedArray) {
+            System.out.print(item + " ");
+        }
+    }
 
-	public static void quickSort1(int[] array, int l, int u) {
-		for (int item : array) {
-			System.out.print(item + " ");
-		}
-		System.out.println();
+    public static void quickSort1(int[] array, int l, int u) {
+        for (int item : array) {
+            System.out.print(item + " ");
+        }
+        System.out.println();
 
-		if (l >= u) return;
-		int m = l;
-		for (int i = l + 1; i <= u; i++) {
-			if (array[i] < array[l]) {
-				m += 1;
-				int temp = array[m];
-				array[m] = array[i];
-				array[i] = temp;
-			}
-		}
-		// swap between array[m] and array[l]
-		// put pivot in the mid
-		int temp = array[m];
-		array[m] = array[l];
-		array[l] = temp;
+        if (l >= u) return;
+        int m = l;
+        for (int i = l + 1; i <= u; i++) {
+            if (array[i] < array[l]) {
+                m += 1;
+                int temp = array[m];
+                array[m] = array[i];
+                array[i] = temp;
+            }
+        }
+        // swap between array[m] and array[l]
+        // put pivot in the mid
+        int temp = array[m];
+        array[m] = array[l];
+        array[l] = temp;
 
-		quickSort1(array, l, m - 1);
-		quickSort1(array, m + 1, u);
-	}
+        quickSort1(array, l, m - 1);
+        quickSort1(array, m + 1, u);
+    }
 
-	public static void quickSort(int[] array) {
-		quickSort1(array, 0, array.length - 1);
-	}
+    public static void quickSort(int[] array) {
+        quickSort1(array, 0, array.length - 1);
+    }
 }
 ```
 
@@ -146,7 +145,7 @@ public class Sort {
 
 相应的结果输出为：
 
-```
+```text
 [6, 5, 3, 1, 8, 7, 2, 4]
 [4, 5, 3, 1, 2, 6, 8, 7]
 [2, 3, 1, 4, 5, 6, 8, 7]
@@ -164,7 +163,7 @@ public class Sort {
 
 先来一张动图看看使用两个索引进行 partition 的过程。
 
-![Quick Sort two index for partition](../../shared-files/images/qsort3.gif)
+![Quick Sort two index for partition](https://github.com/xuanus/coding/tree/f09f25ddc0c56beb8d4ed92fcfb3e81a80f8ab75/shared-files/images/qsort3.gif)
 
 1. 选中`3`作为基准
 2. `lo`指针指向元素`6`, `hi`指针指向`4`, 移动`lo`直至其指向的元素大于等于`3`, 移动`hi`直至其指向的元素小于`3`。找到后交换`lo`和`hi`指向的元素——交换元素`6`和`2`。
@@ -176,11 +175,11 @@ public class Sort {
 1. 下标 $$i$$ 和 $$j$$ 初始化为待排序数组的两端。
 2. 基准元素设置为数组的第一个元素。
 3. 执行 partition 操作，大循环内包含两个内循环：
-   - 左侧内循环自增 $$i$$, 直到遇到**不小于**基准元素的值为止。
-   - 右侧内循环自减 $$j$$, 直到遇到**小于**基准元素的值为止。
+   * 左侧内循环自增 $$i$$, 直到遇到**不小于**基准元素的值为止。
+   * 右侧内循环自减 $$j$$, 直到遇到**小于**基准元素的值为止。
 4. 大循环测试两个下标是否相等或交叉，交换其值。
 
-这样一来对于数组元素均相等的情形下，每次 partition 恰好在中间元素，故共递归调用 $$\log n$$ 次，每层递归调用进行 partition 操作的比较次数总和近似为 $$n$$. 故总计需 $$n \log n$$ 次比较。[^programming_pearls]
+这样一来对于数组元素均相等的情形下，每次 partition 恰好在中间元素，故共递归调用 $$\log n$$ 次，每层递归调用进行 partition 操作的比较次数总和近似为 $$n$$. 故总计需 $$n \log n$$ 次比较。
 
 可以推断出在最坏情况下，即数组本来就有序，这种方法仍然无法避免 $$O(n^2)$$ 的厄运... 即便如此，这种两边推进的方法大大提高了分区的效率，减少了 swap 的次数。
 
@@ -220,56 +219,56 @@ print(qsort3(unsortedArray, 0, len(unsortedArray) - 1))
 
 ```java
 public class Sort {
-	public static void main(String[] args) {
-		int unsortedArray[] = new int[]{6, 5, 3, 1, 8, 7, 2, 4};
-		quickSort(unsortedArray);
-		System.out.println("After sort: ");
-		for (int item : unsortedArray) {
-			System.out.print(item + " ");
-		}
-	}
+    public static void main(String[] args) {
+        int unsortedArray[] = new int[]{6, 5, 3, 1, 8, 7, 2, 4};
+        quickSort(unsortedArray);
+        System.out.println("After sort: ");
+        for (int item : unsortedArray) {
+            System.out.print(item + " ");
+        }
+    }
 
-	public static void quickSort2(int[] array, int l, int u) {
-		for (int item : array) {
-			System.out.print(item + " ");
-		}
-		System.out.println();
+    public static void quickSort2(int[] array, int l, int u) {
+        for (int item : array) {
+            System.out.print(item + " ");
+        }
+        System.out.println();
 
-		if (l >= u) return;
-		int pivot = array[l];
-		int left = l + 1;
-		int right = u;
-		while (left <= right) {
-			while (left <= right && array[left] < pivot) {
-				left++;
-			}
-			while (left <= right && array[right] >= pivot) {
-				right--;
-			}
-			if (left > right) break;
-			// swap array[left] with array[right] while left <= right
-			int temp = array[left];
-			array[left] = array[right];
-			array[right] = temp;
-		}
-		/* swap the smaller with pivot */
-		int temp = array[right];
-		array[right] = array[l];
-		array[l] = temp;
+        if (l >= u) return;
+        int pivot = array[l];
+        int left = l + 1;
+        int right = u;
+        while (left <= right) {
+            while (left <= right && array[left] < pivot) {
+                left++;
+            }
+            while (left <= right && array[right] >= pivot) {
+                right--;
+            }
+            if (left > right) break;
+            // swap array[left] with array[right] while left <= right
+            int temp = array[left];
+            array[left] = array[right];
+            array[right] = temp;
+        }
+        /* swap the smaller with pivot */
+        int temp = array[right];
+        array[right] = array[l];
+        array[l] = temp;
 
-		quickSort2(array, l, right - 1);
-		quickSort2(array, right + 1, u);
-	}
+        quickSort2(array, l, right - 1);
+        quickSort2(array, right + 1, u);
+    }
 
-	public static void quickSort(int[] array) {
-		quickSort2(array, 0, array.length - 1);
-	}
+    public static void quickSort(int[] array) {
+        quickSort2(array, 0, array.length - 1);
+    }
 }
 ```
 
 相应的输出为：
 
-```
+```text
 [6, 5, 3, 1, 8, 7, 2, 4]
 [2, 5, 3, 1, 4, 6, 7, 8]
 [1, 2, 3, 5, 4, 6, 7, 8]
@@ -292,8 +291,8 @@ Robert Sedgewick 在其网站上对 [Quicksort](http://algs4.cs.princeton.edu/23
 
 ## Reference
 
-- [快速排序 - 维基百科，自由的百科全书](http://zh.wikipedia.org/wiki/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F)
-- [Quicksort |  Robert Sedgewick](http://algs4.cs.princeton.edu/23quicksort/)
-- Programming Pearls Column 11 Sorting - 深入探讨了插入排序和快速排序
-- [Quicksort Analysis](http://7xojrx.com1.z0.glb.clouddn.com/docs/algorithm-exercise/docs/quicksort_analysis.pdf)
-- [^programming_pearls]: Programming Pearls(第二版修订版) 一书中第11章排序中注明需要 $$n\log2n$$ 次比较，翻译有误？
+* [快速排序 - 维基百科，自由的百科全书](http://zh.wikipedia.org/wiki/快速排序)
+* [Quicksort \|  Robert Sedgewick](http://algs4.cs.princeton.edu/23quicksort/)
+* Programming Pearls Column 11 Sorting - 深入探讨了插入排序和快速排序
+* [Quicksort Analysis](http://7xojrx.com1.z0.glb.clouddn.com/docs/algorithm-exercise/docs/quicksort_analysis.pdf)
+* 

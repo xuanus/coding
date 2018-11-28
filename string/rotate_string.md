@@ -4,28 +4,26 @@ Tags: String, Easy
 
 ## Question
 
-- lintcode: [Rotate String](http://www.lintcode.com/en/problem/rotate-string/)
+* lintcode: [Rotate String](http://www.lintcode.com/en/problem/rotate-string/)
 
 ### Problem Statement
 
-Given a string and an offset, rotate string by offset. (rotate from left to
-right)
+Given a string and an offset, rotate string by offset. \(rotate from left to right\)
 
 **Example**
 
 Given `"abcdefg"`.
 
-    
-    
-    offset=0 => "abcdefg"
-    offset=1 => "gabcdef"
-    offset=2 => "fgabcde"
-    offset=3 => "efgabcd"
-    
+```text
+offset=0 => "abcdefg"
+offset=1 => "gabcdef"
+offset=2 => "fgabcde"
+offset=3 => "efgabcd"
+```
 
 **Challenge**
 
-Rotate in-place with O(1) extra memory.
+Rotate in-place with O\(1\) extra memory.
 
 ## 题解
 
@@ -79,7 +77,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
   /**
@@ -156,7 +154,7 @@ public class Solution {
 
 Python 虽没有提供字符串的翻转，但用 slice 非常容易实现，非常 Pythonic!
 
-**通常来说，字符串在各种编程语言中的实现一般为 immutable 的，对字符串做改变时往往会生成新的字符串，所以如果要达到空间复杂度为 O(1) 的效果，需要用可变数据结构来实现。**
+**通常来说，字符串在各种编程语言中的实现一般为 immutable 的，对字符串做改变时往往会生成新的字符串，所以如果要达到空间复杂度为 O\(1\) 的效果，需要用可变数据结构来实现。**
 
 ### 复杂度分析
 
@@ -164,6 +162,6 @@ Python 虽没有提供字符串的翻转，但用 slice 非常容易实现，非
 
 ## Reference
 
-- [Reverse a string in Python](http://stackoverflow.com/questions/931092/reverse-a-string-in-python)
-- [What’s New in Python 2.3 — Extended Slices](https://docs.python.org/2/whatsnew/2.3.html#extended-slices)
-- 
+* [Reverse a string in Python](http://stackoverflow.com/questions/931092/reverse-a-string-in-python)
+* [What’s New in Python 2.3 — Extended Slices](https://docs.python.org/2/whatsnew/2.3.html#extended-slices)
+* 

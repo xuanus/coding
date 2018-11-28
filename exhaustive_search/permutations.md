@@ -2,8 +2,8 @@
 
 ## Question
 
-- leetcode: [Permutations | LeetCode OJ](https://leetcode.com/problems/permutations/)
-- lintcode: [(15) Permutations](http://www.lintcode.com/en/problem/permutations/)
+* leetcode: [Permutations \| LeetCode OJ](https://leetcode.com/problems/permutations/)
+* lintcode: [\(15\) Permutations](http://www.lintcode.com/en/problem/permutations/)
 
 ### Problem Statement
 
@@ -13,25 +13,22 @@ Given a list of numbers, return all possible permutations.
 
 For nums = `[1,2,3]`, the permutations are:
 
-
-
-    [
-      [1,2,3],
-      [1,3,2],
-      [2,1,3],
-      [2,3,1],
-      [3,1,2],
-      [3,2,1]
-    ]
-
+```text
+[
+  [1,2,3],
+  [1,3,2],
+  [2,1,3],
+  [2,3,1],
+  [3,1,2],
+  [3,2,1]
+]
+```
 
 #### Challenge
 
 Do it without recursion.
 
-
-
-## 题解1 - Recursion(using subsets template)
+## 题解1 - Recursion\(using subsets template\)
 
 排列常见的有数字全排列，字符串排列等。
 
@@ -66,12 +63,11 @@ class Solution:
                 alist.append(item)
                 self.helper(nums, alist, ret)
                 alist.pop()
-
 ```
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -80,14 +76,14 @@ public:
      */
     vector<vector<int> > permute(vector<int> nums) {
         vector<vector<int> > result;
-    	if (nums.empty()) {
-    	    return result;
-    	}
+        if (nums.empty()) {
+            return result;
+        }
 
-    	vector<int> list;
-    	backTrack(result, list, nums);
+        vector<int> list;
+        backTrack(result, list, nums);
 
-    	return result;
+        return result;
     }
 
 private:
@@ -143,15 +139,15 @@ public class Solution {
 
 ### 源码分析
 
-在除重时使用了标准库`find`(不可使用时间复杂度更低的`binary_search`，因为`list`中元素不一定有序)，时间复杂度为 $$O(N)$$, 也可使用`hashmap`记录`nums`中每个元素是否被添加到`list`中，这样一来空间复杂度为 $$O(N)$$, 查找的时间复杂度为 $$O(1)$$.
+在除重时使用了标准库`find`\(不可使用时间复杂度更低的`binary_search`，因为`list`中元素不一定有序\)，时间复杂度为 $$O(N)$$, 也可使用`hashmap`记录`nums`中每个元素是否被添加到`list`中，这样一来空间复杂度为 $$O(N)$$, 查找的时间复杂度为 $$O(1)$$.
 
 在`list.size() == nums.size()`时，已经找到需要的解，及时`return`避免后面不必要的`for`循环调用开销。
 
-使用回溯法解题的**关键在于如何确定正确解及排除不符条件的解(剪枝)**。
+使用回溯法解题的**关键在于如何确定正确解及排除不符条件的解\(剪枝\)**。
 
 ### 复杂度分析
 
-以状态数来分析，最终全排列个数应为 $$n!$$, 每个节点被遍历的次数为 $$(n-1)!$$, 故节点共被遍历的状态数为 $$O(n!)$$, 此为时间复杂度的下界，因为这里只算了合法条件下的遍历状态数。若不对 list 中是否包含 nums[i] 进行检查，则总的状态数应为 $$n^n$$ 种。
+以状态数来分析，最终全排列个数应为 $$n!$$, 每个节点被遍历的次数为 $$(n-1)!$$, 故节点共被遍历的状态数为 $$O(n!)$$, 此为时间复杂度的下界，因为这里只算了合法条件下的遍历状态数。若不对 list 中是否包含 nums\[i\] 进行检查，则总的状态数应为 $$n^n$$ 种。
 
 由于最终的排列结果中每个列表的长度都为 n, 各列表的相同元素并不共享，故时间复杂度的下界为 $$O(n \cdot n!)$$, 上界为 $$n \cdot n^n$$. 实测`helper`中 for 循环的遍历次数在 $$O(2n \cdot n!)$$ 以下，注意这里的时间复杂度并不考虑查找列表里是否包含重复元素。
 
@@ -197,7 +193,7 @@ class Solution2:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -325,7 +321,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -334,10 +330,10 @@ public:
      */
     vector<vector<int> > permute(vector<int>& nums) {
         vector<vector<int> > result;
-    	if (nums.empty() || nums.size() <= 1) {
-    	    result.push_back(nums);
-    	    return result;
-    	}
+        if (nums.empty() || nums.size() <= 1) {
+            result.push_back(nums);
+            return result;
+        }
 
         // sort nums first
         sort(nums.begin(), nums.end());
@@ -368,7 +364,7 @@ public:
             // step4: reverse between [i + 1, n - 1]
             reverse(nums, i + 1, nums.size() - 1);
         }
-    	return result;
+        return result;
     }
 
 private:
@@ -506,13 +502,14 @@ class Solution {
 
 ## Reference
 
-- [Permutation Generation](http://7xojrx.com1.z0.glb.clouddn.com/docs/algorithm-exercise/docs/permutation_generation.pdf) - Robert Sedgewick 的大作，总结了诸多 Permutation 的产生方法。
-- [Next lexicographical permutation algorithm](http://www.nayuki.io/page/next-lexicographical-permutation-algorithm) - 此题非递归方法更为详细的解释。
-- [Permutation - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Permutation#Generation_in_lexicographic_order) - 字典序实现。
-- [Programming Interview Questions 11: All Permutations of String | Arden DertatArden Dertat](http://www.ardendertat.com/2011/10/28/programming-interview-questions-11-all-permutations-of-string/)
-- [algorithm - complexity of recursive string permutation function - Stack Overflow](http://stackoverflow.com/questions/5363619/complexity-of-recursive-string-permutation-function)
-- [[leetcode]Permutations @ Python - 南郭子綦 - 博客园](http://www.cnblogs.com/zuoyuan/p/3758816.html)
-- [[leetcode] permutations的讨论 - tuantuanls的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/tuantuanls/article/details/8717262)
-- [非递归排列算法（Permutation Generation）](http://arieshout.me/2012/04/non-recursive-permutation-generation.html)
-- [闲谈permutations | HelloYou](http://helloyou2012.me/?p=133)
-- [9.7. itertools — Functions creating iterators for efficient looping — Python 2.7.10 documentation](https://docs.python.org/2/library/itertools.html#itertools.permutations)
+* [Permutation Generation](http://7xojrx.com1.z0.glb.clouddn.com/docs/algorithm-exercise/docs/permutation_generation.pdf) - Robert Sedgewick 的大作，总结了诸多 Permutation 的产生方法。
+* [Next lexicographical permutation algorithm](http://www.nayuki.io/page/next-lexicographical-permutation-algorithm) - 此题非递归方法更为详细的解释。
+* [Permutation - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Permutation#Generation_in_lexicographic_order) - 字典序实现。
+* [Programming Interview Questions 11: All Permutations of String \| Arden DertatArden Dertat](http://www.ardendertat.com/2011/10/28/programming-interview-questions-11-all-permutations-of-string/)
+* [algorithm - complexity of recursive string permutation function - Stack Overflow](http://stackoverflow.com/questions/5363619/complexity-of-recursive-string-permutation-function)
+* [\[leetcode\]Permutations @ Python - 南郭子綦 - 博客园](http://www.cnblogs.com/zuoyuan/p/3758816.html)
+* [\[leetcode\] permutations的讨论 - tuantuanls的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/tuantuanls/article/details/8717262)
+* [非递归排列算法（Permutation Generation）](http://arieshout.me/2012/04/non-recursive-permutation-generation.html)
+* [闲谈permutations \| HelloYou](http://helloyou2012.me/?p=133)
+* [9.7. itertools — Functions creating iterators for efficient looping — Python 2.7.10 documentation](https://docs.python.org/2/library/itertools.html#itertools.permutations)
+

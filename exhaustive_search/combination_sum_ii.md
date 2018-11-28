@@ -2,10 +2,10 @@
 
 ## Question
 
-- leetcode: [Combination Sum II | LeetCode OJ](https://leetcode.com/problems/combination-sum-ii/)
-- lintcode: [(153) Combination Sum II](http://www.lintcode.com/en/problem/combination-sum-ii/)
+* leetcode: [Combination Sum II \| LeetCode OJ](https://leetcode.com/problems/combination-sum-ii/)
+* lintcode: [\(153\) Combination Sum II](http://www.lintcode.com/en/problem/combination-sum-ii/)
 
-```
+```text
 Given a collection of candidate numbers (C) and a target number (T),
 find all unique combinations in C where the candidate numbers sums to T.
 Each number in C may only be used once in the combination.
@@ -88,3 +88,4 @@ public class Solution {
 ### 复杂度分析
 
 时间复杂度 $$O(n)$$, 空间复杂度 $$O(n)$$.
+

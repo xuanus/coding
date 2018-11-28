@@ -2,9 +2,9 @@
 
 ## Question
 
-- lintcode: [(371) Print Numbers by Recursion](http://www.lintcode.com/en/problem/print-numbers-by-recursion/)
+* lintcode: [\(371\) Print Numbers by Recursion](http://www.lintcode.com/en/problem/print-numbers-by-recursion/)
 
-```
+```text
 Print numbers from 1 to the largest number with N digits by recursion.
 
 Example
@@ -30,7 +30,7 @@ Do it in recursion, not for-loop.
 
 ## 题解
 
-从小至大打印 N 位的数列，正如题目中所提供的 `recursion(i)`, 解法简单粗暴，但问题在于 N 稍微大一点时栈就溢出了，因为递归深度太深了。能联想到的方法大概有两种，一种是用排列组合的思想去解释，把0~9当成十个不同的数(字符串表示)，塞到 N 个坑位中，这个用 DFS 来解应该是可行的；另一个则是使用数学方法，依次递归递推，比如 N=2 可由 N=1递归而来，具体方法则是乘10进位加法。题中明确要求递归深度最大不超过 N, 故 DFS 方法比较危险。
+从小至大打印 N 位的数列，正如题目中所提供的 `recursion(i)`, 解法简单粗暴，但问题在于 N 稍微大一点时栈就溢出了，因为递归深度太深了。能联想到的方法大概有两种，一种是用排列组合的思想去解释，把0~9当成十个不同的数\(字符串表示\)，塞到 N 个坑位中，这个用 DFS 来解应该是可行的；另一个则是使用数学方法，依次递归递推，比如 N=2 可由 N=1递归而来，具体方法则是乘10进位加法。题中明确要求递归深度最大不超过 N, 故 DFS 方法比较危险。
 
 ### Java
 
@@ -78,4 +78,5 @@ public class Solution {
 
 ## Reference
 
-- [Lintcode: Print Numbers by Recursion | codesolutiony](https://codesolutiony.wordpress.com/2015/05/21/lintcode-print-numbers-by-recursion/)
+* [Lintcode: Print Numbers by Recursion \| codesolutiony](https://codesolutiony.wordpress.com/2015/05/21/lintcode-print-numbers-by-recursion/)
+

@@ -2,10 +2,10 @@
 
 ## Question
 
-- leetcode: [Sliding Window Maximum | LeetCode OJ](https://leetcode.com/problems/sliding-window-maximum/)
-- lintcode: [(362) Sliding Window Maximum](http://www.lintcode.com/en/problem/sliding-window-maximum/)
+* leetcode: [Sliding Window Maximum \| LeetCode OJ](https://leetcode.com/problems/sliding-window-maximum/)
+* lintcode: [\(362\) Sliding Window Maximum](http://www.lintcode.com/en/problem/sliding-window-maximum/)
 
-```
+```text
 Given an array of n integer with duplicate number, and a moving window(size k),
 move the window at each iteration from the start of the array,
 find the maximum number inside the window at each moving.
@@ -33,7 +33,7 @@ o(n) time and O(k) memory
 
 $$O(nk)$$ 的时间复杂度的方法很容易想到，不停地从当前窗口中取最大就好了。但其实可以发现下一个窗口的最大值与当前窗口的最大值其实是有一定关系的，但这个关系不是简单的将前一个窗口的最大值传递给下一个窗口，**因为数组中每一个元素都是有其作用范围的，超过窗口长度后就失效了！**所以现在思路就稍微清晰一些了，将前一个窗口的最大值传递给下一个窗口时需要判断当前遍历的元素下标和前一个窗口的最大元素下标之差是否已经超过一个窗口长度。
 
-问题来了，思路基本定型，现在就是选用合适的数据结构了。根据上面的思路，这种数据结构应该能在 $$O(1)$$ 的时间内返回最大值，且存储的元素最大可以不超过窗口长度。常规一点的可以采用队列，但是此题中使用普通队列似乎还是很难实现，因为要在 $$O(1)$$ 的时间内返回最大值。符合这个要求的数据结构必须能支持从两端对队列元素进行维护，其中一种实现方法为队首维护最大值，队尾用于插入新元素。双端队列无疑了，有关双端队列的科普见 [双端队列](https://zh.wikipedia.org/wiki/%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97)。可以自己试着以一个实际例子来帮助理解。
+问题来了，思路基本定型，现在就是选用合适的数据结构了。根据上面的思路，这种数据结构应该能在 $$O(1)$$ 的时间内返回最大值，且存储的元素最大可以不超过窗口长度。常规一点的可以采用队列，但是此题中使用普通队列似乎还是很难实现，因为要在 $$O(1)$$ 的时间内返回最大值。符合这个要求的数据结构必须能支持从两端对队列元素进行维护，其中一种实现方法为队首维护最大值，队尾用于插入新元素。双端队列无疑了，有关双端队列的科普见 [双端队列](https://zh.wikipedia.org/wiki/双端队列)。可以自己试着以一个实际例子来帮助理解。
 
 ### Java
 
@@ -83,6 +83,7 @@ public class Solution {
 
 ## Reference
 
-- 《剑指 Offer》
-- [sliding-window-maximum 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/sliding-window-maximum/)
-- [Maximum of all subarrays of size k (Added a O(n) method) - GeeksforGeeks](http://www.geeksforgeeks.org/maximum-of-all-subarrays-of-size-k/)
+* 《剑指 Offer》
+* [sliding-window-maximum 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/sliding-window-maximum/)
+* [Maximum of all subarrays of size k \(Added a O\(n\) method\) - GeeksforGeeks](http://www.geeksforgeeks.org/maximum-of-all-subarrays-of-size-k/)
+

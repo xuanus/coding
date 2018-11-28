@@ -2,10 +2,10 @@
 
 ## Question
 
-- leetcode: [Minimum Depth of Binary Tree | LeetCode OJ](https://leetcode.com/problems/minimum-depth-of-binary-tree/)
-- lintcode: [(155) Minimum Depth of Binary Tree](http://www.lintcode.com/en/problem/minimum-depth-of-binary-tree/)
+* leetcode: [Minimum Depth of Binary Tree \| LeetCode OJ](https://leetcode.com/problems/minimum-depth-of-binary-tree/)
+* lintcode: [\(155\) Minimum Depth of Binary Tree](http://www.lintcode.com/en/problem/minimum-depth-of-binary-tree/)
 
-```
+```text
 Given a binary tree, find its minimum depth.
 
 The minimum depth is the number of nodes along the shortest path
@@ -74,3 +74,4 @@ public class Solution {
 ### 复杂度分析
 
 每个节点遍历一次，时间复杂度 $$O(n)$$. 不计栈空间的话空间复杂度 $$O(1)$$.
+

@@ -4,31 +4,26 @@ Tags: Array, Two Pointers, Easy
 
 ## Question
 
-- leetcode: [Remove Element](https://leetcode.com/problems/remove-element/)
-- lintcode: [Remove Element](http://www.lintcode.com/en/problem/remove-element/)
+* leetcode: [Remove Element](https://leetcode.com/problems/remove-element/)
+* lintcode: [Remove Element](http://www.lintcode.com/en/problem/remove-element/)
 
 ### Problem Statement
 
-Given an array and a value, remove all instances of that value in place and
-return the new length.
+Given an array and a value, remove all instances of that value in place and return the new length.
 
-Do not allocate extra space for another array, you must do this in place with
-constant memory.
+Do not allocate extra space for another array, you must do this in place with constant memory.
 
-The order of elements can be changed. It doesn't matter what you leave beyond
-the new length.
+The order of elements can be changed. It doesn't matter what you leave beyond the new length.
 
-**Example:**  
+**Example:**
 
 Given input array _nums_ = `[3,2,2,3]`, _val_ = `3`
 
-Your function should return length = 2, with the first two elements of _nums_
-being 2.
+Your function should return length = 2, with the first two elements of _nums_ being 2.
 
-  1. Try two pointers.
-  2. Did you use the property of "the order of elements can be changed"?
-  3. What happens when the elements to remove are rare?
-
+1. Try two pointers.
+2. Did you use the property of "the order of elements can be changed"?
+3. What happens when the elements to remove are rare?
 
 ## 题解1 - 两根指针从前往后遍历
 
@@ -80,7 +75,7 @@ public class Solution {
                 nums[left++] = num;
             }
         }
-        
+
         return left;
     }
 }
@@ -96,8 +91,7 @@ public class Solution {
 
 ## 题解2 - 给定值出现极少时的优化
 
-从题解1的分析中我们可以发现在数组中元素不等于给定值时都会执行赋值及自增操作，如果给定值在数组中出现次数极少时这种方法效率不高，因此我们可以想办法减少赋值及自增操作。
-由于题中明确暗示元素的顺序可变，且新长度后的元素不用理会。我们可以使用两根指针分别往前往后遍历，头指针用于指示当前遍历的元素位置，尾指针则用于在当前元素与欲删除值相等时替换当前元素，两根指针相遇时返回尾指针索引——即删除元素后「新数组」的长度。
+从题解1的分析中我们可以发现在数组中元素不等于给定值时都会执行赋值及自增操作，如果给定值在数组中出现次数极少时这种方法效率不高，因此我们可以想办法减少赋值及自增操作。 由于题中明确暗示元素的顺序可变，且新长度后的元素不用理会。我们可以使用两根指针分别往前往后遍历，头指针用于指示当前遍历的元素位置，尾指针则用于在当前元素与欲删除值相等时替换当前元素，两根指针相遇时返回尾指针索引——即删除元素后「新数组」的长度。
 
 ### Python
 
@@ -166,3 +160,4 @@ public class Solution {
 ### 复杂度分析
 
 此方法只遍历一次数组，因此时间复杂度是 $$O(n)$$, 空间复杂度为 $$O(1)$$.
+

@@ -1,8 +1,8 @@
 ---
 difficulty: Medium
 tags:
-- Priority Queue
-- Heap
+  - Priority Queue
+  - Heap
 title: Top k Largest Numbers
 ---
 
@@ -12,18 +12,17 @@ title: Top k Largest Numbers
 
 ### Metadata
 
-- tags: Priority Queue, Heap
-- difficulty: Medium
-- source(lintcode): <https://www.lintcode.com/problem/top-k-largest-numbers/>
+* tags: Priority Queue, Heap
+* difficulty: Medium
+* source\(lintcode\): [https://www.lintcode.com/problem/top-k-largest-numbers/](https://www.lintcode.com/problem/top-k-largest-numbers/)
 
 ### Description
 
-Given an integer array, find the top *k* largest numbers in it.
+Given an integer array, find the top _k_ largest numbers in it.
 
 #### Example
 
-Given `[3,10,1000,-99,4,100]` and *k* = `3`.
-Return `[1000, 100, 10]`.
+Given `[3,10,1000,-99,4,100]` and _k_ = `3`. Return `[1000, 100, 10]`.
 
 ## 题解
 
@@ -63,3 +62,4 @@ public class Solution {
 ### 复杂度分析
 
 略
+

@@ -2,9 +2,9 @@
 
 ## Question
 
-- lintcode: [(130) Heapify](http://www.lintcode.com/en/problem/heapify/)
+* lintcode: [\(130\) Heapify](http://www.lintcode.com/en/problem/heapify/)
 
-```
+```text
 Given an integer array, heapify it into a min-heap array.
 
 For a heap array A, A[0] is the root of heap, and for each A[i],
@@ -39,7 +39,7 @@ Return any of them.
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -90,5 +90,6 @@ private:
 
 ## Reference
 
-- [Heap Sort](http://algorithm.yuanbin.me/zh-hans/basics_sorting/heap_sort.html)
-- [Heapify 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/heapify/)
+* [Heap Sort](http://algorithm.yuanbin.me/zh-hans/basics_sorting/heap_sort.html)
+* [Heapify 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/heapify/)
+

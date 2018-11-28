@@ -1,10 +1,10 @@
-# O(1) Check Power of 2
+# O1 Check Power of 2
 
 ## Question
 
-- lintcode: [(142) O(1) Check Power of 2](http://www.lintcode.com/en/problem/o1-check-power-of-2/)
+* lintcode: [\(142\) O\(1\) Check Power of 2](http://www.lintcode.com/en/problem/o1-check-power-of-2/)
 
-```
+```text
 Using O(1) time to check whether an integer n is a power of 2.
 
 Example
@@ -18,11 +18,11 @@ O(1) time
 
 ## 题解
 
-咋看起来挺简单的一道题目，可之前若是没有接触过神奇的位运算技巧遇到这种题就有点不知从哪入手了，咳咳，我第一次接触到这个题就是在七牛的笔试题中看到的，泪奔 :-(
+咋看起来挺简单的一道题目，可之前若是没有接触过神奇的位运算技巧遇到这种题就有点不知从哪入手了，咳咳，我第一次接触到这个题就是在七牛的笔试题中看到的，泪奔 :-\(
 
 简单点来考虑可以连除2求余，看最后的余数是否为1，但是这种方法无法在 $$O(1)$$ 的时间内解出，所以我们必须要想点别的办法了。2的整数幂若用二进制来表示，则其中必只有一个1，其余全是0，那么怎么才能用一个式子把这种特殊的关系表示出来了？传统的位运算如按位与、按位或和按位异或等均无法直接求解，我就不卖关子了，比较下`x - 1`和`x`的关系试试？以`x=4`为例。
 
-```
+```text
 0100 ==> 4
 0011 ==> 3
 ```
@@ -46,7 +46,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /*
@@ -92,3 +92,4 @@ $$O(1)$$.
 ## 扩展
 
 关于2的整数幂还有一道有意思的题，比如 [Next Power of 2 - GeeksforGeeks](http://www.geeksforgeeks.org/next-power-of-2/)，有兴趣的可以去围观下。
+

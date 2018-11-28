@@ -2,12 +2,12 @@
 
 ## Question
 
-- leetcode: [Median of Two Sorted Arrays | LeetCode OJ](https://leetcode.com/problems/median-of-two-sorted-arrays/)
-- lintcode: [(65) Median of two Sorted Arrays](http://www.lintcode.com/en/problem/median-of-two-sorted-arrays/)
+* leetcode: [Median of Two Sorted Arrays \| LeetCode OJ](https://leetcode.com/problems/median-of-two-sorted-arrays/)
+* lintcode: [\(65\) Median of two Sorted Arrays](http://www.lintcode.com/en/problem/median-of-two-sorted-arrays/)
 
 ### Problem Statement
 
-There are two sorted arrays *A* and *B* of size *m* and *n* respectively. Find the **median** of the two sorted arrays.
+There are two sorted arrays _A_ and _B_ of size _m_ and _n_ respectively. Find the **median** of the two sorted arrays.
 
 #### Example
 
@@ -17,11 +17,11 @@ Given `A=[1,2,3]` and `B=[4,5]`, the median is `3`.
 
 #### Challenge
 
-The overall run time complexity should be O(log (m+n)).
+The overall run time complexity should be O\(log \(m+n\)\).
 
 ## 题解1 - 归并排序
 
-何谓"Median"? 由题目意思可得即为两个数组中一半数据比它大，另一半数据比它小的那个数。详见 [中位数 - 维基百科，自由的百科全书](http://zh.wikipedia.org/wiki/%E4%B8%AD%E4%BD%8D%E6%95%B8)。简单粗暴的方法就是使用归并排序的思想，挨个比较两个数组的值，取小的，最后分奇偶长度返回平均值或者中位值。
+何谓"Median"? 由题目意思可得即为两个数组中一半数据比它大，另一半数据比它小的那个数。详见 [中位数 - 维基百科，自由的百科全书](http://zh.wikipedia.org/wiki/中位數)。简单粗暴的方法就是使用归并排序的思想，挨个比较两个数组的值，取小的，最后分奇偶长度返回平均值或者中位值。
 
 ### Java1 - merge sort with equal length
 
@@ -155,19 +155,17 @@ class Solution {
 
 ### 复杂度分析
 
-时间复杂度 $$O(m + n)$$, 空间复杂度为 $$(m + n)$$(使用额外数组), 或者 $$O(1)$$(不使用额外数组).
+时间复杂度 $$O(m + n)$$, 空间复杂度为 $$(m + n)$$\(使用额外数组\), 或者 $$O(1)$$\(不使用额外数组\).
 
 ## 题解2 - 二分搜索
 
-题中已有信息两个数组均为有序，找中位数的关键在于找到第一半大的数，显然可以使用二分搜索优化。本题是找中位数，其实可以泛化为一般的找第 k 大数，这个辅助方法的实现非常有意义！在两个数组中找第k大数->找中位数即为找第k大数的一个特殊情况——第(A.length + B.length) / 2 大数。因此首先需要解决找第k大数的问题。这个联想确实有点牵强...
+题中已有信息两个数组均为有序，找中位数的关键在于找到第一半大的数，显然可以使用二分搜索优化。本题是找中位数，其实可以泛化为一般的找第 k 大数，这个辅助方法的实现非常有意义！在两个数组中找第k大数-&gt;找中位数即为找第k大数的一个特殊情况——第\(A.length + B.length\) / 2 大数。因此首先需要解决找第k大数的问题。这个联想确实有点牵强...
 
-由于是找第k大数(从1开始)，使用二分法则需要比较A[k/2 - 1]和B[k/2 - 1]，并思考这两个元素和第k大元素的关系。
-1. A[k/2 - 1] <= B[k/2 - 1] => A和B合并后的第k大数中必包含A[0]~A[k/2  -1]，可使用归并的思想去理解。
-2. 若k/2 - 1超出A的长度，则必取B[0]~B[k/2 - 1]
+由于是找第k大数\(从1开始\)，使用二分法则需要比较A\[k/2 - 1\]和B\[k/2 - 1\]，并思考这两个元素和第k大元素的关系。 1. A\[k/2 - 1\] &lt;= B\[k/2 - 1\] =&gt; A和B合并后的第k大数中必包含A\[0\]~A\[k/2 -1\]，可使用归并的思想去理解。 2. 若k/2 - 1超出A的长度，则必取B\[0\]~B\[k/2 - 1\]
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -292,7 +290,7 @@ class Solution {
 2. 排除 A 或者 B 中有一个为空或者长度为0的情况。如果`A_start > A.size() - 1`，意味着A中无数提供，故仅能从B中取，所以只能是B从`B_start`开始的第k个数。下面的B...分析方法类似。
 3. k为1时，无需再递归调用，直接返回较小值。如果 k 为1不返回将导致后面的无限循环。
 4. 以A为例，取出自`A_start`开始的第`k / 2`个数，若下标`A_start + k / 2 - 1 < A.size()`，则可取此下标对应的元素，否则置为int的最大值，便于后面进行比较，免去了诸多边界条件的判断。
-4. 比较`A_key > B_key`，取小的折半递归调用findKth。
+5. 比较`A_key > B_key`，取小的折半递归调用findKth。
 
 接下来分析`findMedianSortedArrays`：
 
@@ -305,5 +303,6 @@ class Solution {
 
 ## Reference
 
-- [九章算法 | Median of Two Sorted Arrays](http://www.jiuzhang.com/solutions/median-of-two-sorted-arrays/)
-- [LeetCode: Median of Two Sorted Arrays 解题报告 - Yu's Garden - 博客园](http://www.cnblogs.com/yuzhangcmu/p/4138184.html)
+* [九章算法 \| Median of Two Sorted Arrays](http://www.jiuzhang.com/solutions/median-of-two-sorted-arrays/)
+* [LeetCode: Median of Two Sorted Arrays 解题报告 - Yu's Garden - 博客园](http://www.cnblogs.com/yuzhangcmu/p/4138184.html)
+

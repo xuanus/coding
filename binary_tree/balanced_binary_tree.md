@@ -2,8 +2,8 @@
 
 ## Question
 
-- leetcode: [Balanced Binary Tree | LeetCode OJ](https://leetcode.com/problems/balanced-binary-tree/)
-- lintcode: [(93) Balanced Binary Tree](http://www.lintcode.com/en/problem/balanced-binary-tree/)
+* leetcode: [Balanced Binary Tree \| LeetCode OJ](https://leetcode.com/problems/balanced-binary-tree/)
+* lintcode: [\(93\) Balanced Binary Tree](http://www.lintcode.com/en/problem/balanced-binary-tree/)
 
 ### Problem Statement
 
@@ -15,7 +15,7 @@ For this problem, a height-balanced binary tree is defined as a binary tree in w
 
 Given binary tree A=`{3,9,20,#,#,15,7}`, B=`{3,#,20,15,7}`
 
-```
+```text
 A)  3            B)    3 
    / \                  \
   9  20                 20
@@ -27,11 +27,11 @@ The binary tree A is a height-balanced binary tree, but B is not.
 
 ## 题解1 - 递归
 
-根据题意，平衡树的定义是两子树的深度差最大不超过1，显然使用递归进行分析较为方便。既然使用递归，那么接下来就需要分析递归调用的终止条件。和之前的 [Maximum Depth of Binary Tree | Algorithm](http://algorithm.yuanbin.me/zh-hans/binary_tree/maximum_depth_of_binary_tree.html) 类似，`NULL == root`必然是其中一个终止条件，返回`0`；根据题意还需的另一终止条件应为「左右子树高度差大于1」，但对应此终止条件的返回值是多少？——`INT_MAX` or `INT_MIN`？想想都不合适，为何不在传入参数中传入`bool`指针或者`bool`引用咧？并以此变量作为最终返回值，此法看似可行，先来看看鄙人最开始想到的这种方法。
+根据题意，平衡树的定义是两子树的深度差最大不超过1，显然使用递归进行分析较为方便。既然使用递归，那么接下来就需要分析递归调用的终止条件。和之前的 [Maximum Depth of Binary Tree \| Algorithm](http://algorithm.yuanbin.me/zh-hans/binary_tree/maximum_depth_of_binary_tree.html) 类似，`NULL == root`必然是其中一个终止条件，返回`0`；根据题意还需的另一终止条件应为「左右子树高度差大于1」，但对应此终止条件的返回值是多少？——`INT_MAX` or `INT_MIN`？想想都不合适，为何不在传入参数中传入`bool`指针或者`bool`引用咧？并以此变量作为最终返回值，此法看似可行，先来看看鄙人最开始想到的这种方法。
 
 ### C++ Recursion with extra bool variable
 
-```c++
+```cpp
 /**
  * Definition of TreeNode:
  * class TreeNode {
@@ -88,7 +88,7 @@ private:
 
 ### C++
 
-```c++
+```cpp
 /**
  * forked from http://www.jiuzhang.com/solutions/balanced-binary-tree/
  * Definition of TreeNode:
@@ -146,18 +146,18 @@ public class Solution {
     public boolean isBalanced(TreeNode root) {
         return maxDepth(root) != -1;
     }
-    
+
     private int maxDepth(TreeNode root) {
         if (root == null) return 0;
-        
+
         int leftDepth = maxDepth(root.left);
         int rightDepth = maxDepth(root.right);
         if (leftDepth == -1 || rightDepth == -1 ||
             Math.abs(leftDepth - rightDepth) > 1) {
-            
+
             return -1;
         }
-        
+
         return 1 + Math.max(leftDepth, rightDepth);
     }
 }
@@ -170,3 +170,4 @@ public class Solution {
 ### 复杂度分析
 
 遍历所有节点各一次，时间复杂度为 $$O(n)$$, 使用了部分辅助变量，空间复杂度 $$O(1)$$.
+

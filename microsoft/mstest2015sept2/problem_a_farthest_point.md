@@ -1,8 +1,8 @@
-# Problem A. Farthest Point（圆周上最远整点）
+# Problem A. Farthest Point
 
 ## Source
 
-- [hihoCoder](http://hihocoder.com/contest/mstest2015sept2/problem/1)
+* [hihoCoder](http://hihocoder.com/contest/mstest2015sept2/problem/1)
 
 ### Problem
 
@@ -16,17 +16,15 @@
 
 Given a circle on a two-dimentional plane.
 
-Output the **integral** point in or on the boundary of the circle which has
-the largest distance from the center.
+Output the **integral** point in or on the boundary of the circle which has the largest distance from the center.
 
 ### 输入
 
-One line with three floats which are all accurate to three decimal places,
-indicating the coordinates of the center x, y and the radius r.
+One line with three floats which are all accurate to three decimal places, indicating the coordinates of the center x, y and the radius r.
 
-For 80% of the data: |x|,|y|&lt;=1000, 1&lt;=r&lt;=1000
+For 80% of the data: \|x\|,\|y\|&lt;=1000, 1&lt;=r&lt;=1000
 
-For 100% of the data: |x|,|y|&lt;=100000, 1&lt;=r&lt;=100000
+For 100% of the data: \|x\|,\|y\|&lt;=100000, 1&lt;=r&lt;=100000
 
 ### 输出
 
@@ -34,18 +32,19 @@ One line with two integers separated by one space, indicating the answer.
 
 If there are multiple answers, print the one with the largest x-coordinate.
 
-If there are still multiple answers, print the one with the largest
-y-coordinate.
-
-
+If there are still multiple answers, print the one with the largest y-coordinate.
 
 #### 样例输入
 
-    1.000 1.000 5.000
+```text
+1.000 1.000 5.000
+```
 
 #### 样例输出
 
-    6 1
+```text
+6 1
+```
 
 ## 题解1 - 圆周枚举
 
@@ -120,17 +119,20 @@ public class Main {
 
 看似容易实则比较难的一道题，现场通过率非常低。我们仔细审下题，求圆周上的整点，有多个整点时输出最大的 x 和最大的 y. 容易想到的方案是枚举所有可能的 x 和 y, 然后代入等式测试是否相等，这个过不了大的 x 和 y. 如果用开方的方法必然有误差，我用这种方法不知道贡献了多少 WA, 泪流满面... 作为在线测试，**更为合理的方案应为先暴力搜索拿到百分之八十的分数。**
 
-从 Microsoft 和 Google APAC 在线测试的风格来看是偏向于程序设计竞赛的，那么题目的考点自然就在竞赛范围之内，这道题看似是浮点型的数据，~~实际上考的却是整数中数论的基础。~~**注意题中的 accurate to three decimal places, 那么也就意味着我们对给定的数据同乘 $$10^3$$ 后一定是整数！！**！这个关键的信息我在测试过程中也没注意到，直到第二天早上醒来后突然就想到了！兴奋地六点多就爬起来了。
+从 Microsoft 和 Google APAC 在线测试的风格来看是偏向于程序设计竞赛的，那么题目的考点自然就在竞赛范围之内，这道题看似是浮点型的数据，~~实际上考的却是整数中数论的基础。~~**注意题中的 accurate to three decimal places, 那么也就意味着我们对给定的数据同乘** $$10^3$$ **后一定是整数！！**！这个关键的信息我在测试过程中也没注意到，直到第二天早上醒来后突然就想到了！兴奋地六点多就爬起来了。
 
 首先肯定是要写出圆方程的，设圆心坐标为 $$(x_0, y_0)$$, 半径为 $$r$$, 那么我们有：
+
 $$
 (x - x_0)^2 + (y - y_0)^2 = r^2
 $$
 
 设 $$m = 10^3(x - x_0)$$, $$n = 10^3(y - y_0)$$, $$R = 10^3r$$, 那么我们有新的圆方程：
+
 $$
 m^2 + n^2 = R^2
 $$
+
 其中 `m, n, R` 均为整数。接下来我们看看给出的数据范围，x, y, r 均是 $$10^6$$ 以内，那么圆方程两边同乘 $$10^6$$ （括号内的数即乘上 $$10^3$$）后数据在 $$10^{18}$$ 以内。我们来估算下整数的范围，$$2^{10} \approx 10^3$$, Java 中 int 型为4个字节，最大为 $$2^{31} - 1 \approx 2 \cdot 10^9$$, long 型为8个字节，最大为 $$2^{63} - 1 \approx 2^3 \cdot 10^{18}$$, 估算下来应该选用 long 保存 m, n, R.
 
 接下来就是数论部分的推导了，先来一个简单的推导，勾股数部分的推导不直观。首先从已知部分出发，已知的只有勾股数方程和 m, n 均是整数，那么接下来肯定是要利用整数的理论无疑了。我们首先对以上圆方程移项开方，考虑到圆的对称性，我们其实只需要考虑圆的八分之一即可。这里考虑`0 < m < r`部分，`m == 0`表示在点在轴上，最后单独加上。
@@ -138,11 +140,14 @@ $$
 $$
 m = \sqrt{R^2 - n^2} = \sqrt{(R + n)(R - n)}
 $$
+
 由于 m 一定是整数，故根号内一定为完全平方数，由于排除了轴上的点，那么`-R < n < R`, 设`G = gcd(R + n, R - n)`, $$p^2 = (R + n) / G$$, $$q^2 = (R - n) / G$$, 于是我们有`m = Gpq`, `p > q`, 由于`G` 是`R + n` 和`R - n` 的最大公约数，故`p` 和`q`一定互质，且有：
+
 $$
 p^2 + q^2 = 2R / G
 $$
-由于`p`,`q` 都大于等于1，那么我们能推断出`G` 一定是 `2R` 的约数！根据约数(素数)部分的基础理论，我们可以在 $$O(\sqrt{2R})$$ 时间内找出所有约数。然后对以上等式进行缩放得到`p` 的范围，枚举求解，判断`p^2` 和`q^2` 是否互质(最大公约数是否为1)。
+
+由于`p`,`q` 都大于等于1，那么我们能推断出`G` 一定是 `2R` 的约数！根据约数\(素数\)部分的基础理论，我们可以在 $$O(\sqrt{2R})$$ 时间内找出所有约数。然后对以上等式进行缩放得到`p` 的范围，枚举求解，判断`p^2` 和`q^2` 是否互质\(最大公约数是否为1\)。
 
 ### Java
 
@@ -257,17 +262,23 @@ public class Main {
 ## 题解3 - 勾股数
 
 除了以上使用数论部分整数分解的方法外，还可以巧用勾股数的特性，这种方法需要熟知勾股数的特性。设正整数 $$m, n, r$$ 满足：
+
 $$
 m^2 + n^2 = r^2
 $$
+
 我们对上式两边进行平方可得：
+
 $$
 (m^2 - n^2)^2 + (2mn)^2 = (m^2 + n^2)^2 = (r^2)^2
 $$
+
 令 $$a = m^2 - n^2$$, $$b = 2mn$$, $$c = m^2 + n^2$$. 容易得到：
+
 $$
 a^2 + b^2 = c^2
 $$
+
 注意到上述推导可逆，那么也就是说只要我们找到正整数满足`m > n`就能找到所有可能的勾股数。且根据素勾股数的特性，`m`, `n` 为一奇一偶，不妨设其为`2k-1`, `2k`. 代入`c`中可知`c`为`4K + 1`. 即`c % 4 = 1`. 根据 [Tree of primitive Pythagorean triples](https://en.wikipedia.org/wiki/Tree_of_primitive_Pythagorean_triples) 中提到的方法，我们只需找出小于给定的`r`的素勾股数即可，然后判断是否能整除`r`.
 
 ### Java
@@ -411,7 +422,8 @@ public class Main {
 
 ## Reference
 
-- [BZOJ 1041 [HAOI2008] 圆上的整点 题解与分析 - 初学者 - 博客频道 - CSDN.NET](http://blog.csdn.net/csyzcyj/article/details/10044629)
-- [[BZOJ1041 [HAOI2008]圆上的整点]数论、勾股数相关定理 | edward_mj](http://edward-mj.com/archives/166)
-- [勾股数 - 维基百科，自由的百科全书](https://zh.wikipedia.org/wiki/%E5%8B%BE%E8%82%A1%E6%95%B0)
-- [hihoCoder](http://hihocoder.com/discuss/question/2619)
+* [BZOJ 1041 \[HAOI2008\] 圆上的整点 题解与分析 - 初学者 - 博客频道 - CSDN.NET](http://blog.csdn.net/csyzcyj/article/details/10044629)
+* [\[BZOJ1041 \[HAOI2008\]圆上的整点\]数论、勾股数相关定理 \| edward\_mj](http://edward-mj.com/archives/166)
+* [勾股数 - 维基百科，自由的百科全书](https://zh.wikipedia.org/wiki/勾股数)
+* [hihoCoder](http://hihocoder.com/discuss/question/2619)
+

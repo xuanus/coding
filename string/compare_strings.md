@@ -4,12 +4,11 @@ Tags: Basic Implementation, String, LintCode Copyright, Easy
 
 ## Question
 
-- lintcode: [Compare Strings](http://www.lintcode.com/en/problem/compare-strings/)
+* lintcode: [Compare Strings](http://www.lintcode.com/en/problem/compare-strings/)
 
 ### Problem Statement
 
-Compare two strings A and B, determine whether A contains all of the
-characters in B.
+Compare two strings A and B, determine whether A contains all of the characters in B.
 
 The characters in string A and B are all **Upper Case** letters.
 
@@ -53,7 +52,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -120,3 +119,4 @@ Python 的`dict`就是hash， 所以 Python 在处理需要用到 hash 的地方
 ### 复杂度分析
 
 遍历一次 A 字符串，遍历一次 B 字符串，时间复杂度最坏 $$O(n)$$, 空间复杂度为 $$O(1)$$.
+

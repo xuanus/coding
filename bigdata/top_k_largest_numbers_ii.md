@@ -1,9 +1,9 @@
 ---
 difficulty: Medium
 tags:
-- Priority Queue
-- Heap
-- Data Stream
+  - Priority Queue
+  - Heap
+  - Data Stream
 title: Top k Largest Numbers II
 ---
 
@@ -13,20 +13,20 @@ title: Top k Largest Numbers II
 
 ### Metadata
 
-- tags: Priority Queue, Heap, Data Stream
-- difficulty: Medium
-- source(lintcode): <https://www.lintcode.com/problem/top-k-largest-numbers-ii/>
+* tags: Priority Queue, Heap, Data Stream
+* difficulty: Medium
+* source\(lintcode\): [https://www.lintcode.com/problem/top-k-largest-numbers-ii/](https://www.lintcode.com/problem/top-k-largest-numbers-ii/)
 
 ### Description
 
 Implement a data structure, provide two interfaces:
 
 1. `add(number)`. Add a new number in the data structure.
-2. `topk()`. Return the top *k* largest numbers in this data structure. *k* is given when we create the data structure.
+2. `topk()`. Return the top _k_ largest numbers in this data structure. _k_ is given when we create the data structure.
 
 #### Example
 
-```
+```text
 s = new Solution(3);
 >> create a new data structure.
 s.add(3)
@@ -100,3 +100,4 @@ public class Solution {
 ### 复杂度分析
 
 略
+

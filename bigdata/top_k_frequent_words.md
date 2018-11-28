@@ -1,15 +1,15 @@
 ---
 difficulty: Medium
 tags:
-- Pocket Gems
-- Hash Table
-- Amazon
-- Priority Queue
-- Bloomberg
-- Yelp
-- Heap
-- Uber
-- EditorsChoice
+  - Pocket Gems
+  - Hash Table
+  - Amazon
+  - Priority Queue
+  - Bloomberg
+  - Yelp
+  - Heap
+  - Uber
+  - EditorsChoice
 title: Top K Frequent Words
 ---
 
@@ -19,10 +19,10 @@ title: Top K Frequent Words
 
 ### Metadata
 
-- tags: Pocket Gems, Hash Table, Amazon, Priority Queue, Bloomberg, Yelp, Heap, Uber, EditorsChoice
-- difficulty: Medium
-- source(lintcode): <https://www.lintcode.com/problem/top-k-frequent-words/>
-- source(leetcode): <https://leetcode.com/problems/top-k-frequent-words/>
+* tags: Pocket Gems, Hash Table, Amazon, Priority Queue, Bloomberg, Yelp, Heap, Uber, EditorsChoice
+* difficulty: Medium
+* source\(lintcode\): [https://www.lintcode.com/problem/top-k-frequent-words/](https://www.lintcode.com/problem/top-k-frequent-words/)
+* source\(leetcode\): [https://leetcode.com/problems/top-k-frequent-words/](https://leetcode.com/problems/top-k-frequent-words/)
 
 ### Description
 
@@ -36,13 +36,15 @@ You should order the words by the frequency of them in the return list, the most
 
 Given
 
-    [
-        "yes", "lint", "code",
-        "yes", "code", "baby",
-        "you", "baby", "chrome",
-        "safari", "lint", "code",
-        "body", "lint", "code"
-    ]
+```text
+[
+    "yes", "lint", "code",
+    "yes", "code", "baby",
+    "you", "baby", "chrome",
+    "safari", "lint", "code",
+    "body", "lint", "code"
+]
+```
 
 for k = `3`, return `["code", "lint", "baby"]`.
 
@@ -50,11 +52,11 @@ for k = `4`, return `["code", "lint", "baby", "yes"]`,
 
 #### Challenge
 
-Do it in O(nlogk) time and O(n) extra space.
+Do it in O\(nlogk\) time and O\(n\) extra space.
 
 ## 题解
 
-输出出现频率最高的 K 个单词并对相同频率的单词按照字典序排列。如果我们使用大根堆维护，那么我们可以在输出结果时依次移除根节点即可。这种方法虽然可行，但不可避免会产生不少空间浪费，理想情况下，我们仅需要维护 K 个大小的堆即可。所以接下来的问题便是我们怎么更好地维护这种 K 大小的堆，并且在新增元素时剔除的是最末尾(最小)的节点。
+输出出现频率最高的 K 个单词并对相同频率的单词按照字典序排列。如果我们使用大根堆维护，那么我们可以在输出结果时依次移除根节点即可。这种方法虽然可行，但不可避免会产生不少空间浪费，理想情况下，我们仅需要维护 K 个大小的堆即可。所以接下来的问题便是我们怎么更好地维护这种 K 大小的堆，并且在新增元素时剔除的是最末尾\(最小\)的节点。
 
 ### Java
 
@@ -109,7 +111,7 @@ public class Solution {
     class KeyFreq implements Comparable<KeyFreq> {
         String key;
         int freq;
-        
+
         public KeyFreq(String key, int freq) {
             this.key = key;
             this.freq = freq;
@@ -127,7 +129,6 @@ public class Solution {
 }
 ```
 
-
 ### 源码分析
 
 使用 Java 自带的 PriorityQueue 来实现堆，由于需要定制大小比较，所以这里自定义类中实现了 `Comparable` 的 `compareTo` 接口，另外需要注意的是这里原生使用了小根堆，所以我们在覆写 `compareTo` 时需要注意字符串的比较，相同频率的按照字典序排序，即优先保留字典序较小的字符串，所以正好和 freq 的比较相反。最后再输出答案时，由于是小根堆，所以还需要再转置一次。此题的 Java 实现中，使用的 PriorityQueue 并非线程安全，实际使用中需要注意是否需要用到线程安全的 PriorityBlockingQueue
@@ -137,3 +138,4 @@ public class Solution {
 ### 复杂度分析
 
 堆的插入删除操作，定长为 K, n 个元素，故时间复杂度约 $$O(n \log K)$$, 空间复杂度为 $$O(n)$$.
+

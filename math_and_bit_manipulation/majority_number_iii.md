@@ -2,9 +2,9 @@
 
 ## Question
 
-- lintcode: [(48) Majority Number III](http://www.lintcode.com/en/problem/majority-number-iii/)
+* lintcode: [\(48\) Majority Number III](http://www.lintcode.com/en/problem/majority-number-iii/)
 
-```
+```text
 Given an array of integers and a number k,
 the majority number is the number that occurs more than 1/k of the size of the array.
 
@@ -25,7 +25,8 @@ O(n) time and O(k) extra space
 [Majority Number II](http://algorithm.yuanbin.me/zh-hans/math_and_bit_manipulation/majority_number_ii.html) 的升级版，有了前两道题的铺垫，此题的思路已十分明了，对 K-1个数进行相互抵消，这里不太可能使用 key1, key2...等变量，用数组使用上不太方便，且增删效率不高，故使用哈希表较为合适，当哈希表的键值数等于 K 时即进行清理，当然更准备地来讲应该是等于 K-1时清理。故此题的逻辑即为：1. 更新哈希表，若遇哈希表 size == K 时则执行删除操作，最后遍历哈希表取真实计数器值，返回最大的 key.
 
 ### C++
-```c++
+
+```cpp
 class Solution {
 public:
     /**
@@ -35,7 +36,7 @@ public:
      */
     int majorityNumber(vector<int> nums, int k) {
         unordered_map<int, int> map;
-        
+
         for (auto n : nums) {
            if (map.size() < k) map[n]++;
            else {
@@ -51,7 +52,7 @@ public:
                 }
             }   
         }
-        
+
         int mx = 0;
         int ret = 0;
         for (auto &it : map) {
@@ -154,4 +155,5 @@ public class Solution {
 
 ## Reference
 
-- [Majority Number III 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/majority-number-iii/)
+* [Majority Number III 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/majority-number-iii/)
+

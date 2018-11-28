@@ -2,12 +2,11 @@
 
 ## Question
 
-- lintcode: [First Position of Target](http://www.lintcode.com/en/problem/first-position-of-target)
+* lintcode: [First Position of Target](http://www.lintcode.com/en/problem/first-position-of-target)
 
 ### Problem Statement
 
-For a given sorted array (ascending order) and a `target` number, find the
-first index of this number in `O(log n)` time complexity.
+For a given sorted array \(ascending order\) and a `target` number, find the first index of this number in `O(log n)` time complexity.
 
 If the target number does not exist in the array, return `-1`.
 
@@ -21,7 +20,7 @@ If the count of numbers is bigger than $$2^{32}$$, can your code work properly?
 
 ## 题解
 
-对于已排序升序(升序)数组，使用二分查找可满足复杂度要求，注意数组中可能有重复值，所以需要使用类似`lower_bound`中提到的方法。
+对于已排序升序\(升序\)数组，使用二分查找可满足复杂度要求，注意数组中可能有重复值，所以需要使用类似`lower_bound`中提到的方法。
 
 ### Java
 
@@ -56,7 +55,6 @@ class Solution {
         }
     }
 }
-
 ```
 
 ### 源码分析
@@ -70,9 +68,9 @@ class Solution {
 
 ### 复杂度分析
 
-时间复杂度 $$O(\log n)$$, 空间复杂度 $$(1)$$.
-对于题中的 follow up, Java 中数组不允许使用 long 型，如果使用 long 型，那么数组大小可大 17GB 之巨！！几乎没法用。
+时间复杂度 $$O(\log n)$$, 空间复杂度 $$(1)$$. 对于题中的 follow up, Java 中数组不允许使用 long 型，如果使用 long 型，那么数组大小可大 17GB 之巨！！几乎没法用。
 
 ## Reference
 
-- 《挑战程序设计竞赛》3.1节
+* 《挑战程序设计竞赛》3.1节
+

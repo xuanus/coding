@@ -1,13 +1,13 @@
 # Word Break
 
-- tags: [DP_Sequence]
+* tags: \[DP\_Sequence\]
 
 ## Question
 
-- leetcode: [Word Break | LeetCode OJ](https://leetcode.com/problems/word-break/)
-- lintcode: [(107) Word Break](http://www.lintcode.com/en/problem/word-break/)
+* leetcode: [Word Break \| LeetCode OJ](https://leetcode.com/problems/word-break/)
+* lintcode: [\(107\) Word Break](http://www.lintcode.com/en/problem/word-break/)
 
-```
+```text
 Given a string s and a dictionary of words dict, determine if s can be
 segmented into a space-separated sequence of one or more dictionary words.
 
@@ -20,7 +20,7 @@ Return true because "leetcode" can be segmented as "leet code".
 
 ## 题解
 
-单序列(DP_Sequence) DP 题，由单序列动态规划的四要素可大致写出：
+单序列\(DP\_Sequence\) DP 题，由单序列动态规划的四要素可大致写出：
 
 1. State: `f[i]` 表示前`i`个字符能否根据词典中的词被成功分词。
 2. Function: `f[i] = or{f[j], j < i, letter in [j+1, i] can be found in dict}`, 含义为小于`i`的索引`j`中只要有一个`f[j]`为真且`j+1`到`i`中组成的字符能在词典中找到时，`f[i]`即为真，否则为假。具体实现可分为自顶向下或者自底向上。
@@ -58,7 +58,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     bool wordBreak(string s, unordered_set<string>& wordDict) {
@@ -68,7 +68,7 @@ public:
         // get the max word length of wordDict
         int max_word_len = 0;
         for (unordered_set<string>::iterator it = wordDict.begin();
-	     it != wordDict.end(); ++it) {
+         it != wordDict.end(); ++it) {
 
             max_word_len = max(max_word_len, (*it).size());
         }
@@ -81,7 +81,7 @@ public:
                 if (i - j > max_word_len) break;
 
                 if (can_break[j] && 
-		    wordDict.find(s.substr(j, i - j)) != wordDict.end()) {
+            wordDict.find(s.substr(j, i - j)) != wordDict.end()) {
 
                     can_break[i] = true;
                     break;
@@ -135,7 +135,8 @@ Python 之类的动态语言无需初始化指定大小的数组，使用时下�
 ### 复杂度分析
 
 1. 求解词典中最大单词长度，时间复杂度为词典长度乘上最大单词长度 $$O(L_D \cdot L_w)$$
-2. 词典中找单词的时间复杂度为 $$O(1)$$(哈希表结构)
+2. 词典中找单词的时间复杂度为 $$O(1)$$\(哈希表结构\)
 3. 两重 for 循环，内循环在超出最大单词长度时退出，故最坏情况下两重 for 循环的时间复杂度为 $$O(n L_w)$$.
 4. 故总的时间复杂度近似为 $$O(n L_w)$$.
 5. 使用了与字符串长度几乎等长的布尔数组和临时单词`word`，空间复杂度近似为 $$O(n)$$.
+

@@ -2,8 +2,8 @@
 
 ## Question
 
-- leetcode: [Merge Intervals | LeetCode OJ](https://leetcode.com/problems/merge-intervals/)
-- lintcode: [(156) Merge Intervals](http://www.lintcode.com/en/problem/merge-intervals/)
+* leetcode: [Merge Intervals \| LeetCode OJ](https://leetcode.com/problems/merge-intervals/)
+* lintcode: [\(156\) Merge Intervals](http://www.lintcode.com/en/problem/merge-intervals/)
 
 ### Problem Statement
 
@@ -11,9 +11,9 @@ Given a collection of intervals, merge all overlapping intervals.
 
 #### Example
 
-Given intervals => merged intervals:
+Given intervals =&gt; merged intervals:
 
-```
+```text
 [                     [
   [1, 3],               [1, 6],
   [2, 6],      =>       [8, 10],
@@ -24,7 +24,7 @@ Given intervals => merged intervals:
 
 #### Challenge
 
-O(n log n) time and O(1) extra space.
+O\(n log n\) time and O\(1\) extra space.
 
 ## 题解1 - 排序后
 
@@ -150,5 +150,6 @@ class Solution {
 
 ## Reference
 
-- [Merge Intervals 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/merge-intervals/)
-- Soulmachine 的 leetcode 题解
+* [Merge Intervals 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/merge-intervals/)
+* Soulmachine 的 leetcode 题解
+

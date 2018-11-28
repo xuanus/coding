@@ -1,12 +1,12 @@
 # Unique Paths II
 
-- tags: [DP_Matrix]
+* tags: \[DP\_Matrix\]
 
 ## Question
 
-- lintcode: [(115) Unique Paths II](http://www.lintcode.com/en/problem/unique-paths-ii/)
+* lintcode: [\(115\) Unique Paths II](http://www.lintcode.com/en/problem/unique-paths-ii/)
 
-```
+```text
 Follow up for "Unique Paths":
 
 Now consider if some obstacles are added to the grids.
@@ -34,7 +34,7 @@ The total number of unique paths is 2.
 
 ### C++ initialization error
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -83,7 +83,7 @@ public:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -133,6 +133,7 @@ public:
 ### 源码分析
 
 1. 异常处理
-2. 初始化二维矩阵(全0阵)，尤其注意遇到障碍物时应`break`跳出当前循环
+2. 初始化二维矩阵\(全0阵\)，尤其注意遇到障碍物时应`break`跳出当前循环
 3. 递推路径数
 4. 返回`ret[M - 1][N - 1]`
+

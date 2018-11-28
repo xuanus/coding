@@ -2,17 +2,17 @@
 
 ## Question
 
-- leetcode: [Copy List with Random Pointer | LeetCode OJ](https://leetcode.com/problems/copy-list-with-random-pointer/)
-- lintcode: [(105) Copy List with Random Pointer](http://www.lintcode.com/en/problem/copy-list-with-random-pointer/)
+* leetcode: [Copy List with Random Pointer \| LeetCode OJ](https://leetcode.com/problems/copy-list-with-random-pointer/)
+* lintcode: [\(105\) Copy List with Random Pointer](http://www.lintcode.com/en/problem/copy-list-with-random-pointer/)
 
-```
+```text
 A linked list is given such that each node contains an additional random pointer
 which could point to any node in the list or null.
 
 Return a deep copy of the list.
 ```
 
-## 题解1 - 哈希表(两次遍历)
+## 题解1 - 哈希表\(两次遍历\)
 
 首先得弄懂深拷贝的含义，深拷贝可不是我们平时见到的对基本类型的变量赋值那么简单，深拷贝常常用于对象的克隆。这道题要求**深度拷贝**一个带有 random 指针的链表，random 可能指向空，也可能指向链表中的任意一个节点。
 
@@ -22,7 +22,7 @@ Return a deep copy of the list.
 
 原链表和深拷贝之后的链表如下：
 
-```
+```text
 |------------|             |------------|
 |            v       ===>  |            v
 1  --> 2 --> 3 --> 4       1' --> 2'--> 3'--> 4'
@@ -39,7 +39,7 @@ Return a deep copy of the list.
 
 一图胜千文
 
-![Hashtable](../../shared-files/images/copy_list_with_random_pointer.jpg)
+![Hashtable](https://github.com/xuanus/coding/tree/f09f25ddc0c56beb8d4ed92fcfb3e81a80f8ab75/shared-files/images/copy_list_with_random_pointer.jpg)
 
 ### Python
 
@@ -82,7 +82,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition for singly-linked list with a random pointer.
  * struct RandomListNode {
@@ -187,11 +187,11 @@ public class Solution {
 
 ### 复杂度分析
 
-总共要进行两次扫描，所以时间复杂度是 $$O(2n)=O(n)$$, 在链表较长时可能会 TLE(比如 Python). 空间上需要一个哈希表来做结点的映射，所以空间复杂度也是 $$O(n)$$.
+总共要进行两次扫描，所以时间复杂度是 $$O(2n)=O(n)$$, 在链表较长时可能会 TLE\(比如 Python\). 空间上需要一个哈希表来做结点的映射，所以空间复杂度也是 $$O(n)$$.
 
-## 题解2 - 哈希表(一次遍历)
+## 题解2 - 哈希表\(一次遍历\)
 
-从题解1 的分析中我们可以看到对于 random 指针我们是在第二次遍历时单独处理的，那么在借助哈希表的情况下有没有可能一次遍历就完成呢？我们回想一下题解1 中random 节点的处理，由于在第一次遍历完之前 random 所指向的节点是不知道到底是指向哪一个节点，故我们在将 random 指向的节点加入哈希表之前判断一次就好了(是否已经生成，避免对同一个值产生两个不同的节点)。由于 random 节点也在第一次遍历加入哈希表中，故生成新节点时也需要判断哈希表中是否已经存在。
+从题解1 的分析中我们可以看到对于 random 指针我们是在第二次遍历时单独处理的，那么在借助哈希表的情况下有没有可能一次遍历就完成呢？我们回想一下题解1 中random 节点的处理，由于在第一次遍历完之前 random 所指向的节点是不知道到底是指向哪一个节点，故我们在将 random 指向的节点加入哈希表之前判断一次就好了\(是否已经生成，避免对同一个值产生两个不同的节点\)。由于 random 节点也在第一次遍历加入哈希表中，故生成新节点时也需要判断哈希表中是否已经存在。
 
 ### Python
 
@@ -236,7 +236,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition for singly-linked list with a random pointer.
  * struct RandomListNode {
@@ -335,7 +335,7 @@ public class Solution {
 
 ### 源码分析
 
-随机指针指向节点不定，故加入哈希表之前判断一下 key 是否存在即可。C++ 中 C++ 11 引入的 unordered_map 较 map 性能更佳，使用 count 判断 key 是否存在比 find 开销小一点，因为 find 需要构造 iterator。
+随机指针指向节点不定，故加入哈希表之前判断一下 key 是否存在即可。C++ 中 C++ 11 引入的 unordered\_map 较 map 性能更佳，使用 count 判断 key 是否存在比 find 开销小一点，因为 find 需要构造 iterator。
 
 ### 复杂度分析
 
@@ -347,7 +347,7 @@ public class Solution {
 
 但我们可以通过链表原来结构中的 `next` 指针来替代 `hash table` 做哈希。假设有如下链表：
 
-```
+```text
 |------------|
 |            v
 1  --> 2 --> 3 --> 4
@@ -355,7 +355,7 @@ public class Solution {
 
 节点1的 random 指向了3。首先我们可以通过 next 遍历链表，依次拷贝节点，并将其添加到原节点后面，如下：
 
-```
+```text
 |--------------------------|
 |                          v
 1  --> 1' --> 2 --> 2' --> 3 --> 3' --> 4 --> 4'
@@ -367,7 +367,7 @@ public class Solution {
 
 调整新的节点的 random 指针，对于上面例子来说，我们需要将1'的 random 指向3'，其实也就是原先 random 指针的next节点。
 
-```
+```text
 |--------------------------|
 |                          v
 1  --> 1' --> 2 --> 2' --> 3 --> 3' --> 4 --> 4'
@@ -424,7 +424,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition for singly-linked list with a random pointer.
  * struct RandomListNode {
@@ -539,6 +539,7 @@ public class Solution {
 
 ## Reference
 
-- [Copy List with Random Pointer - siddontang's leetcode Solution Book](http://siddontang.gitbooks.io/leetcode-solution/content/linked_list/copy_list_with_random_pointer.html/)
-- [Copy List with Random Pointer 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/copy-list-with-random-pointer/)
-- [Copy List with Random Pointer - Code Ganker](http://blog.csdn.net/linhuanmars/article/details/22463599)
+* [Copy List with Random Pointer - siddontang's leetcode Solution Book](http://siddontang.gitbooks.io/leetcode-solution/content/linked_list/copy_list_with_random_pointer.html/)
+* [Copy List with Random Pointer 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/copy-list-with-random-pointer/)
+* [Copy List with Random Pointer - Code Ganker](http://blog.csdn.net/linhuanmars/article/details/22463599)
+

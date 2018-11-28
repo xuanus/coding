@@ -2,13 +2,11 @@
 
 ## Question
 
-- lintcode: [(198) Permutation Index II](http://www.lintcode.com/en/problem/permutation-index-ii/)
+* lintcode: [\(198\) Permutation Index II](http://www.lintcode.com/en/problem/permutation-index-ii/)
 
 ### Problem Statement
 
-Given a permutation which may contain repeated numbers, find its index in all
-the permutations of these numbers, which are ordered in lexicographical order.
-The index begins at 1.
+Given a permutation which may contain repeated numbers, find its index in all the permutations of these numbers, which are ordered in lexicographical order. The index begins at 1.
 
 #### Example
 
@@ -68,7 +66,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -164,3 +162,4 @@ public class Solution {
 ### 复杂度分析
 
 双重 for 循环，时间复杂度为 $$O(n^2)$$, 使用了哈希表，空间复杂度为 $$O(n)$$.
+

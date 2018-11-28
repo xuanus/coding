@@ -2,10 +2,10 @@
 
 ## Question
 
-- leetcode: [Construct Binary Tree from Preorder and Inorder Traversal | LeetCode OJ](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
-- lintcode: [(73) Construct Binary Tree from Preorder and Inorder Traversal](http://www.lintcode.com/en/problem/construct-binary-tree-from-preorder-and-inorder-traversal/)
+* leetcode: [Construct Binary Tree from Preorder and Inorder Traversal \| LeetCode OJ](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
+* lintcode: [\(73\) Construct Binary Tree from Preorder and Inorder Traversal](http://www.lintcode.com/en/problem/construct-binary-tree-from-preorder-and-inorder-traversal/)
 
-```
+```text
 Given preorder and inorder traversal of a tree, construct the binary tree.
 
 Example
@@ -19,9 +19,7 @@ You may assume that duplicates do not exist in the tree.
 
 ## 题解
 
-二叉树的重建，典型题。核心有两点：
-1. preorder 先序遍历的第一个节点即为根节点。
-2. 确定 inorder 数组中的根节点后其左子树和右子树也是 preorder 的左子树和右子树。
+二叉树的重建，典型题。核心有两点： 1. preorder 先序遍历的第一个节点即为根节点。 2. 确定 inorder 数组中的根节点后其左子树和右子树也是 preorder 的左子树和右子树。
 
 其中第二点是隐含条件，数组中没有重复元素，故可以根据先序遍历中第一个元素（根节点）得到根节点的值，然后在 inorder 中序遍历的数组中搜索得到根节点的索引值，即为左子树，右边为右子树。根据中序遍历中左子树的索引确定先序遍历数组中左子树的起止索引。递归直至处理完所有数组元素。
 
@@ -93,4 +91,5 @@ public class Solution {
 
 ## Reference
 
-- [Construct Binary Tree from Preorder and Inorder Traversal 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/construct-binary-tree-from-preorder-and-inorder-traversal/)
+* [Construct Binary Tree from Preorder and Inorder Traversal 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/construct-binary-tree-from-preorder-and-inorder-traversal/)
+

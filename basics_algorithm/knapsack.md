@@ -1,9 +1,9 @@
-# Knapsack - 背包问题
+# Knapsack
 
 在一次抢珠宝店的过程中，抢劫犯只能抢走以下三种珠宝，其重量和价值如下表所述。
 
-| Item(jewellery) | Weight | Value |
-| -- | -- | -- |
+| Item\(jewellery\) | Weight | Value |
+| :--- | :--- | :--- |
 | 1 | 6 | 23 |
 | 2 | 3 | 13 |
 | 3 | 4 | 11 |
@@ -20,9 +20,9 @@
 
 我们先来处理一种珠宝最多只能带走一件这种情形下，抢劫犯该如何做才能使得背包中的珠宝价值总价最大？最为简单粗暴的方法自然是把这 n 种珠宝挨个试一遍，总共可能的组合数之和为 $$C_n^0 + \cdots + C_n^n = 2^n$$, 这种指数级别的时间复杂度显然是不能忍的，在搜索的过程中我们可以发现中间的一些子状态是可以避免重复计算的，下面我们使用动态规划的思路去进一步分析 01 背包问题。
 
-在动态规划中，主要的问题之一就是——状态(子问题)是什么？在本题中我们可以从两个方面对原始问题进行化大为小：要么尝试更小的背包容量 $$w \leq W$$, 要么尝试更少的珠宝数目 $$j \leq n$$. 由于涉及到两个自变量，考虑到按顺序挑选珠宝这一过程更容易理解，我们不难定义状态 $$K(i, w)$$ 为挑选出前 i 件珠宝时，重量不超过 w 时的珠宝总价值的最大值。相应的状态转移方程为第 i 件珠宝要么不选，要么选，即 $$K(i,w) = \max \{K(i-1, w), K(i-1, w- w_i) + v_i\}$$. 令 `dp[i + 1][j]` 表示从前 i 种物品中选出总重量不超过 j 时珠宝总价值的最大值。那么有转移方程：
+在动态规划中，主要的问题之一就是——状态\(子问题\)是什么？在本题中我们可以从两个方面对原始问题进行化大为小：要么尝试更小的背包容量 $$w \leq W$$, 要么尝试更少的珠宝数目 $$j \leq n$$. 由于涉及到两个自变量，考虑到按顺序挑选珠宝这一过程更容易理解，我们不难定义状态 $$K(i, w)$$ 为挑选出前 i 件珠宝时，重量不超过 w 时的珠宝总价值的最大值。相应的状态转移方程为第 i 件珠宝要么不选，要么选，即 $$K(i,w) = \max \{K(i-1, w), K(i-1, w- w_i) + v_i\}$$. 令 `dp[i + 1][j]` 表示从前 i 种物品中选出总重量不超过 j 时珠宝总价值的最大值。那么有转移方程：
 
-```
+```text
 dp[i + 1][j] = max{dp[i][j], dp[i][j - w[i]] + v[i]}
 ```
 
@@ -32,24 +32,24 @@ dp[i + 1][j] = max{dp[i][j], dp[i][j - w[i]] + v[i]}
 
 ## Knapsack with repetition - 物品重复可用的背包问题
 
-相比于 01 背包问题，这类背包问题中同一物品可以被多次选择，因此称为 Knapsack with repetition, 又称 Unbounded knapsack problem(无界背包问题). 由 01 背包问题扩展后状态定义仍然可以不变，但状态变化则由原来的第 i 件珠宝选或者不选改为选不小于 0 任何整数件。
+相比于 01 背包问题，这类背包问题中同一物品可以被多次选择，因此称为 Knapsack with repetition, 又称 Unbounded knapsack problem\(无界背包问题\). 由 01 背包问题扩展后状态定义仍然可以不变，但状态变化则由原来的第 i 件珠宝选或者不选改为选不小于 0 任何整数件。
 
 令 `dp[i + 1][j]` 表示从前 i 种物品中选出总重量不超过 j 时珠宝总价值的最大值。那么有转移方程：
 
-```
+```text
 dp[i + 1][j] = max{dp[i][j - k × w[i]] + k × v[i] | 0 ≤ k}
 ```
 
 最坏情况下时间复杂度为 $$O(kW^2)$$. 我们对上式进一步变形可得：
 
-```
+```text
 dp[i + 1][j] = max{dp[i][j - k × w[i]] + k × v[i] | 0 ≤ k}
              = max{dp[i][j], max{dp[i][j - k × w[i]] + k × v[i] | 1 ≤ k}}
              = max{dp[i][j], max{dp[i][(j - w[i]) - k × w[i]] + k × v[i] | 0 ≤ k} + v[i]}
              = max{dp[i][j], dp[i + 1][j - w[i]] + v[i]}
 ```
 
-**注意等式最后一行，咋看和01背包一样，实际上区别在于`dp[i + 1][]`, 01背包中为`dp[i][]`.** 此时时间复杂度简化为 $$O(nW)$$. 和 01 背包的递推关系区别在于第 i 件珠宝是否可以重复取。
+**注意等式最后一行，咋看和01背包一样，实际上区别在于**`dp[i + 1][]`**, 01背包中为**`dp[i][]`**.** 此时时间复杂度简化为 $$O(nW)$$. 和 01 背包的递推关系区别在于第 i 件珠宝是否可以重复取。
 
 ## 扩展
 
@@ -177,8 +177,9 @@ public class Backpack {
 
 ## Reference
 
-- 《挑战程序设计竞赛》第二章
-- Chapter 6.4 Knapsack *Algorithm - S. Dasgupta*
-- [0019算法笔记——【动态规划】0-1背包问题 - liufeng_king的专栏](http://blog.csdn.net/liufeng_king/article/details/8683136)
-- [崔添翼 § 翼若垂天之云 › 《背包问题九讲》2.0 alpha1](http://cuitianyi.com/blog/%E3%80%8A%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E4%B9%9D%E8%AE%B2%E3%80%8B2-0-alpha1/)
-- [Knapsack.java](http://introcs.cs.princeton.edu/java/96optimization/Knapsack.java.html)
+* 《挑战程序设计竞赛》第二章
+* Chapter 6.4 Knapsack _Algorithm - S. Dasgupta_
+* [0019算法笔记——【动态规划】0-1背包问题 - liufeng\_king的专栏](http://blog.csdn.net/liufeng_king/article/details/8683136)
+* [崔添翼 § 翼若垂天之云 › 《背包问题九讲》2.0 alpha1](http://cuitianyi.com/blog/《背包问题九讲》2-0-alpha1/)
+* [Knapsack.java](http://introcs.cs.princeton.edu/java/96optimization/Knapsack.java.html)
+

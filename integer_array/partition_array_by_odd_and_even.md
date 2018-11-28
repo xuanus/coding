@@ -2,10 +2,10 @@
 
 ## Question
 
-- lintcode: [(373) Partition Array by Odd and Even](http://www.lintcode.com/en/problem/partition-array-by-odd-and-even/)
-- [Segregate Even and Odd numbers - GeeksforGeeks](http://www.geeksforgeeks.org/segregate-even-and-odd-numbers/)
+* lintcode: [\(373\) Partition Array by Odd and Even](http://www.lintcode.com/en/problem/partition-array-by-odd-and-even/)
+* [Segregate Even and Odd numbers - GeeksforGeeks](http://www.geeksforgeeks.org/segregate-even-and-odd-numbers/)
 
-```
+```text
 Partition an integers array into odd number first and even number second.
 
 Example
@@ -52,10 +52,11 @@ public class Solution {
 ```
 
 ### C++
-``` c++
+
+```cpp
   void partitionArray(vector<int> &nums) {
         if (nums.empty()) return;
-       
+
         int i=0, j=nums.size()-1;
         while (i<j) {
             while (i<j && nums[i]%2!=0) i++;
@@ -63,7 +64,6 @@ public class Solution {
             if (i != j) swap(nums[i], nums[j]);
         }
     }
-
 ```
 
 ### 源码分析
@@ -73,3 +73,4 @@ public class Solution {
 ### 复杂度分析
 
 遍历一次数组，时间复杂度为 $$O(n)$$, 使用了两根指针，空间复杂度 $$O(1)$$.
+

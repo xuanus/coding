@@ -2,9 +2,9 @@
 
 ## Question
 
-- lintcode: [(139) Subarray Sum Closest](http://www.lintcode.com/en/problem/subarray-sum-closest/)
+* lintcode: [\(139\) Subarray Sum Closest](http://www.lintcode.com/en/problem/subarray-sum-closest/)
 
-```
+```text
 Given an integer array, find a subarray with sum closest to zero.
 Return the indexes of the first number and last number.
 
@@ -17,7 +17,7 @@ O(nlogn) time
 
 ## 题解
 
-题 [Zero Sum Subarray | Data Structure and Algorithm](http://algorithm.yuanbin.me/zh-hans/integer_array/zero_sum_subarray.html) 的变形题，由于要求的子串和不一定，故哈希表的方法不再适用，使用解法4 - 排序即可在 $$O(n \log n)$$ 内解决。具体步骤如下：
+题 [Zero Sum Subarray \| Data Structure and Algorithm](http://algorithm.yuanbin.me/zh-hans/integer_array/zero_sum_subarray.html) 的变形题，由于要求的子串和不一定，故哈希表的方法不再适用，使用解法4 - 排序即可在 $$O(n \log n)$$ 内解决。具体步骤如下：
 
 1. 首先遍历一次数组求得子串和。
 2. 对子串和排序。
@@ -25,7 +25,7 @@ O(nlogn) time
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -84,4 +84,5 @@ public:
 
 ## 扩展
 
-- [algorithm - How to find the subarray that has sum closest to zero or a certain value t in O(nlogn) - Stack Overflow](http://stackoverflow.com/questions/16388930/how-to-find-the-subarray-that-has-sum-closest-to-zero-or-a-certain-value-t-in-o)
+* [algorithm - How to find the subarray that has sum closest to zero or a certain value t in O\(nlogn\) - Stack Overflow](http://stackoverflow.com/questions/16388930/how-to-find-the-subarray-that-has-sum-closest-to-zero-or-a-certain-value-t-in-o)
+

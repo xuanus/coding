@@ -1,11 +1,11 @@
-# Triangle - Find the minimum path sum from top to bottom
+# Triangle
 
 ## Question
 
-- leetcode: [Triangle | LeetCode OJ](https://leetcode.com/problems/triangle/)
-- lintcode: [(109) Triangle](http://www.lintcode.com/en/problem/triangle/)
+* leetcode: [Triangle \| LeetCode OJ](https://leetcode.com/problems/triangle/)
+* lintcode: [\(109\) Triangle](http://www.lintcode.com/en/problem/triangle/)
 
-```
+```text
 Given a triangle, find the minimum path sum from top to bottom. Each step you may move to adjacent numbers on the row below.
 
 Note
@@ -33,7 +33,7 @@ The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).
 
 ### C++ Traverse without hashmap
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -79,7 +79,7 @@ private:
 
 ### C++ Divide and Conquer without hashmap
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -116,7 +116,7 @@ private:
 
 ### C++ Divide and Conquer with hashmap
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -170,17 +170,15 @@ private:
 1. 从 $$(x,y)$$ 出发走到最后一行的最短路径和
 2. 从 $$(0,0)$$ 走到 $$(x,y)$$的最短路径和
 
-如果选择1作为状态，则相应的状态转移方程为：
-$$f_1(x,y) = min\{f_1(x+1, y), f_1(x+1, y+1)\} + triangle[x][y]$$
+如果选择1作为状态，则相应的状态转移方程为： $$f_1(x,y) = min\{f_1(x+1, y), f_1(x+1, y+1)\} + triangle[x][y]$$
 
-如果选择2作为状态，则相应的状态转移方程为：
-$$f_2(x,y) = min\{f_2(x-1, y), f_2(x-1, y-1)\} + triangle[x][y]$$
+如果选择2作为状态，则相应的状态转移方程为： $$f_2(x,y) = min\{f_2(x-1, y), f_2(x-1, y-1)\} + triangle[x][y]$$
 
 两个状态所对应的初始状态分别为 $$f_1(n-1, y), 0 \leq y \leq n-1$$ 和 $$f_2(0,0)$$. 在代码中应注意考虑边界条件。下面分别就这种不同的状态进行动态规划。
 
 ### C++ From Bottom to Top
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -217,13 +215,13 @@ public:
 2. 使用hashmap保存结果
 3. 初始化`hashmap[N-1][i]`, 由于是自底向上，故初始化时保存最后一行元素
 4. 使用自底向上的方式处理循环
-5. 最后返回结果hashmap[0][0]
+5. 最后返回结果hashmap\[0\]\[0\]
 
 从空间利用角度考虑也可直接使用triangle替代hashmap，但是此举会改变triangle的值，不推荐。
 
 ### C++ From Top to Bottom
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -307,4 +305,5 @@ public class Solution {
 
 #### 源码解析
 
-思路基本和上个解法一样，但是在数组last中保留上一层的最短和的，因此不用hashmap，空间复杂度是O(n)
+思路基本和上个解法一样，但是在数组last中保留上一层的最短和的，因此不用hashmap，空间复杂度是O\(n\)
+

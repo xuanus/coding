@@ -4,13 +4,12 @@ Tags: String, Easy
 
 ## Question
 
-- leetcode: [Length of Last Word](https://leetcode.com/problems/length-of-last-word/)
-- lintcode: [Length of Last Word](http://www.lintcode.com/en/problem/length-of-last-word/)
+* leetcode: [Length of Last Word](https://leetcode.com/problems/length-of-last-word/)
+* lintcode: [Length of Last Word](http://www.lintcode.com/en/problem/length-of-last-word/)
 
 ### Problem Statement
 
-Given a string _s_ consists of upper/lower-case alphabets and empty space
-characters `' '`, return the length of last word in the string.
+Given a string _s_ consists of upper/lower-case alphabets and empty space characters `' '`, return the length of last word in the string.
 
 If the last word does not exist, return 0.
 
@@ -138,3 +137,4 @@ public class Solution {
 ### 复杂度分析
 
 遍历一次，时间复杂度 $$O(n)$$，不复制源字符串，空间复杂度 $$O(1)$$.
+

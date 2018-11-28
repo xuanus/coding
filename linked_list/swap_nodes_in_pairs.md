@@ -2,8 +2,8 @@
 
 ## Question
 
-- leetcode: [Swap Nodes in Pairs | LeetCode OJ](https://leetcode.com/problems/swap-nodes-in-pairs/)
-- lintcode: [(451) Swap Nodes in Pairs](http://www.lintcode.com/en/problem/swap-nodes-in-pairs/)
+* leetcode: [Swap Nodes in Pairs \| LeetCode OJ](https://leetcode.com/problems/swap-nodes-in-pairs/)
+* lintcode: [\(451\) Swap Nodes in Pairs](http://www.lintcode.com/en/problem/swap-nodes-in-pairs/)
 
 ### Problem Statement
 
@@ -15,8 +15,7 @@ Given `1->2->3->4`, you should return the list as `2->1->4->3`.
 
 #### Challenge
 
-Your algorithm should use only constant space. You may not modify the values
-in the list, only nodes itself can be changed.
+Your algorithm should use only constant space. You may not modify the values in the list, only nodes itself can be changed.
 
 ## 题解1 - Iteration
 
@@ -111,8 +110,9 @@ public class Solution {
 
 ### 源码分析
 
-这个递归实现非常优雅，需要注意的是递归步的退出条件==>`head == null || head.next == null)`.
+这个递归实现非常优雅，需要注意的是递归步的退出条件==&gt;`head == null || head.next == null)`.
 
 ### 复杂度分析
 
 每个节点最多被遍历若干次，时间复杂度 $$O(n)$$, 空间复杂度 $$O(1)$$.
+

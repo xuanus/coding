@@ -2,10 +2,10 @@
 
 ## Question
 
-- leetcode: [Convert Sorted Array to Binary Search Tree | LeetCode OJ](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)
-- lintcode: [(177) Convert Sorted Array to Binary Search Tree With Minimal Height](http://www.lintcode.com/en/problem/convert-sorted-array-to-binary-search-tree-with-minimal-height/)
+* leetcode: [Convert Sorted Array to Binary Search Tree \| LeetCode OJ](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)
+* lintcode: [\(177\) Convert Sorted Array to Binary Search Tree With Minimal Height](http://www.lintcode.com/en/problem/convert-sorted-array-to-binary-search-tree-with-minimal-height/)
 
-```
+```text
 Given an array where elements are sorted in ascending order,
 convert it to a height balanced BST.
 
@@ -32,7 +32,7 @@ There may exist multiple valid solutions, return any of them.
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition for binary tree
  * struct TreeNode {
@@ -115,4 +115,5 @@ public class Solution {
 
 ## Reference
 
-- [Convert Sorted Array to Binary Search Tree | 九章算法](http://www.jiuzhang.com/solutions/convert-sorted-array-to-binary-search-tree/)
+* [Convert Sorted Array to Binary Search Tree \| 九章算法](http://www.jiuzhang.com/solutions/convert-sorted-array-to-binary-search-tree/)
+

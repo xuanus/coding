@@ -2,28 +2,26 @@
 
 ## Question
 
-- leetcode: [Maximum Depth of Binary Tree | LeetCode OJ](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
-- lintcode: [(97) Maximum Depth of Binary Tree](http://www.lintcode.com/en/problem/maximum-depth-of-binary-tree/)
+* leetcode: [Maximum Depth of Binary Tree \| LeetCode OJ](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
+* lintcode: [\(97\) Maximum Depth of Binary Tree](http://www.lintcode.com/en/problem/maximum-depth-of-binary-tree/)
 
 ### Problem Statement
 
 Given a binary tree, find its maximum depth.
 
-The maximum depth is the number of nodes along the longest path from the root
-node down to the farthest leaf node.
+The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
 
 #### Example
 
 Given a binary tree as follow:
 
-
-
-      1
-     / \
-    2   3
-       / \
-      4   5
-
+```text
+  1
+ / \
+2   3
+   / \
+  4   5
+```
 
 The maximum depth is `3`.
 
@@ -35,7 +33,7 @@ The maximum depth is `3`.
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition of TreeNode:
  * class TreeNode {
@@ -96,15 +94,15 @@ public class Solution {
 }
 ```
 
-## 题解 - 迭代(显式栈)
+## 题解 - 迭代\(显式栈\)
 
-使用递归可能会导致栈空间溢出，这里使用显式栈空间(使用堆内存)来代替之前的隐式栈空间。从上节递归版的代码(先处理左子树，后处理右子树，最后返回其中的较大值)来看，是可以使用类似后序遍历的迭代思想去实现的。
+使用递归可能会导致栈空间溢出，这里使用显式栈空间\(使用堆内存\)来代替之前的隐式栈空间。从上节递归版的代码\(先处理左子树，后处理右子树，最后返回其中的较大值\)来看，是可以使用类似后序遍历的迭代思想去实现的。
 
 首先使用后序遍历的模板，在每次迭代循环结束处比较栈当前的大小和当前最大值`max_depth`进行比较。
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition of TreeNode:
  * class TreeNode {
@@ -162,13 +160,13 @@ public:
 };
 ```
 
-## 题解3 - 迭代(队列)
+## 题解3 - 迭代\(队列\)
 
 在使用了递归/后序遍历求解树最大深度之后，我们还可以直接从问题出发进行分析，树的最大深度即为广度优先搜索中的层数，故可以直接使用广度优先搜索求出最大深度。
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition of TreeNode:
  * class TreeNode {
@@ -267,3 +265,4 @@ public class Solution {
 ### 复杂度分析
 
 最坏情况下空间复杂度为 $$O(n)$$, 遍历每一个节点，时间复杂度为 $$O(n)$$,
+

@@ -1,11 +1,10 @@
 # Nuts and Bolts Problem
 
-
 ## Question
 
-- lintcode: [(399) Nuts & Bolts Problem](http://www.lintcode.com/en/problem/nuts-bolts-problem/)
+* lintcode: [\(399\) Nuts & Bolts Problem](http://www.lintcode.com/en/problem/nuts-bolts-problem/)
 
-```
+```text
 Given a set of n nuts of different sizes and n bolts of different sizes.
 There is a one-one mapping between nuts and bolts.
 Comparison of a nut to another nut or a bolt to another bolt is not allowed.
@@ -44,7 +43,7 @@ You just need to find the matching bolt for each nut.
 
 快速排序的核心即为定基准，划分区间。由于这里只能以对方的元素作为基准，故一趟划分区间后仅能得到某一方基准元素排序后的位置，那通过引入 $$O(n)$$ 的额外空间来对已处理的基准元素进行标记如何呢？这种方法实现起来较为困难，因为只能对一方的元素划分区间，而对方的元素无法划分区间进而导致递归无法正常进行。
 
-山穷水尽疑无路，柳暗花明又一村。由于只能通过对方进行比较，故需要相互配合进行 partition 操作(这个点确实难以想到)。核心在于：**首先使用 nuts 中的某一个元素作为基准对 bolts 进行 partition 操作，随后将 bolts 中得到的基准元素作为基准对 nuts 进行 partition 操作。**
+山穷水尽疑无路，柳暗花明又一村。由于只能通过对方进行比较，故需要相互配合进行 partition 操作\(这个点确实难以想到\)。核心在于：**首先使用 nuts 中的某一个元素作为基准对 bolts 进行 partition 操作，随后将 bolts 中得到的基准元素作为基准对 nuts 进行 partition 操作。**
 
 ### Python
 
@@ -101,7 +100,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 /**
  * class Comparator {
  *     public:
@@ -123,7 +122,7 @@ public:
     void sortNutsAndBolts(vector<string> &nuts, vector<string> &bolts, Comparator compare) {
         if (nuts.empty() || bolts.empty()) return;
         if (nuts.size() != bolts.size()) return;
-        
+
         qsort(nuts, bolts, compare, 0, nuts.size() - 1);
     }
 
@@ -140,7 +139,7 @@ private:
         qsort(nuts, bolts, compare, l, part_inx - 1);
         qsort(nuts, bolts, compare, part_inx + 1, u);
     }
-    
+
     int partition(vector<string>& str, string& pivot, Comparator compare,
                   int l, int u) {
 
@@ -148,7 +147,7 @@ private:
         for (int i = l + 1; i <= u; ++i) {
             if (compare.cmp(str[i], pivot) == -1 || 
                 compare.cmp(pivot, str[i]) == 1) {
-                
+
                 ++m;
                 std::swap(str[m], str[i]);
             } else if (compare.cmp(str[i], pivot) == 0 || 
@@ -160,11 +159,12 @@ private:
         }
         // move pivot to proper index
         std::swap(str[m], str[l]);
-        
+
         return m;
     }
 };
 ```
+
 ### Java
 
 ```java
@@ -187,10 +187,10 @@ public class Solution {
     public void sortNutsAndBolts(String[] nuts, String[] bolts, NBComparator compare) {
         if (nuts == null || bolts == null) return;
         if (nuts.length != bolts.length) return;
-        
+
         qsort(nuts, bolts, compare, 0, nuts.length - 1);
     }
-    
+
     private void qsort(String[] nuts, String[] bolts, NBComparator compare, 
                        int l, int u) {
         if (l >= u) return;
@@ -202,7 +202,7 @@ public class Solution {
         qsort(nuts, bolts, compare, l, part_inx - 1);
         qsort(nuts, bolts, compare, part_inx + 1, u);
     }
-    
+
     private int partition(String[] str, String pivot, NBComparator compare, 
                           int l, int u) {
         //
@@ -222,10 +222,10 @@ public class Solution {
         }
         // move pivot to proper index
         swap(str, m, l);
-        
+
         return m;
     }
-    
+
     private void swap(String[] str, int l, int r) {
         String temp = str[l];
         str[l] = str[r];
@@ -236,7 +236,7 @@ public class Solution {
 
 ### 源码分析
 
-难以理解的可能在`partition`部分，不仅需要使用`compare.cmp(alist[i], pivot)`, 同时也需要使用`compare.cmp(pivot, alist[i])`, 否则答案有误。第二个在于`alist[i] == pivot`时，需要首先将其和`alist[l]`交换，因为`i`是从`l+1`开始处理的，将`alist[l]`换过来后可继续和 pivot 进行比较。在 while 循环退出后在将当前遍历到的小于 pivot 的元素 alist[m] 和 alist[l] 交换，此时基准元素正确归位。对这一块不是很清楚的举个例子就明白了。
+难以理解的可能在`partition`部分，不仅需要使用`compare.cmp(alist[i], pivot)`, 同时也需要使用`compare.cmp(pivot, alist[i])`, 否则答案有误。第二个在于`alist[i] == pivot`时，需要首先将其和`alist[l]`交换，因为`i`是从`l+1`开始处理的，将`alist[l]`换过来后可继续和 pivot 进行比较。在 while 循环退出后在将当前遍历到的小于 pivot 的元素 alist\[m\] 和 alist\[l\] 交换，此时基准元素正确归位。对这一块不是很清楚的举个例子就明白了。
 
 ### 复杂度分析
 
@@ -244,4 +244,5 @@ public class Solution {
 
 ## Reference
 
-- [LintCode/Nuts & Bolts Problem.py at master · algorhythms/LintCode](https://github.com/algorhythms/LintCode/blob/master/Nuts%20%26%20Bolts%20Problem.py)
+* [LintCode/Nuts & Bolts Problem.py at master · algorhythms/LintCode](https://github.com/algorhythms/LintCode/blob/master/Nuts%20%26%20Bolts%20Problem.py)
+

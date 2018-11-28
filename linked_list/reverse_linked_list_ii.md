@@ -2,8 +2,8 @@
 
 ## Question
 
-- leetcode: [Reverse Linked List II | LeetCode OJ](https://leetcode.com/problems/reverse-linked-list-ii/)
-- lintcode: [(36) Reverse Linked List II](http://www.lintcode.com/en/problem/reverse-linked-list-ii/)
+* leetcode: [Reverse Linked List II \| LeetCode OJ](https://leetcode.com/problems/reverse-linked-list-ii/)
+* lintcode: [\(36\) Reverse Linked List II](http://www.lintcode.com/en/problem/reverse-linked-list-ii/)
 
 ### Problem Statement
 
@@ -11,8 +11,7 @@ Reverse a linked list from position m to n.
 
 #### Example
 
-Given **1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL**, m = 2 and n = 4, return
-1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;NULL.
+Given **1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL**, m = 2 and n = 4, return 1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;NULL.
 
 #### Note
 
@@ -29,11 +28,11 @@ Reverse it in-place and in one-pass
 1. 由于只翻转指定区域，分析受影响的区域为第m-1个和第n+1个节点
 2. 找到第m个节点，使用for循环n-m次，使用上题中的链表翻转方法
 3. 处理第m-1个和第n+1个节点
-4. 返回dummy->next
+4. 返回dummy-&gt;next
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition of singly-linked-list:
  *
@@ -116,13 +115,13 @@ public class Solution {
     public ListNode reverseBetween(ListNode head, int m , int n) {
         ListNode dummy = new ListNode(0);
         dummy.next = head;
-        
+
         // find the mth node
         ListNode premNode = dummy;
         for (int i = 1; i < m; i++) {
             premNode = premNode.next;
         }
-        
+
         // reverse node between m and n
         ListNode prev = null, curr = premNode.next;
         while (curr != null && (m <= n)) {
@@ -132,11 +131,11 @@ public class Solution {
             curr = nextNode;
             m++;
         }
-        
+
         // join head and tail before m and after n
         premNode.next.next = curr;
         premNode.next = prev;
-        
+
         return dummy.next;
     }
 }
@@ -151,4 +150,5 @@ public class Solution {
 5. 连接premNode和nNode，`premNode->next = nNode;`
 6. 连接mNode和postnNode，`mNode->next = postnNode;`
 
-**务必注意node 和node->next的区别！！**，node指代节点，而`node->next`指代节点的下一连接。
+**务必注意node 和node-&gt;next的区别！！**，node指代节点，而`node->next`指代节点的下一连接。
+

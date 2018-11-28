@@ -2,10 +2,10 @@
 
 ## Question
 
-- leetcode: [Factorial Trailing Zeroes | LeetCode OJ](https://leetcode.com/problems/factorial-trailing-zeroes/)
-- lintcode: [(2) Trailing Zeros](http://www.lintcode.com/en/problem/trailing-zeros/)
+* leetcode: [Factorial Trailing Zeroes \| LeetCode OJ](https://leetcode.com/problems/factorial-trailing-zeroes/)
+* lintcode: [\(2\) Trailing Zeros](http://www.lintcode.com/en/problem/trailing-zeros/)
 
-```
+```text
 Write an algorithm which computes the number of trailing zeros in n factorial.
 
 Example
@@ -17,7 +17,7 @@ O(log N) time
 
 ## 题解1 - Iterative
 
-找阶乘数中末尾的连零数量，容易想到的是找相乘能为10的整数倍的数，如 $$2 \times 5$$, $$1 \times 10$$ 等，遥想当初做阿里笔试题时遇到过类似的题，当时想着算算5和10的个数就好了，可万万没想到啊，25可以变为两个5相乘！真是蠢死了... 根据数论里面的知识，任何正整数都可以表示为它的质因数的乘积[^wikipedia]。所以比较准确的思路应该是计算质因数5和2的个数，取小的即可。质因数2的个数显然要大于5的个数，故只需要计算给定阶乘数中质因数中5的个数即可。原题的问题即转化为求阶乘数中质因数5的个数，首先可以试着分析下100以内的数，再试试100以上的数，聪明的你一定想到了可以使用求余求模等方法 :)
+找阶乘数中末尾的连零数量，容易想到的是找相乘能为10的整数倍的数，如 $$2 \times 5$$, $$1 \times 10$$ 等，遥想当初做阿里笔试题时遇到过类似的题，当时想着算算5和10的个数就好了，可万万没想到啊，25可以变为两个5相乘！真是蠢死了... 根据数论里面的知识，任何正整数都可以表示为它的质因数的乘积。所以比较准确的思路应该是计算质因数5和2的个数，取小的即可。质因数2的个数显然要大于5的个数，故只需要计算给定阶乘数中质因数中5的个数即可。原题的问题即转化为求阶乘数中质因数5的个数，首先可以试着分析下100以内的数，再试试100以上的数，聪明的你一定想到了可以使用求余求模等方法 :\)
 
 ### Python
 
@@ -39,7 +39,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     int trailingZeroes(int n) {
@@ -109,7 +109,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     int trailingZeroes(int n) {
@@ -150,5 +150,5 @@ public class Solution {
 
 ## Reference
 
-- [^wikipedia]: [Prime factor - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/Prime_factor)
-- [Count trailing zeroes in factorial of a number - GeeksforGeeks](http://www.geeksforgeeks.org/count-trailing-zeroes-factorial-number/)
+* * [Count trailing zeroes in factorial of a number - GeeksforGeeks](http://www.geeksforgeeks.org/count-trailing-zeroes-factorial-number/)
+

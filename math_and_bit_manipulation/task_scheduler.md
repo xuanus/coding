@@ -1,10 +1,10 @@
 ---
 difficulty: Medium
 tags:
-- Queue
-- Greedy
-- Facebook
-- Array
+  - Queue
+  - Greedy
+  - Facebook
+  - Array
 title: Task Scheduler
 ---
 
@@ -14,10 +14,10 @@ title: Task Scheduler
 
 ### Metadata
 
-- tags: Queue, Greedy, Facebook, Array
-- difficulty: Medium
-- source(leetcode): <https://leetcode.com/problems/task-scheduler/>
-- source(lintcode): <https://www.lintcode.com/problem/task-scheduler/>
+* tags: Queue, Greedy, Facebook, Array
+* difficulty: Medium
+* source\(leetcode\): [https://leetcode.com/problems/task-scheduler/](https://leetcode.com/problems/task-scheduler/)
+* source\(lintcode\): [https://www.lintcode.com/problem/task-scheduler/](https://www.lintcode.com/problem/task-scheduler/)
 
 ### Description
 
@@ -35,7 +35,8 @@ You need to return the `least` number of intervals the CPU will take to finish a
 #### Example
 
 Given tasks = `['A','A','A','B','B','B']`, n = `2`, return `8`.
-```
+
+```text
 Explanation: 
 A -> B -> idle -> A -> B -> idle -> A -> B.
 ```
@@ -84,8 +85,9 @@ class Solution {
 
 ### 复杂度分析
 
-空间复杂度 $$O(26)$$ ==> $$O(1)$$, 时间复杂度最坏情况下遍历26个元素，故为 $$O(1)$$.
+空间复杂度 $$O(26)$$ ==&gt; $$O(1)$$, 时间复杂度最坏情况下遍历26个元素，故为 $$O(1)$$.
 
 ## Reference
 
-[Task Scheduler - Approach #3 Calculating Idle slots](https://leetcode.com/problems/task-scheduler/solution/)
+[Task Scheduler - Approach \#3 Calculating Idle slots](https://leetcode.com/problems/task-scheduler/solution/)
+

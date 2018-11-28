@@ -4,8 +4,8 @@ Tags: Hash Table, String, Medium
 
 ## Question
 
-- leetcode: [Group Anagrams](https://leetcode.com/problems/anagrams/)
-- lintcode: [Group Anagrams](http://www.lintcode.com/en/problem/anagrams/)
+* leetcode: [Group Anagrams](https://leetcode.com/problems/anagrams/)
+* lintcode: [Group Anagrams](http://www.lintcode.com/en/problem/anagrams/)
 
 ### Problem Statement
 
@@ -13,18 +13,20 @@ Given an array of strings, group anagrams together.
 
 For example, given: `["eat", "tea", "tan", "ate", "nat", "bat"]`,  
 Return:
-    
-    [
-      ["ate", "eat","tea"],
-      ["nat","tan"],
-      ["bat"]
-    ]
+
+```text
+[
+  ["ate", "eat","tea"],
+  ["nat","tan"],
+  ["bat"]
+]
+```
 
 **Note:** All inputs will be in lower-case.
 
-## 题解1 - 双重`for`循环(TLE)
+## 题解1 - 双重`for`循环\(TLE\)
 
-题 [Two Strings Are Anagrams](../two_strings_are_anagrams.html) 的升级版，容易想到的方法为使用双重`for`循环两两判断字符串数组是否互为变位字符串。但显然此法的时间复杂度较高。还需要 $$O(n)$$ 的数组来记录字符串是否被加入到最终结果中。
+题 [Two Strings Are Anagrams](https://github.com/xuanus/coding/tree/f09f25ddc0c56beb8d4ed92fcfb3e81a80f8ab75/two_strings_are_anagrams.html) 的升级版，容易想到的方法为使用双重`for`循环两两判断字符串数组是否互为变位字符串。但显然此法的时间复杂度较高。还需要 $$O(n)$$ 的数组来记录字符串是否被加入到最终结果中。
 
 ### Python
 
@@ -58,7 +60,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -129,7 +131,7 @@ private:
 
 ### Python lintcode
 
-```python 
+```python
 class Solution:
     # @param strs: A list of strings
     # @return: A list of strings
@@ -148,10 +150,9 @@ class Solution:
         return result
 ```
 
-
 ### C++ - lintcode
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -188,7 +189,7 @@ public class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
         List<List<String>> result = new ArrayList<List<String>>();
         if (strs == null) return result;
-        
+
         // one key to multiple value multiMap
         Map<String, ArrayList<String>> multiMap = new HashMap<String, ArrayList<String>>();
         for (String str : strs) {
@@ -197,7 +198,7 @@ public class Solution {
             String strSorted = String.valueOf(strChar);
             if (multiMap.containsKey(strSorted)) {
                 ArrayList<String> aList = multiMap.get(strSorted);
-		        aList.add(str);
+                aList.add(str);
                 multiMap.put(strSorted, aList);
             } else {
                 ArrayList<String> aList = new ArrayList<String>();
@@ -205,7 +206,7 @@ public class Solution {
                 multiMap.put(strSorted, aList);
             }
         }
-        
+
         // add List group to result
         Set<String> keySet = multiMap.keySet();
         for (String key : keySet) {
@@ -213,7 +214,7 @@ public class Solution {
             Collections.sort(aList);
             result.add(aList);
         }
-        
+
         return result;
     }
 }
@@ -221,11 +222,11 @@ public class Solution {
 
 ### 源码分析
 
-建立 key 为字符串，value 为相应计数器的hashmap, `unordered_map`为 C++ 11中引入的哈希表数据结构[^unordered_map], 这种新的数据结构和之前的 map 有所区别，详见[^map-unordered_map]。
+建立 key 为字符串，value 为相应计数器的hashmap, `unordered_map`为 C++ 11中引入的哈希表数据结构, 这种新的数据结构和之前的 map 有所区别，详见。
 
 第一次遍历字符串数组获得排序后的字符串计数器信息，第二次遍历字符串数组将哈希表中计数器值大于1的字符串取出。
 
-leetcode 中题目 signature 已经有所变化，这里使用一对多的 HashMap 较为合适，使用 ArrayList<String> 作为 value. Java 中对 String 排序可先将其转换为 char[], 排序后再转换为新的 String.
+leetcode 中题目 signature 已经有所变化，这里使用一对多的 HashMap 较为合适，使用 ArrayList 作为 value. Java 中对 String 排序可先将其转换为 char\[\], 排序后再转换为新的 String.
 
 ### 复杂度分析
 
@@ -233,6 +234,5 @@ leetcode 中题目 signature 已经有所变化，这里使用一对多的 HashM
 
 ## Reference
 
-- [^unordered_map]: [unordered_map - C++ Reference](http://www.cplusplus.com/reference/unordered_map/unordered_map/)
-- [^map-unordered_map]: [c++ - Choosing between std::map and std::unordered_map - Stack Overflow](http://stackoverflow.com/questions/3902644/choosing-between-stdmap-and-stdunordered-map)
-- [Anagrams | 九章算法](http://www.jiuzhang.com/solutions/anagrams/)
+* * * [Anagrams \| 九章算法](http://www.jiuzhang.com/solutions/anagrams/)
+

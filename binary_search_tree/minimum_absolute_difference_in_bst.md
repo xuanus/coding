@@ -4,31 +4,29 @@ Tags: Binary Search Tree, Easy
 
 ## Question
 
-- leetcode: [Minimum Absolute Difference in BST](https://leetcode.com/problems/minimum-absolute-difference-in-bst/)
+* leetcode: [Minimum Absolute Difference in BST](https://leetcode.com/problems/minimum-absolute-difference-in-bst/)
 
 ### Problem Statement
 
-Given a binary search tree with non-negative values, find the minimum
-[absolute difference](https://en.wikipedia.org/wiki/Absolute_difference)
-between values of any two nodes.
+Given a binary search tree with non-negative values, find the minimum [absolute difference](https://en.wikipedia.org/wiki/Absolute_difference) between values of any two nodes.
 
 **Example:**
-    
-    
-    
-    **Input:**
-    
-       1
-        \
-         3
-        /
-       2
-    
-    **Output:**
-    1
-    
-    **Explanation:**
-    The minimum absolute difference is 1, which is the difference between 2 and 1 (or between 2 and 3).
+
+```text
+**Input:**
+
+   1
+    \
+     3
+    /
+   2
+
+**Output:**
+1
+
+**Explanation:**
+The minimum absolute difference is 1, which is the difference between 2 and 1 (or between 2 and 3).
+```
 
 **Note:** There are at least two nodes in this BST.
 
@@ -113,4 +111,5 @@ public class Solution {
 
 ## Reference
 
-- [Two Solutions, in-order traversal and a more general way using TreeSet](https://discuss.leetcode.com/topic/80823/two-solutions-in-order-traversal-and-a-more-general-way-using-treeset/8)
+* [Two Solutions, in-order traversal and a more general way using TreeSet](https://discuss.leetcode.com/topic/80823/two-solutions-in-order-traversal-and-a-more-general-way-using-treeset/8)
+

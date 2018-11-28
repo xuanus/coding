@@ -2,17 +2,16 @@
 
 ## Question
 
-- lintcode: [(31) Partition Array](http://www.lintcode.com/en/problem/partition-array/)
+* lintcode: [\(31\) Partition Array](http://www.lintcode.com/en/problem/partition-array/)
 
 ### Problem Statement
 
-Given an array `nums` of integers and an int `k`, partition the array (i.e
-move the elements in "nums") such that:
+Given an array `nums` of integers and an int `k`, partition the array \(i.e move the elements in "nums"\) such that:
 
-  * All elements &lt; _k_ are moved to the _left_
-  * All elements &gt;= _k_ are moved to the _right_
+* All elements &lt; _k_ are moved to the _left_
+* All elements &gt;= _k_ are moved to the _right_
 
-Return the partitioning index, i.e the first index _i_ nums[_i_] &gt;= _k_.
+Return the partitioning index, i.e the first index _i_ nums\[_i_\] &gt;= _k_.
 
 #### Example
 
@@ -20,15 +19,13 @@ If nums = `[3,2,2,1]` and `k=2`, a valid answer is `1`.
 
 #### Note
 
-You should do really partition in array _nums_ instead of just counting the
-numbers of integers smaller than k.
+You should do really partition in array _nums_ instead of just counting the numbers of integers smaller than k.
 
 If all elements in _nums_ are smaller than _k_, then return _nums.length_
 
 #### Challenge
 
-Can you partition the array in-place and in O(n)?
-
+Can you partition the array in-place and in O\(n\)?
 
 ## 题解1 - 自左向右
 
@@ -36,7 +33,7 @@ Can you partition the array in-place and in O(n)?
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     int partitionArray(vector<int> &nums, int k) {
@@ -60,12 +57,11 @@ public:
 
 ### 源码分析
 
-自左向右遍历，遇到小于 k 的元素时即和`right`索引处元素交换，并自增`right`指向下一个元素，这样就能保证`right`之前的元素一定小于 k. 
+自左向右遍历，遇到小于 k 的元素时即和`right`索引处元素交换，并自增`right`指向下一个元素，这样就能保证`right`之前的元素一定小于 k.
 
 ### 复杂度分析
 
 遍历一次数组，时间复杂度最少为 $$O(n)$$, 可能需要一定次数的交换。
-
 
 ## 题解2 - 两根指针
 
@@ -73,7 +69,7 @@ public:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     int partitionArray(vector<int> &nums, int k) {
@@ -107,4 +103,5 @@ public:
 
 ## Reference
 
-- [Partition Array | 九章算法](http://www.jiuzhang.com/solutions/partition-array/)
+* [Partition Array \| 九章算法](http://www.jiuzhang.com/solutions/partition-array/)
+

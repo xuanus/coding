@@ -4,17 +4,15 @@ Tags: Hash Table, Bit Manipulation, Easy
 
 ## Question
 
-- leetcode: [Single Number](https://leetcode.com/problems/single-number/)
-- lintcode: [Single Number](http://www.lintcode.com/en/problem/single-number/)
+* leetcode: [Single Number](https://leetcode.com/problems/single-number/)
+* lintcode: [Single Number](http://www.lintcode.com/en/problem/single-number/)
 
 ### Problem Statement
 
-Given an array of integers, every element appears _twice_ except for one. Find
-that single one.
+Given an array of integers, every element appears _twice_ except for one. Find that single one.
 
 **Note:**  
-Your algorithm should have a linear runtime complexity. Could you implement it
-without using extra memory?
+Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
 
 ## 题解
 
@@ -22,13 +20,13 @@ without using extra memory?
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
-	/**
-	 * @param A: Array of integers.
-	 * return: The single number.
-	 */
+    /**
+     * @param A: Array of integers.
+     * return: The single number.
+     */
     int singleNumber(vector<int> &A) {
         if (A.empty()) {
             return -1;
@@ -63,5 +61,6 @@ public class Solution {
 
 ### 源码分析
 
-1. 异常处理(OJ上对于空vector的期望结果为0，但个人认为-1更为合理)
+1. 异常处理\(OJ上对于空vector的期望结果为0，但个人认为-1更为合理\)
 2. 初始化返回结果`result`为0，因为`x ^ 0 = x`
+

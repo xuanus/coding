@@ -2,9 +2,9 @@
 
 ## Question
 
-- [Remove duplicates from an unsorted linked list - GeeksforGeeks](http://www.geeksforgeeks.org/remove-duplicates-from-an-unsorted-linked-list/)
+* [Remove duplicates from an unsorted linked list - GeeksforGeeks](http://www.geeksforgeeks.org/remove-duplicates-from-an-unsorted-linked-list/)
 
-```
+```text
 Write a removeDuplicates() function which takes a list and deletes
 any duplicate nodes from the list. The list is not sorted.
 
@@ -16,7 +16,7 @@ If temporary buffer is not allowed, how to solve it?
 
 ## 题解1 - 两重循环
 
-Remove Duplicates 系列题，之前都是已排序链表，这个题为未排序链表。原题出自 *CTCI* 题2.1。
+Remove Duplicates 系列题，之前都是已排序链表，这个题为未排序链表。原题出自 _CTCI_ 题2.1。
 
 最容易想到的简单办法就是两重循环删除重复节点了，当前遍历节点作为第一重循环，当前节点的下一节点作为第二重循环。
 
@@ -54,7 +54,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition of ListNode
  * class ListNode {
@@ -180,7 +180,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition of ListNode
  * class ListNode {
@@ -272,5 +272,6 @@ public class Solution {
 
 ## Reference
 
-- [Remove duplicates from an unsorted linked list - GeeksforGeeks](http://www.geeksforgeeks.org/remove-duplicates-from-an-unsorted-linked-list/)
-- [ctci/Question.java at master · gaylemcd/ctci](https://github.com/gaylemcd/ctci/blob/master/java/Chapter%202/Question2_1/Question.java)
+* [Remove duplicates from an unsorted linked list - GeeksforGeeks](http://www.geeksforgeeks.org/remove-duplicates-from-an-unsorted-linked-list/)
+* [ctci/Question.java at master · gaylemcd/ctci](https://github.com/gaylemcd/ctci/blob/master/java/Chapter%202/Question2_1/Question.java)
+

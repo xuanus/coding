@@ -2,27 +2,26 @@
 
 ## Question
 
-- leetcode: [3Sum | LeetCode OJ](https://leetcode.com/problems/3sum/)
-- lintcode: [(57) 3 Sum](http://www.lintcode.com/en/problem/3sum/)
+* leetcode: [3Sum \| LeetCode OJ](https://leetcode.com/problems/3sum/)
+* lintcode: [\(57\) 3 Sum](http://www.lintcode.com/en/problem/3sum/)
 
 ### Problem Statement
 
-Given an array _S_ of _n_ integers, are there elements _a_, _b_, _c_ in _S_
-such that _a_ + _b_ + _c_ = 0? Find all unique triplets in the array which
-gives the sum of zero.
+Given an array _S_ of _n_ integers, are there elements _a_, _b_, _c_ in _S_ such that _a_ + _b_ + _c_ = 0? Find all unique triplets in the array which gives the sum of zero.
 
 #### Note:
 
 The solution set must not contain duplicate triplets.
-    
-    For example, given array S = [-1, 0, 1, 2, -1, -4],
-    
-    A solution set is:
-    [
-      [-1, 0, 1],
-      [-1, -1, 2]
-    ]
 
+```text
+For example, given array S = [-1, 0, 1, 2, -1, -4],
+
+A solution set is:
+[
+  [-1, 0, 1],
+  [-1, -1, 2]
+]
+```
 
 ## 题解1 - 排序 + 哈希表 + 2 Sum
 
@@ -70,23 +69,24 @@ class Solution:
 
 ### 复杂度分析
 
-排序时间复杂度 $$O(n \log n)$$, 两重`for`循环，时间复杂度近似为 $$O(n^2)$$，使用哈希表(字典)实现，空间复杂度为 $$O(n)$$.
+排序时间复杂度 $$O(n \log n)$$, 两重`for`循环，时间复杂度近似为 $$O(n^2)$$，使用哈希表\(字典\)实现，空间复杂度为 $$O(n)$$.
 
 目前这段源码为比较简易的实现，leetcode 上的运行时间为500 + ms, 还有较大的优化空间，嗯，后续再进行优化。
 
-### C++ 
-```c++
+### C++
+
+```cpp
 class Solution {
 public:
     vector<vector<int> > threeSum(vector<int> &num) 
     {
         vector<vector<int> > result;
         if (num.size() < 3) return result;
-        
+
         int ans = 0;
 
         sort(num.begin(), num.end());
-        
+
         for (int i = 0;i < num.size() - 2; ++i)
         {
             if (i > 0 && num[i] == num[i - 1])  
@@ -114,13 +114,14 @@ public:
                     ++j;
             }
         }
-        
+
         return result;
     }
 };
 ```
 
 ### Java
+
 ```java
 public class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
@@ -153,10 +154,11 @@ public class Solution {
 }
 ```
 
-###源码分析
+### 源码分析
 
 同python解法不同，没有使用hash map
-```
+
+```text
 S = {-1 0 1 2 -1 -4}
 排序后：
 S = {-4 -1 -1 0 1 2}
@@ -170,9 +172,10 @@ i每轮只走一步，j和k根据S[i]+S[j]+S[k]=ans和0的关系进行移动，�
 
 ### 复杂度分析
 
-外循环i走了n轮,每轮j和k一共走n-i步，所以时间复杂度为$$O(n^2)$$。
-最终运行时间为52ms
+外循环i走了n轮,每轮j和k一共走n-i步，所以时间复杂度为$$O(n^2)$$。 最终运行时间为52ms
+
 ## Reference
 
-- [3Sum | 九章算法](http://www.jiuzhang.com/solutions/3sum/)
-- [A simply Python version based on 2sum - O(n^2) - Leetcode Discuss](https://leetcode.com/discuss/32455/a-simply-python-version-based-on-2sum-o-n-2)
+* [3Sum \| 九章算法](http://www.jiuzhang.com/solutions/3sum/)
+* [A simply Python version based on 2sum - O\(n^2\) - Leetcode Discuss](https://leetcode.com/discuss/32455/a-simply-python-version-based-on-2sum-o-n-2)
+

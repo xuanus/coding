@@ -2,10 +2,10 @@
 
 ## Question
 
-- leetcode: [Majority Element II | LeetCode OJ](https://leetcode.com/problems/majority-element-ii/)
-- lintcode: [(47) Majority Number II](http://www.lintcode.com/en/problem/majority-number-ii/)
+* leetcode: [Majority Element II \| LeetCode OJ](https://leetcode.com/problems/majority-element-ii/)
+* lintcode: [\(47\) Majority Number II](http://www.lintcode.com/en/problem/majority-number-ii/)
 
-```
+```text
 Given an array of integers,
 the majority number is the number that occurs more than 1/3 of the size of the array.
 
@@ -26,7 +26,8 @@ O(n) time and O(1) extra space.
 题 [Majority Number](http://algorithm.yuanbin.me/zh-hans/math_and_bit_manipulation/majority_number.html) 的升级版，之前那道题是『两两抵消』，这道题自然则需要『三三抵消』，不过『三三抵消』需要注意不少细节，比如两个不同数的添加顺序和添加条件。
 
 ### C++
-```c++
+
+```cpp
 class Solution {
 public:
     /**
@@ -35,7 +36,7 @@ public:
      */
     int majorityNumber(vector<int> nums) {
         if (nums.empty()) return -1;
-        
+
         int k1 = 0, k2 = 0, c1 = 0, c2 = 0;
         for (auto n : nums) {
             if (!c1 || k1 == n) {
@@ -49,7 +50,7 @@ public:
                 c2--;
             }
         }
-        
+
         c1 = 0; 
         c2 = 0;
         for (auto n : nums) {
@@ -119,4 +120,5 @@ public class Solution {
 
 ## Reference
 
-- [Majority Number II 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/majority-number-ii/)
+* [Majority Number II 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/majority-number-ii/)
+

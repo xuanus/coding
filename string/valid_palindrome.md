@@ -4,22 +4,20 @@ Tags: Two Pointers, String, Easy
 
 ## Question
 
-- leetcode: [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
-- lintcode: [Valid Palindrome](http://www.lintcode.com/en/problem/valid-palindrome/)
+* leetcode: [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
+* lintcode: [Valid Palindrome](http://www.lintcode.com/en/problem/valid-palindrome/)
 
 ### Problem Statement
 
-Given a string, determine if it is a palindrome, considering only alphanumeric
-characters and ignoring cases.
+Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
 
 For example,  
 `"A man, a plan, a canal: Panama"` is a palindrome.  
 `"race a car"` is _not_ a palindrome.
 
-**Note:**  
+**Note:**
 
-Have you consider that the string might be empty? This is a good question to
-ask during an interview.
+Have you consider that the string might be empty? This is a good question to ask during an interview.
 
 For the purpose of this problem, we define empty string as valid palindrome.
 
@@ -60,7 +58,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -104,7 +102,7 @@ public class Solution {
         if (s == null || s.trim().isEmpty()) {
             return true;
         }
-        
+
         int l = 0, r = s.length() - 1;
         while (l < r) {
             if(!Character.isLetterOrDigit(s.charAt(l))) {
@@ -132,7 +130,7 @@ public class Solution {
 
 两步走：
 
-1. 找到最左边和最右边的第一个合法字符(字母或者字符)
+1. 找到最左边和最右边的第一个合法字符\(字母或者字符\)
 2. 一致转换为小写进行比较
 
 字符的判断尽量使用语言提供的 API, while 循环内部使用 if 而不是 while 可将 `l < r` 的逻辑移至一处。
@@ -140,3 +138,4 @@ public class Solution {
 ### 复杂度分析
 
 两根指针遍历一次，时间复杂度 $$O(n)$$, 空间复杂度 $$O(1)$$.
+

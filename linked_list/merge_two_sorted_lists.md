@@ -2,14 +2,12 @@
 
 ## Question
 
-- leetcode: [Merge Two Sorted Lists | LeetCode OJ](https://leetcode.com/problems/merge-two-sorted-lists/)
-- lintcode: [(165) Merge Two Sorted Lists](http://www.lintcode.com/en/problem/merge-two-sorted-lists/)
+* leetcode: [Merge Two Sorted Lists \| LeetCode OJ](https://leetcode.com/problems/merge-two-sorted-lists/)
+* lintcode: [\(165\) Merge Two Sorted Lists](http://www.lintcode.com/en/problem/merge-two-sorted-lists/)
 
 ### Problem Statement
 
-Merge two sorted (ascending) linked lists and return it as a new sorted list.
-The new sorted list should be made by splicing together the nodes of the two
-lists and sorted in ascending order.
+Merge two sorted \(ascending\) linked lists and return it as a new sorted list. The new sorted list should be made by splicing together the nodes of the two lists and sorted in ascending order.
 
 #### Example
 
@@ -23,7 +21,7 @@ Given `1->3->8->11->15->null`, `2->null` , return `1->2->3->8->11->15->null`.
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -80,7 +78,7 @@ public class Solution {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode(0);
         ListNode curr = dummy;
-        
+
         while ((l1 != null) && (l2 != null)) {
             if (l1.val > l2.val) {
                 curr.next = l2;
@@ -91,10 +89,10 @@ public class Solution {
             }
             curr = curr.next;
         }
-        
+
         // link to non-null list
         curr.next = (l1 != null) ? l1 : l2;
-        
+
         return dummy.next;
     }
 }
@@ -116,7 +114,7 @@ public class Solution {
 
 最好情况下，一个链表为空，时间复杂度为 $$O(1)$$. 最坏情况下，`curr`遍历两个链表中的每一个节点，时间复杂度为 $$O(l1+l2)$$. 空间复杂度近似为 $$O(1)$$.
 
-
 ## Reference
 
-- [Merge Two Sorted Lists | 九章算法](http://www.jiuzhang.com/solutions/merge-two-sorted-lists/)
+* [Merge Two Sorted Lists \| 九章算法](http://www.jiuzhang.com/solutions/merge-two-sorted-lists/)
+

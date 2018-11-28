@@ -2,10 +2,10 @@
 
 ## Question
 
-- leetcode: [Insertion Sort List | LeetCode OJ](https://leetcode.com/problems/insertion-sort-list/)
-- lintcode: [(173) Insertion Sort List](http://www.lintcode.com/en/problem/insertion-sort-list/)
+* leetcode: [Insertion Sort List \| LeetCode OJ](https://leetcode.com/problems/insertion-sort-list/)
+* lintcode: [\(173\) Insertion Sort List](http://www.lintcode.com/en/problem/insertion-sort-list/)
 
-```
+```text
 Sort a linked list using insertion sort.
 
 Example
@@ -50,7 +50,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition of ListNode
  * class ListNode {
@@ -71,7 +71,7 @@ public:
      */
     ListNode *insertionSortList(ListNode *head) {
         ListNode *dummy = new ListNode(0);
-	ListNode *cur = head;
+    ListNode *cur = head;
         while (cur != NULL) {
             ListNode *pre = dummy;
             while (pre->next != NULL && pre->next->val < cur->val) {
@@ -118,6 +118,7 @@ public class Solution {
     }
 }
 ```
+
 ### 源码分析
 
 1. 新建 dummy 节点，用以处理最终返回结果中头节点不定的情况。
@@ -176,7 +177,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 /**
  * Definition of ListNode
  * class ListNode {
@@ -198,7 +199,7 @@ public:
     ListNode *insertionSortList(ListNode *head) {
         ListNode *dummy = new ListNode(0);
         dummy->next = head;
-	ListNode *cur = head;
+    ListNode *cur = head;
         while (cur != NULL) {
             if (cur->next != NULL && cur->next->val < cur->val) {
                 ListNode *pre = dummy;
@@ -263,10 +264,10 @@ public class Solution {
 
 1. 新建 dummy 节点并将其`next` 指向`head`
 2. 分情况讨论，仅需要处理逆序部分。
-3. 由于已经确认链表逆序，故仅需将较小值(`cur->next`而不是`cur`)的节点插入到链表的合适位置。
+3. 由于已经确认链表逆序，故仅需将较小值\(`cur->next`而不是`cur`\)的节点插入到链表的合适位置。
 4. 将`cur->next`插入到`pre`之后，这里需要四个步骤，需要特别小心！
 
-![Insertion Sort](../../shared-files/images/insertion_sort_list.png)
+![Insertion Sort](https://github.com/xuanus/coding/tree/f09f25ddc0c56beb8d4ed92fcfb3e81a80f8ab75/shared-files/images/insertion_sort_list.png)
 
 如上图所示，将`cur->next`插入到`pre`节点后大致分为3个步骤。
 
@@ -276,5 +277,6 @@ public class Solution {
 
 ## Reference
 
-- [Explained C++ solution (24ms) - Leetcode Discuss](https://leetcode.com/discuss/37574/explained-c-solution-24ms)
-- [Insertion Sort List - 九章算法](http://www.jiuzhang.com/solutions/insertion-sort-list/)
+* [Explained C++ solution \(24ms\) - Leetcode Discuss](https://leetcode.com/discuss/37574/explained-c-solution-24ms)
+* [Insertion Sort List - 九章算法](http://www.jiuzhang.com/solutions/insertion-sort-list/)
+

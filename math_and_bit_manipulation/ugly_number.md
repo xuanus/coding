@@ -2,10 +2,10 @@
 
 ## Question
 
-- leetcode: [Ugly Number | LeetCode OJ](https://leetcode.com/problems/ugly-number/)
-- lintcode: [(4) Ugly Number](http://www.lintcode.com/en/problem/ugly-number/)
+* leetcode: [Ugly Number \| LeetCode OJ](https://leetcode.com/problems/ugly-number/)
+* lintcode: [\(4\) Ugly Number](http://www.lintcode.com/en/problem/ugly-number/)
 
-```
+```text
 Ugly number is a number that only have factors 3, 5 and 7.
 
 Design an algorithm to find the Kth ugly number.
@@ -72,12 +72,13 @@ class Solution {
 
 根据丑数的定义，它的质因数只含有3, 5, 7, 那么根据这一点其实可以知道后面的丑数一定可以从前面的丑数乘3,5,7得到。那么可不可以将其递推关系用数学公式表示出来呢？
 
-我大概做了下尝试，首先根据丑数的定义可以写成 $$U_k = 3^{x_3} \cdot 5^{x_5} \cdot 7^{x_7}$$, 那么 $$U_{k+1}$$ 和 $$U_k$$ 的不同则在于 $$x_3, x_5, x_7$$ 的不同，递推关系为 $$U_{k+1} = U_k \cdot \frac{3^{y_3} \cdot 5^{y_5} \cdot 7^{y_7}}{3^{z_3} \cdot 5^{z_5} \cdot 7^{z_7}}$$,将这些分数按照从小到大的顺序排列可在 $$O(K)$$ 的时间内解决，但是问题来了，得到这些具体的 $$y, z$$ 就需要费不少时间，且人工操作极易漏解。:( 所以这种解法只具有数学意义，没有想到好的实现方法。
+我大概做了下尝试，首先根据丑数的定义可以写成 $$U_k = 3^{x_3} \cdot 5^{x_5} \cdot 7^{x_7}$$, 那么 $$U_{k+1}$$ 和 $$U_k$$ 的不同则在于 $$x_3, x_5, x_7$$ 的不同，递推关系为 $$U_{k+1} = U_k \cdot \frac{3^{y_3} \cdot 5^{y_5} \cdot 7^{y_7}}{3^{z_3} \cdot 5^{z_5} \cdot 7^{z_7}}$$,将这些分数按照从小到大的顺序排列可在 $$O(K)$$ 的时间内解决，但是问题来了，得到这些具体的 $$y, z$$ 就需要费不少时间，且人工操作极易漏解。:\( 所以这种解法只具有数学意义，没有想到好的实现方法。
 
 除了这种找相邻递推关系的方法我们还可以尝试对前面的丑数依次乘3, 5, 7，直至找到比当前最大的丑数大的一个数，对乘积后的三种不同结果取最小值即可得下一个最大的丑数。这种方法需要保存之前的 N 个丑数，由于已按顺序排好，天然的二分法。
 
 ### C++
-```c++
+
+```cpp
 class Solution {
 public:
     /*
@@ -86,7 +87,7 @@ public:
      */
     long long kthPrimeNumber(int k) {
         if (k <= 0) return -1;
-        
+
         vector<long long> ugly(k + 1);
         ugly[0] = 1;
         int index = 0, index3 = 0, index5 = 0, index7 = 0;
@@ -151,45 +152,44 @@ class Solution {
 var uglyNum []int
 
 func init() {
-	uglyNum = append(uglyNum, 1)
-	len := 1
-	i, j, k := 0, 0, 0
-	for uglyNum[len-1] < math.MaxInt32 {
-		tmpMin := min(uglyNum[i]*2, uglyNum[j]*3, uglyNum[k]*5)
-		uglyNum = append(uglyNum, tmpMin)
-		len++
+    uglyNum = append(uglyNum, 1)
+    len := 1
+    i, j, k := 0, 0, 0
+    for uglyNum[len-1] < math.MaxInt32 {
+        tmpMin := min(uglyNum[i]*2, uglyNum[j]*3, uglyNum[k]*5)
+        uglyNum = append(uglyNum, tmpMin)
+        len++
 
-		if uglyNum[i]*2 == tmpMin {
-			i++
-		}
-		if uglyNum[j]*3 == tmpMin {
-			j++
-		}
-		if uglyNum[k]*5 == tmpMin {
-			k++
-		}
-	}
+        if uglyNum[i]*2 == tmpMin {
+            i++
+        }
+        if uglyNum[j]*3 == tmpMin {
+            j++
+        }
+        if uglyNum[k]*5 == tmpMin {
+            k++
+        }
+    }
 }
 
 func min(a, b, c int) int {
-	tmp := a
-	if b < tmp {
-		tmp = b
-	}
-	if c < tmp {
-		tmp = c
-	}
-	return tmp
+    tmp := a
+    if b < tmp {
+        tmp = b
+    }
+    if c < tmp {
+        tmp = c
+    }
+    return tmp
 }
 
 func nthUglyNumber(n int) int {
     if n < 1 {
-		return 1
-	}
-	return uglyNum[n-1]
+        return 1
+    }
+    return uglyNum[n-1]
 }
 ```
-
 
 ### 源码分析
 
@@ -205,5 +205,6 @@ TBD
 
 ## Reference
 
-- 《剑指 Offer》第五章
-- [Ugly Numbers - GeeksforGeeks](http://www.geeksforgeeks.org/ugly-numbers/)
+* 《剑指 Offer》第五章
+* [Ugly Numbers - GeeksforGeeks](http://www.geeksforgeeks.org/ugly-numbers/)
+

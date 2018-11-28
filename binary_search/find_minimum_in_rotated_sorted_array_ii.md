@@ -2,14 +2,14 @@
 
 ## Question
 
-- leetcode: [Find Minimum in Rotated Sorted Array II | LeetCode OJ](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/)
-- lintcode: [(160) Find Minimum in Rotated Sorted Array II](http://www.lintcode.com/en/problem/find-minimum-in-rotated-sorted-array-ii/)
+* leetcode: [Find Minimum in Rotated Sorted Array II \| LeetCode OJ](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/)
+* lintcode: [\(160\) Find Minimum in Rotated Sorted Array II](http://www.lintcode.com/en/problem/find-minimum-in-rotated-sorted-array-ii/)
 
 ### Problem Statement
 
 Suppose a sorted array is rotated at some pivot unknown to you beforehand.
 
-(i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).
+\(i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2\).
 
 Find the minimum element.
 
@@ -17,7 +17,7 @@ The array may contain duplicates.
 
 #### Example
 
-Given [4,4,5,6,7,0,1,2] return 0
+Given \[4,4,5,6,7,0,1,2\] return 0
 
 ## 题解
 
@@ -25,7 +25,7 @@ Given [4,4,5,6,7,0,1,2] return 0
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -99,3 +99,4 @@ public class Solution {
 ### 复杂度分析
 
 最坏情况下 $$O(n)$$, 平均情况下 $$O(\log n)$$.
+

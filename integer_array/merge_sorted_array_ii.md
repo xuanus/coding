@@ -2,9 +2,9 @@
 
 ## Question
 
-- lintcode: [(64) Merge Sorted Array II](http://www.lintcode.com/en/problem/merge-sorted-array-ii/)
+* lintcode: [\(64\) Merge Sorted Array II](http://www.lintcode.com/en/problem/merge-sorted-array-ii/)
 
-```
+```text
 Merge two given sorted integer array A and B into a new sorted integer array.
 
 Example
@@ -61,7 +61,7 @@ class Solution:
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -155,3 +155,4 @@ class Solution {
 #### Challenge
 
 两个倒排列表，一个特别大，一个特别小，如何 Merge？此时应该考虑用一个二分法插入小的，即内存拷贝。
+

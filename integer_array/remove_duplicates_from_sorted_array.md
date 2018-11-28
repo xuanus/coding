@@ -2,10 +2,10 @@
 
 ## Question
 
-- leetcode: [Remove Duplicates from Sorted Array | LeetCode OJ](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
-- lintcode: [(100) Remove Duplicates from Sorted Array](http://www.lintcode.com/en/problem/remove-duplicates-from-sorted-array/)
+* leetcode: [Remove Duplicates from Sorted Array \| LeetCode OJ](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
+* lintcode: [\(100\) Remove Duplicates from Sorted Array](http://www.lintcode.com/en/problem/remove-duplicates-from-sorted-array/)
 
-```
+```text
 Given a sorted array, remove the duplicates in place
 such that each element appear only once and return the new length.
 
@@ -22,11 +22,11 @@ Example
 
 ## 题解
 
-使用两根指针(下标)，一个指针(下标)遍历数组，另一个指针(下标)只取不重复的数置于原数组中。
+使用两根指针\(下标\)，一个指针\(下标\)遍历数组，另一个指针\(下标\)只取不重复的数置于原数组中。
 
 ### C++
 
-```c++
+```cpp
 class Solution {
 public:
     /**
@@ -82,3 +82,4 @@ public class Solution {
 ### 复杂度分析
 
 遍历一次数组，时间复杂度 $$O(n)$$, 空间复杂度 $$O(1)$$.
+

@@ -1,27 +1,25 @@
-# Kth Largest Element in an Array
+# Kth Largest Element
 
 Tags: Quick Sort, Divide and Conquer, Medium
 
 ## Question
 
-- leetcode: [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)
-- lintcode: [Kth Largest Element](http://www.lintcode.com/en/problem/kth-largest-element/)
+* leetcode: [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)
+* lintcode: [Kth Largest Element](http://www.lintcode.com/en/problem/kth-largest-element/)
 
 ### Problem Statement
 
-Find the **k**th largest element in an unsorted array. Note that it is the kth
-largest element in the sorted order, not the kth distinct element.
+Find the **k**th largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.
 
 For example,  
 Given `[3,2,1,5,6,4]` and k = 2, return 5.
 
-**Note: **  
+**Note:**   
 You may assume k is always valid, 1 ≤ k ≤ array's length.
 
-**Credits:**  
+**Credits:**
 
-Special thanks to [@mithmatt](https://leetcode.com/discuss/user/mithmatt) for
-adding this problem and creating all test cases.
+Special thanks to [@mithmatt](https://leetcode.com/discuss/user/mithmatt) for adding this problem and creating all test cases.
 
 ## 题解
 
@@ -73,14 +71,13 @@ public class Solution {
 
 ### 源码分析
 
-递归的终止条件有两个，一个是左边界的值等于右边界(实际中其实不会有 l > u), 另一个则是索引值 `m + 1 == k`.
-这里找的是第 K 大数，故为降序排列，for 循环中使用`nums[i] > nums[left]` 而不是小于号。
+递归的终止条件有两个，一个是左边界的值等于右边界\(实际中其实不会有 l &gt; u\), 另一个则是索引值 `m + 1 == k`. 这里找的是第 K 大数，故为降序排列，for 循环中使用`nums[i] > nums[left]` 而不是小于号。
 
 ### Java - 迭代求解
 
 递归代码看上去顺理成章，实际上构造递归方法的参数、返回值是需要经验技巧的，自己写起来就会发现机关重重，一次性做到 bug-free 并不容易。下面是一个迭代版的实现。
 
-```
+```text
 class Solution {
     public int findKthLargest(int[] A, int k) {
         if (A == null || A.length == 0 || k < 0 || k > A.length) {
@@ -134,4 +131,5 @@ class Solution {
 
 ### 复杂度分析
 
-最坏情况下需要遍历 $$ n + n - 1 + ... + 1 = O(n^2)$$, 平均情况下 $$n + n/2 + n/4 + ... + 1 = O(2n)=O(n)$$. 故平均情况时间复杂度为 $$O(n)$$. 交换数组的值时使用了额外空间，空间复杂度 $$O(1)$$.
+最坏情况下需要遍历 $$n + n - 1 + ... + 1 = O(n^2)$$, 平均情况下 $$n + n/2 + n/4 + ... + 1 = O(2n)=O(n)$$. 故平均情况时间复杂度为 $$O(n)$$. 交换数组的值时使用了额外空间，空间复杂度 $$O(1)$$.
+
